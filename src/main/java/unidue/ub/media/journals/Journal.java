@@ -40,6 +40,7 @@ public class Journal {
 	@Column(columnDefinition = "TEXT")
 	private String link;
 	
+	@Column(columnDefinition = "TEXT")
 	private String publisher;
 	
 	

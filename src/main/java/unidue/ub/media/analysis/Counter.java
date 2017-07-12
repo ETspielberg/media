@@ -22,21 +22,21 @@ public class Counter implements Comparable<Counter> {
     @GeneratedValue
     private long id;
     
-    private String printISSN;
+    private String printIssn;
     
-    private String onlineISSN;
+    private String onlineIssn;
     
-    private String eISSN;
+    private String eIssn;
     
-    private String ISSN;
+    private String Issn;
     
-    private String ISBN;
+    private String Isbn;
     
     private String category;
     
-    private String onlineISBN;
+    private String onlineIsbn;
     
-    private String PrintISBN;
+    private String PrintIsbn;
     
     private String doi;
     
@@ -106,31 +106,31 @@ public class Counter implements Comparable<Counter> {
 
     
     /**
-	 * @return the eISSN
+	 * @return the eIssn
 	 */
-	public String geteISSN() {
-		return eISSN;
+	public String geteIssn() {
+		return eIssn;
 	}
 
 	/**
-	 * @return the iSBN
+	 * @return the Isbn
 	 */
-	public String getISBN() {
-		return ISBN;
+	public String getIsbn() {
+		return Isbn;
 	}
 
 	/**
-	 * @return the onlineISBN
+	 * @return the onlineIsbn
 	 */
-	public String getOnlineISBN() {
-		return onlineISBN;
+	public String getOnlineIsbn() {
+		return onlineIsbn;
 	}
 
 	/**
-	 * @return the prBigInteger_ISBN
+	 * @return the prBigInteger_Isbn
 	 */
-	public String getPrintISBN() {
-		return PrintISBN;
+	public String getPrintIsbn() {
+		return PrintIsbn;
 	}
 
 	/**
@@ -267,45 +267,45 @@ public class Counter implements Comparable<Counter> {
 	}
 
 	/**
-	 * @param eISSN the eISSN to set
+	 * @param eIssn the eIssn to set
 	 */
-	public void seteISSN(String eISSN) {
-		this.eISSN = eISSN;
+	public void seteIssn(String eIssn) {
+		this.eIssn = eIssn;
 	}
 
 	/**
-	 * @param iSBN the iSBN to set
+	 * @param Isbn the Isbn to set
 	 */
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(String Isbn) {
+		Isbn = Isbn;
 	}
 
 	/**
-	 * @return the iSSN
+	 * @return the Issn
 	 */
-	public String getISSN() {
-		return ISSN;
+	public String getIssn() {
+		return Issn;
 	}
 
 	/**
-	 * @param iSSN the iSSN to set
+	 * @param Issn the Issn to set
 	 */
-	public void setISSN(String iSSN) {
-		ISSN = iSSN;
+	public void setIssn(String Issn) {
+		Issn = Issn;
 	}
 
 	/**
-	 * @param onlineISBN the onlineISBN to set
+	 * @param onlineIsbn the onlineIsbn to set
 	 */
-	public void setOnlineISBN(String onlineISBN) {
-		this.onlineISBN = onlineISBN;
+	public void setOnlineIsbn(String onlineIsbn) {
+		this.onlineIsbn = onlineIsbn;
 	}
 
 	/**
-	 * @param printISBN the printISBN to set
+	 * @param printIsbn the printIsbn to set
 	 */
-	public void setPrintISBN(String PrintISBN) {
-		this.PrintISBN = PrintISBN;
+	public void setPrintIsbn(String PrintIsbn) {
+		this.PrintIsbn = PrintIsbn;
 	}
 
 	/**
@@ -448,19 +448,19 @@ public class Counter implements Comparable<Counter> {
     }
 
     /**
-     * returns the ISSNs of print journals
-     * @return the prBigIntegerISSN
+     * returns the Issns of print journals
+     * @return the prBigIntegerIssn
      */
-    public String getPrintISSN() {
-        return printISSN;
+    public String getPrintIssn() {
+        return printIssn;
     }
 
     /**
-     * returns the ISSNs of online journals
-     * @return the onlineISSN
+     * returns the Issns of online journals
+     * @return the onlineIssn
      */
-    public String getOnlineISSN() {
-        return onlineISSN;
+    public String getOnlineIssn() {
+        return onlineIssn;
     }
 
     /**
@@ -568,22 +568,22 @@ public class Counter implements Comparable<Counter> {
     }
 
     /**
-     * sets the ISSNs of printISSN journals 
-     * @param printISSN the printISSN to set
+     * sets the Issns of printIssn journals 
+     * @param printIssn the printIssn to set
      * @return Counter the updated object
      */
-    public Counter setPrintISSN(String printISSN) {
-        this.printISSN = printISSN;
+    public Counter setPrintIssn(String printIssn) {
+        this.printIssn = printIssn;
         return this;
     }
 
     /**
-     * sets the ISSNs of online journals
-     * @param onlineISSN the onlineISSN to set
+     * sets the Issns of online journals
+     * @param onlineIssn the onlineIssn to set
      * @return Counter the updated object
      */
-    public Counter setOnlineISSN(String onlineISSN) {
-        this.onlineISSN = onlineISSN;
+    public Counter setOnlineIssn(String onlineIssn) {
+        this.onlineIssn = onlineIssn;
         return this;
     }
 

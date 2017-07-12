@@ -20,16 +20,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Eventanalysis {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
 	@Column(columnDefinition = "TEXT")
 	private String mab;
 
-	private String description;
-
-	private String author;
+	@Id
+	private String titleId;
 
 	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
 	private Date date = new Date();
@@ -40,7 +35,7 @@ public class Eventanalysis {
 
 	private String materials;
 
-	private String stockControl;
+	private String stockcontrolId;
 
 	private String shelfmark;
 
@@ -57,14 +52,22 @@ public class Eventanalysis {
 	private int lastStock;
 
 	private int maxLoansAbs;
+	
 	private int proposedDeletion;
 
+	@Column(columnDefinition = "TEXT")
 	private String comment;
+	
+	private String status;
 
 	private int maxNumberRequest;
+	
 	private int maxItemsNeeded;
+	
 	private int daysRequested;
+	
 	private int numberRequests;
+	
 	private int proposedPurchase;
 
 	/**
@@ -76,9 +79,9 @@ public class Eventanalysis {
 
 		// general information
 		this.mab = "";
-		this.description = "";
+		this.titleId = "";
 		this.collection = "";
-		this.stockControl = "";
+		this.stockcontrolId = "";
 		this.materials = "";
 		this.shelfmark = "";
 		this.shelfmarkBase = "";
@@ -103,45 +106,27 @@ public class Eventanalysis {
 		this.proposedPurchase = 0;
 	}
 
-	/**
-	 * retrieves the author of the <code>StockControlProperties</code>
-	 * 
-	 * @return author of the <code>StockControlProperties</code>
-	 */
-	public String getAuthor() {
-		return author;
-	}
 
 	/**
-	 * set the author of the <code>StockControlProperties</code>
-	 * 
-	 * @param author
-	 *            the author of the <code>StockControlProperties</code>
-	 */
-	public void setUser(String author) {
-		this.author = author;
-	}
-
-	/**
-	 * retrieves the description of the <code>StockControlProperties</code> used
+	 * retrieves the description of the <code>stockcontrolProperties</code> used
 	 * for the analysis
 	 * 
-	 * @return stockControl description of the
-	 *         <code>StockControlProperties</code>
+	 * @return stockcontrolId description of the
+	 *         <code>stockcontrolProperties</code>
 	 */
-	public String getStockControl() {
-		return stockControl;
+	public String getStockcontrolId() {
+		return stockcontrolId;
 	}
 
 	/**
-	 * set the description of the <code>StockControlProperties</code> used for
+	 * set the description of the <code>stockcontrolProperties</code> used for
 	 * the analysis
 	 * 
-	 * @param stockControl
-	 *            description of the <code>StockControlProperties</code>
+	 * @param stockcontrolId
+	 *            description of the <code>stockcontrolProperties</code>
 	 */
-	public void setStockControl(String stockControl) {
-		this.stockControl = stockControl;
+	public void setStockcontrolId(String stockcontrolId) {
+		this.stockcontrolId = stockcontrolId;
 	}
 
 	/**
@@ -233,7 +218,7 @@ public class Eventanalysis {
 	/**
 	 * set the timestamp when the analysis has been performed
 	 * 
-	 * @param timestamp
+	 * @param date
 	 *            timestamp
 	 */
 	public void setDate(Date date) {
@@ -298,22 +283,22 @@ public class Eventanalysis {
 	}
 
 	/**
-	 * retrieves the description of the analysis
+	 * retrieves the titleId of the analysis
 	 * 
-	 * @return description description
+	 * @return titleId titleId
 	 */
-	public String getDescription() {
-		return description;
+	public String getTitleId() {
+		return titleId;
 	}
 
 	/**
-	 * set the description of the analysis
+	 * set the titleId of the analysis
 	 * 
-	 * @param description
-	 *            description
+	 * @param titleId
+	 *            titleId
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setTitleId(String titleId) {
+		this.titleId = titleId;
 	}
 
 	/**
@@ -557,5 +542,19 @@ public class Eventanalysis {
 	 */
 	public void setShelfmarkBase(String shelfmarkBase) {
 		this.shelfmarkBase = shelfmarkBase;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
 	}
 }

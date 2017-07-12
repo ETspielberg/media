@@ -3,6 +3,8 @@
  */
 package unidue.ub.media.analysis;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +20,8 @@ public class Shelfanalysis {
     @Id
     @GeneratedValue
     private Long id;
+    
+    private Date date = new Date();
     
     private String collection;
     
@@ -147,4 +151,18 @@ public class Shelfanalysis {
         this.subLibrary = subLibrary;
         return this;
     }
+
+	/**
+	 * @return the date
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Date date) {
+		this.date = date;
+	}
 }

@@ -1,5 +1,8 @@
 package unidue.ub.media.analysis;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,43 +22,41 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	@GeneratedValue
 	private Long id;
 
-	// char fields for description and comments
-	private String description;
+	private Date date = new Date();
+
+	private String titleID;
 
 	private String shelfmark;
 
 	private String notation;
 
+	@Column(columnDefinition = "TEXT")
 	private String comment;
 
-	// fields registered by event analyzer
 	private int numberRequests;
 
 	private int numberLoans;
 
 	private int lastStock;
 
-	// days in stock for different groups
-	private int daysStockLBS;
+	private int daysStockLbs;
 
-	private int daysStockLendableNonLBS;
+	private int daysStockLendableNonLbs;
 
 	private int daysStockNonLendable;
 
 	private int daysStockDeleted;
 
-	// counter for different parts of the stock
-	private int itemsLBS;
+	private int itemsLbs;
 
-	private int itemsLendableNonLBS;
+	private int itemsLendableNonLbs;
 
 	private int itemsNonLendable;
 
 	private int itemsDeleted;
 
-	private int actualItemsLBS;
+	private int actualItemsLbs;
 
-	// days requested for different groups
 	private int daysRequestedStudents;
 
 	private int daysRequestedExtern;
@@ -66,7 +67,6 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 
 	private int daysRequestedElse;
 
-	// days loaned in different groups
 	private int daysLoanedStudents;
 
 	private int daysLoanedExtern;
@@ -77,12 +77,9 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 
 	private int daysLoanedElse;
 
-	// statistical data for time period analyzed
 	private int days;
 
 	private int year;
-
-	private double timeStamp;
 
 	// Transient fields, easier to determine, used to calculate values for the
 	// persistent fields vie calculate()
@@ -124,8 +121,7 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	public Documentanalysis() {
 		// initialize all fields to be not null
 		// initialize char fields for description and comments
-		timeStamp = System.currentTimeMillis();
-		description = "";
+		titleID = "";
 		shelfmark = "";
 		notation = "";
 		comment = "";
@@ -136,15 +132,15 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 		lastStock = 0;
 
 		// days in stock for different groups
-		daysStockLBS = 0;
-		daysStockLendableNonLBS = 0;
+		daysStockLbs = 0;
+		daysStockLendableNonLbs = 0;
 		daysStockNonLendable = 0;
 		daysStockDeleted = 0;
 
 		// counter for different parts of the stock
-		itemsLBS = 0;
+		itemsLbs = 0;
 		itemsTotal = 0;
-		actualItemsLBS = 0;
+		actualItemsLbs = 0;
 		itemsDeleted = 0;
 		itemsLendable = 0;
 
@@ -186,18 +182,18 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * @return int the value of days in stock for all circulation items which
 	 *         are not in the textbook collection
 	 */
-	public int getDaysStockLendableNonLBS() {
-		return daysStockLendableNonLBS;
+	public int getDaysStockLendableNonLbs() {
+		return daysStockLendableNonLbs;
 	}
 
 	/**
 	 * set the corresponding counter
 	 * 
-	 * @param daysStockLendableNonLBS
+	 * @param daysStockLendableNonLbs
 	 *            number of days the counter is increased
 	 */
-	public void setDaysStockLendableNonLBS(int daysStockLendableNonLBS) {
-		this.daysStockLendableNonLBS = daysStockLendableNonLBS;
+	public void setDaysStockLendableNonLBS(int daysStockLendableNonLbs) {
+		this.daysStockLendableNonLbs = daysStockLendableNonLbs;
 	}
 
 	/**
@@ -259,37 +255,37 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * 
 	 * @return double the timestamp in milliseconds
 	 */
-	public double getTimeStamp() {
-		return timeStamp;
+	public Date getDate() {
+		return date;
 	}
 
 	/**
 	 * set the timestamp
 	 * 
-	 * @param timeStamp
+	 * @param date
 	 *            timestamp of the time when the analysis was performed
 	 */
-	public void setTimeStamp(double timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setTimeStamp(Date date) {
+		this.date = date;
 	}
 
 	/**
-	 * retrieves the description of the analysis.
+	 * retrieves the titleID of the analysis.
 	 * 
-	 * @return String the description
+	 * @return String the titleID
 	 */
-	public String getDescription() {
-		return description;
+	public String getTitleID() {
+		return titleID;
 	}
 
 	/**
 	 * set the description of the analysis
 	 * 
-	 * @param description
+	 * @param titleID
 	 *            description of the analysis
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setTitleID(String titleID) {
+		this.titleID = titleID;
 	}
 
 	/**
@@ -356,20 +352,20 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * @return int the number of all circulation items which are not in the
 	 *         textbook collection
 	 */
-	public int getItemsLendableNonLBS() {
-		return itemsLendableNonLBS;
+	public int getItemsLendableNonLbs() {
+		return itemsLendableNonLbs;
 	}
 
 	/**
 	 * set the number of all circulation items which are not in the textbook
 	 * collection.
 	 * 
-	 * @param itemsLendableNonLBS
+	 * @param itemsLendableNonLbs
 	 *            number of all circulation items which are not in the textbook
 	 *            collection.
 	 */
-	public void setItemsLendableNonLBS(int itemsLendableNonLBS) {
-		this.itemsLendableNonLBS = itemsLendableNonLBS;
+	public void setItemsLendableNonLBS(int itemsLendableNonLbs) {
+		this.itemsLendableNonLbs = itemsLendableNonLbs;
 	}
 
 	/**
@@ -377,8 +373,8 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * textbook collection.
 	 * 
 	 */
-	public void increaseItemsLendableNonLBS() {
-		this.itemsLendableNonLBS++;
+	public void increaseItemsLendableNonLbs() {
+		this.itemsLendableNonLbs++;
 	}
 
 	/**
@@ -386,8 +382,8 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * textbook collection.
 	 * 
 	 */
-	public void decreaseItemsLendableNonLBS() {
-		this.itemsLendableNonLBS--;
+	public void decreaseItemsLendableNonLbs() {
+		this.itemsLendableNonLbs--;
 	}
 
 	/**
@@ -465,34 +461,34 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * 
 	 * @return int the number of items in the textbook collection
 	 */
-	public int getItemsLBS() {
-		return itemsLBS;
+	public int getItemsLbs() {
+		return itemsLbs;
 	}
 
 	/**
 	 * set the number of items in the textbook collection.
 	 * 
-	 * @param itemsLBS
+	 * @param itemsLbs
 	 *            number of items in the textbook collection
 	 */
-	public void setItemsLBS(int itemsLBS) {
-		this.itemsLBS = itemsLBS;
+	public void setItemsLbs(int itemsLbs) {
+		this.itemsLbs = itemsLbs;
 	}
 
 	/**
 	 * increases the number of items in the textbook collection.
 	 * 
 	 */
-	public void increaseItemsLBS() {
-		this.itemsLBS++;
+	public void increaseItemsLbs() {
+		this.itemsLbs++;
 	}
 
 	/**
 	 * decreases the number of items in the textbook collection.
 	 * 
 	 */
-	public void decreaseItemsLBS() {
-		this.itemsLBS--;
+	public void decreaseItemsLbs() {
+		this.itemsLbs--;
 	}
 
 	/**
@@ -535,34 +531,34 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * 
 	 * @return int the last number of items which are in the textbook collection
 	 */
-	public int getActualItemsLBS() {
-		return actualItemsLBS;
+	public int getActualItemsLbs() {
+		return actualItemsLbs;
 	}
 
 	/**
 	 * set the last number of items which are in the textbook collection
 	 * 
-	 * @param actualItemsLBS
+	 * @param actualItemsLbs
 	 *            last number of items which are in the textbook collection
 	 */
-	public void setActualItemsLBS(int actualItemsLBS) {
-		this.actualItemsLBS = actualItemsLBS;
+	public void setActualItemsLbs(int actualItemsLbs) {
+		this.actualItemsLbs = actualItemsLbs;
 	}
 
 	/**
 	 * increases the last number of items which are in the textbook collection.
 	 * 
 	 */
-	public void increaseActualItemsLBS() {
-		this.actualItemsLBS++;
+	public void increaseActualItemsLbs() {
+		this.actualItemsLbs++;
 	}
 
 	/**
 	 * decreases the last number of items which are in the textbook collection.
 	 * 
 	 */
-	public void decreaseActualItemsLBS() {
-		this.actualItemsLBS--;
+	public void decreaseActualItemsLbs() {
+		this.actualItemsLbs--;
 	}
 
 	/**
@@ -620,32 +616,32 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * @return int the value of days in stock for all circulation items which
 	 *         are in the textbook collection
 	 */
-	public int getDaysStockLBS() {
-		return daysStockLBS;
+	public int getDaysStockLbs() {
+		return daysStockLbs;
 	}
 
 	/**
 	 * add the value of days in stock for all circulation items which are in the
 	 * textbook collection
 	 * 
-	 * @param daysStockLBS
+	 * @param daysStockLbs
 	 *            value of days in stock for all circulation items which are in
 	 *            the textbook collection to be added
 	 */
-	public void addDaysStockLBS(int daysStockLBS) {
-		this.daysStockLBS += daysStockLBS;
+	public void addDaysStockLbs(int daysStockLbs) {
+		this.daysStockLbs += daysStockLbs;
 	}
 
 	/**
 	 * set the days in stock for all circulation items which are in the textbook
 	 * collection
 	 * 
-	 * @param daysStockLBS
+	 * @param daysStockLbs
 	 *            days in stock for all circulation items which are in the
 	 *            textbook collection
 	 */
-	public void setDaysStockLBS(int daysStockLBS) {
-		this.daysStockLBS = daysStockLBS;
+	public void setDaysStockLbs(int daysStockLbs) {
+		this.daysStockLbs = daysStockLbs;
 	}
 
 	/**
@@ -1243,8 +1239,8 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 		lastStock = 0;
 
 		// days in stock for different groups
-		daysStockLBS = 0;
-		daysStockLendableNonLBS = 0;
+		daysStockLbs = 0;
+		daysStockLendableNonLbs = 0;
 		daysStockNonLendable = 0;
 		daysStockDeleted = 0;
 
@@ -1286,7 +1282,7 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	 * 
 	 */
 	public void calculate() {
-		this.daysStockLendableNonLBS = daysStockLendableAll - daysStockLBS;
+		this.daysStockLendableNonLbs = daysStockLendableAll - daysStockLbs;
 		this.daysLoanedAll = daysLoanedElse + daysLoanedStudents + daysLoanedIntern + daysLoanedExtern + daysLoanedHapp;
 
 		if (daysStockLendableAll != 0)
@@ -1313,10 +1309,10 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	public void addYearlyDocumentAnalysis(Documentanalysis secondAnalysis) {
 		this.days += secondAnalysis.getDays();
 
-		this.daysStockLBS += secondAnalysis.getDaysStockLBS();
+		this.daysStockLbs += secondAnalysis.getDaysStockLbs();
 		this.daysStockAll += secondAnalysis.getDaysStockAll();
 		this.daysStockLendableAll += secondAnalysis.getDaysStockLendableAll();
-		this.daysStockLendableNonLBS += secondAnalysis.getDaysStockLendableNonLBS();
+		this.daysStockLendableNonLbs += secondAnalysis.getDaysStockLendableNonLbs();
 		this.daysStockNonLendable += secondAnalysis.getDaysStockNonLendable();
 
 		this.daysLoanedStudents += secondAnalysis.getDaysLoanedStudents();
@@ -1334,8 +1330,8 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 		if (secondAnalysis.getYear() > this.year) {
 			this.lastStock = secondAnalysis.getLastStock();
 			this.itemsTotal = secondAnalysis.getItemsTotal();
-			this.itemsLBS = secondAnalysis.getItemsLBS();
-			this.actualItemsLBS = secondAnalysis.getActualItemsLBS();
+			this.itemsLbs = secondAnalysis.getItemsLbs();
+			this.actualItemsLbs = secondAnalysis.getActualItemsLbs();
 			this.itemsDeleted = secondAnalysis.getItemsDeleted();
 		}
 
@@ -1352,10 +1348,10 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 	public void addEditionalDocumentAnalysis(Documentanalysis secondAnalysis) {
 		this.days = secondAnalysis.days;
 
-		this.daysStockLBS += secondAnalysis.getDaysStockLBS();
+		this.daysStockLbs += secondAnalysis.getDaysStockLbs();
 		this.daysStockAll += secondAnalysis.getDaysStockAll();
 		this.daysStockLendableAll += secondAnalysis.getDaysStockLendableAll();
-		this.daysStockLendableNonLBS += secondAnalysis.getDaysStockLendableNonLBS();
+		this.daysStockLendableNonLbs += secondAnalysis.getDaysStockLendableNonLbs();
 		this.daysStockNonLendable += secondAnalysis.getDaysStockNonLendable();
 
 		this.daysLoanedAll += secondAnalysis.getDaysLoanedAll();
@@ -1372,8 +1368,8 @@ public class Documentanalysis implements Comparable<Documentanalysis> {
 
 		this.lastStock += secondAnalysis.getLastStock();
 		this.itemsTotal += secondAnalysis.getItemsTotal();
-		this.itemsLBS += secondAnalysis.getItemsLBS();
-		this.actualItemsLBS += secondAnalysis.getActualItemsLBS();
+		this.itemsLbs += secondAnalysis.getItemsLbs();
+		this.actualItemsLbs += secondAnalysis.getActualItemsLbs();
 		this.itemsDeleted += secondAnalysis.getItemsDeleted();
 		// calculate();
 	}

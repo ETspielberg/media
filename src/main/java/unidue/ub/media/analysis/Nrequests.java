@@ -3,10 +3,14 @@
  */
 package unidue.ub.media.analysis;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * Plain old java object holding the entrie of the requests hitlist. 
@@ -16,17 +20,14 @@ import javax.persistence.Id;
  */
 @Entity
 public class Nrequests implements Cloneable {
-	
-	@Id
-	@GeneratedValue
-	private long id;
 
 	@Column(columnDefinition = "TEXT")
 	private String mab;
+
+	@Id
+	private String titleId;
 	
-	private String docNumber;
-	
-	private String callNo;
+	private String shelfmark;
 	
 	private double ratio;
 	
@@ -40,21 +41,24 @@ public class Nrequests implements Cloneable {
 	
 	private int duration;
 	
+	private String status;
+	
 	private String alertControl;
 	
 	private boolean forAlert;
 	
 	private boolean forReader;
 	
-	private long timestamp;
+	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
+	private Date date = new Date();
 	
 	/**
 	 * general constructor and initialization
 	 */
 	public Nrequests() {
-		docNumber = "";
+		titleId = "";
 		ratio = 1.0;
-		callNo = "";
+		shelfmark = "";
 		NRequests = 0;
 		NItems = 1;
 		NLoans = 0;
@@ -64,7 +68,6 @@ public class Nrequests implements Cloneable {
 		alertControl = "";
 		forAlert = false;
 		forReader = false;
-		timestamp = System.currentTimeMillis();
 	}
 
 	/**
@@ -72,7 +75,7 @@ public class Nrequests implements Cloneable {
 	 * @return the callNo
 	 */
 	public String getCallNo() {
-		return callNo;
+		return shelfmark;
 	}
 
 	/**
@@ -96,7 +99,7 @@ public class Nrequests implements Cloneable {
 	 * @param callNo the callNo to set
 	 */
 	public void setCallNo(String callNo) {
-		this.callNo = callNo;
+		this.shelfmark = callNo;
 	}
 
 	/**
@@ -117,18 +120,18 @@ public class Nrequests implements Cloneable {
 
 	/**
 	 * returns the document number for the manifestation 
-	 * @return the docNumber
+	 * @return the titleId
 	 */
-	public String getDocNumber() {
-		return docNumber;
+	public String getTitleId() {
+		return titleId;
 	}
 
 	/**
 	 * sets the document number for this manifestation
-	 * @param docNumber the docNumber to set
+	 * @param titleId the titleId to set
 	 */
-	public void setDocNumber(String docNumber) {
-		this.docNumber = docNumber;
+	public void setTitleId(String titleId) {
+		this.titleId = titleId;
 	}
 
 	/**
@@ -215,16 +218,16 @@ public class Nrequests implements Cloneable {
      * returns the timestamp
      * @return the timestamp
      */
-    public long getNTimestamp() {
-        return timestamp;
+    public Date getDate() {
+        return date;
     }
 
     /**
-     * sets the number of lendable items
-     * @param nLendable the nLendable to set
+     * sets the number of date
+     * @param date the date to set
      */
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setDate(Date date) {
+        this.date = date;
     }
 	
 	/**
@@ -278,8 +281,8 @@ public class Nrequests implements Cloneable {
 	public Nrequests clone() {
 	    Nrequests clone = new Nrequests();
 	    clone.setAlertControl(alertControl);
-	    clone.setCallNo(callNo);
-	    clone.setDocNumber(docNumber);
+	    clone.setCallNo(shelfmark);
+	    clone.setTitleId(titleId);
 	    clone.setDuration(duration);
 	    clone.setMab(mab);
 	    clone.setNItems(NItems);
@@ -287,5 +290,19 @@ public class Nrequests implements Cloneable {
 	    clone.setNLoans(NLoans);
 	    clone.setNRequests(NRequests);
 	    return clone;   
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
 	}
 } 

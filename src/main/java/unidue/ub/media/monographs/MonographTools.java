@@ -1,19 +1,33 @@
 package unidue.ub.media.monographs;
 
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.xml.transform.Result;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.lang3.StringUtils;
-
+import org.jdom2.Document;
 import org.jdom2.Element;
-import org.mycore.common.content.MCRJDOMContent;
-import org.mycore.common.content.transformer.MCRXSLTransformer;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.transform.JDOMSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MonographTools {
 
-	private final int LEVENTHRESHOLD = 100;
+	private final static int LEVENTHRESHOLD = 100;
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(MonographTools.class);
+			
 	/**
 	 * returns the Levenshtein distance comparing the authors and title of two
 	 * publications
@@ -22,7 +36,7 @@ public class MonographTools {
 	 *            other <code>Publication</code>-object to be compared to
 	 * @return levDist Levenshtein distance
 	 */
-	public int getLevDist(BibliographicInformation first, BibliographicInformation other) {
+	public static int getLevDist(BibliographicInformation first, BibliographicInformation other) {
 		// compares author and title and returns the total Levenhtein distance.
 		int authorLeven = 0;
 		List<String> authors = first.getAuthors();
@@ -48,15 +62,14 @@ public class MonographTools {
 	 *            the MAB-XML data as JDOM Element
 	 * 
 	 */
-	public BibliographicInformation buildBibligraphicInformationFromMABXML(Element mabxml) {
+	public static BibliographicInformation buildBibligraphicInformationFromMABXML(Element mabxml) {
 		BibliographicInformation bibliographicInformation = new BibliographicInformation();
-		MCRJDOMContent source = new MCRJDOMContent(mabxml);
-		MCRXSLTransformer transformer = new MCRXSLTransformer("xsl/mabxml2bibliographicInformation.xsl");
 		HashSet<String> keywordsSet = new HashSet<>();
 		try {
-			Element result = transformer.transform(source).asXML().detachRootElement().clone();
+			Element result = transformElement(mabxml, "xsl/mabxml2bibliographicInformation.xsl").detachRootElement().clone();
+			LOGGER.info(result.toString());
 
-			List<Element> authors = result.getChild("author").getChildren();
+			List<Element> authors = result.getChild("authors").getChildren();
 			for (Element author : authors) {
 				bibliographicInformation.addAuthor(author.getText());
 			}
@@ -69,19 +82,39 @@ public class MonographTools {
 					keywordsSet.add(keywordText);
 				}
 			}
-			bibliographicInformation.setIsbn(result.getChildText("isbn"));
+			bibliographicInformation.setIsbn(result.getChild("isbn").getValue());
 			bibliographicInformation.setDoi(result.getChildText("doi"));
 			bibliographicInformation.setEdition(result.getChildText("edition"));
 			bibliographicInformation.setPlace(result.getChildText("place"));
 			bibliographicInformation.setPublisher(result.getChildText("publisher"));
 			bibliographicInformation.setSeries(result.getChildText("series"));
-			bibliographicInformation.setSubtitle(result.getChildText("subtitle"));
-			bibliographicInformation.setTitle(result.getChildText("title"));
-			bibliographicInformation.setYear(result.getChildText("year"));
+			bibliographicInformation.setSubtitle(result.getChild("subtitle").getValue());
+			bibliographicInformation.setTitle(result.getChild("title").getValue());
+			bibliographicInformation.setYear(result.getChild("year").getValue());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return bibliographicInformation;
 	}
+	
+	private static Document transformElement(Element source, String pathToXSL) throws IOException, TransformerException{
+		StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream(pathToXSL));
+		LOGGER.info(stylesource.toString());
+        TransformerFactory factory = TransformerFactory.newInstance();
+        Transformer transformer = factory.newTransformer(stylesource);
+        StringWriter writer = new StringWriter();
+        Result result = new StreamResult(writer);
+        transformer.transform(new JDOMSource(source), result);
+        String resultsString = writer.toString();
+        LOGGER.info(resultsString);
+        SAXBuilder builder = new SAXBuilder();
+        try {
+        Document resultDoc = builder.build(new StringReader(resultsString));
+        return resultDoc;
+        } catch (JDOMException jdome) {
+        	return null;
+        }
+        
+    }
 
 }

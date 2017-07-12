@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mycore:mycore-base:2015.05.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mycore/mycore-base/2015.05.0.1-SNAPSHOT/mycore-base-2015.05.0.1-20170120.081642-62.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mycore/mycore-base/2015.05.0.1-SNAPSHOT/mycore-base-2015.05.0.1-20170120.081642-62-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mycore/mycore-base/2015.05.0.1-SNAPSHOT/mycore-base-2015.05.0.1-20170120.081642-62-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

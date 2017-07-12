@@ -3,6 +3,8 @@ package unidue.ub.media.monographs;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * Representation object of one item
  * 
@@ -37,6 +39,7 @@ public class Item {
 
 	private String etat;
 
+	@JsonBackReference
 	private List<Event> events = new ArrayList<Event>();
 
 	/**
@@ -64,7 +67,7 @@ public class Item {
 	 * @param price
 	 *            the price of this item
 	 */
-	public Item(String collection, String callNo, String subLibrary, int itemSequence, String material,
+	public Item(String recKey, String collection, String callNo, String subLibrary, int itemSequence, String material,
 			String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price) {
 		this(subLibrary, itemSequence, material, inventoryDate, deletionDate, price);
 
@@ -78,6 +81,7 @@ public class Item {
 
 		if ((callNo != null) && !callNo.isEmpty())
 			this.callNo = callNo;
+		this.recKey = recKey;
 	}
 
 	/**
@@ -128,6 +132,10 @@ public class Item {
 		this.collection = UNKNOWN;
 		this.callNo = UNKNOWN;
 		this.itemStatus = "xx";
+	}
+	
+	public Item() {
+		
 	}
 
 	/**
@@ -276,5 +284,89 @@ public class Item {
 	 */
 	public String getPrice() {
 		return price;
+	}
+
+	/**
+	 * @return the subLibrary
+	 */
+	public String getSubLibrary() {
+		return subLibrary;
+	}
+
+	/**
+	 * @param collection the collection to set
+	 */
+	public void setCollection(String collection) {
+		this.collection = collection;
+	}
+
+	/**
+	 * @param callNo the callNo to set
+	 */
+	public void setCallNo(String callNo) {
+		this.callNo = callNo;
+	}
+
+	/**
+	 * @param itemSequence the itemSequence to set
+	 */
+	public void setItemSequence(int itemSequence) {
+		this.itemSequence = itemSequence;
+	}
+
+	/**
+	 * @param subLibrary the subLibrary to set
+	 */
+	public void setSubLibrary(String subLibrary) {
+		this.subLibrary = subLibrary;
+	}
+
+	/**
+	 * @param material the material to set
+	 */
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	/**
+	 * @param itemStatus the itemStatus to set
+	 */
+	public void setItemStatus(String itemStatus) {
+		this.itemStatus = itemStatus;
+	}
+
+	/**
+	 * @param processStatus the processStatus to set
+	 */
+	public void setProcessStatus(String processStatus) {
+		this.processStatus = processStatus;
+	}
+
+	/**
+	 * @param inventoryDate the inventoryDate to set
+	 */
+	public void setInventoryDate(String inventoryDate) {
+		this.inventoryDate = inventoryDate;
+	}
+
+	/**
+	 * @param deletionDate the deletionDate to set
+	 */
+	public void setDeletionDate(String deletionDate) {
+		this.deletionDate = deletionDate;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	/**
+	 * @param events the events to set
+	 */
+	public void setEvents(List<Event> events) {
+		this.events = events;
 	}
 }

@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * Representation object of one event from one of the three groups loans (loan
  * and return) requests (request and hold) and stock (inventory and deletion).
@@ -23,6 +25,7 @@ public class Event implements Comparable<Event> {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 	
+	@JsonManagedReference
 	private Item item;
 
 	private Event endEvent;
@@ -40,6 +43,64 @@ public class Event implements Comparable<Event> {
 	private int sorter;
 
 	private int delta;
+	
+	private String recKey;
+
+	/**
+	 * @return the sorter
+	 */
+	public int getSorter() {
+		return sorter;
+	}
+
+	/**
+	 * @param item the item to set
+	 */
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	/**
+	 * @param time the time to set
+	 */
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+	/**
+	 * @param year the year to set
+	 */
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	/**
+	 * @param borrowerStatus the borrowerStatus to set
+	 */
+	public void setBorrowerStatus(String borrowerStatus) {
+		this.borrowerStatus = borrowerStatus;
+	}
+
+	/**
+	 * @param sorter the sorter to set
+	 */
+	public void setSorter(int sorter) {
+		this.sorter = sorter;
+	}
+
+	/**
+	 * @param delta the delta to set
+	 */
+	public void setDelta(int delta) {
+		this.delta = delta;
+	}
 
 	/**
 	 * Creates a new <code>Event</code> related to an item.
@@ -65,8 +126,7 @@ public class Event implements Comparable<Event> {
 	 * @exception ParseException
 	 *                exception parsing the date field
 	 */
-	public Event(Item item, String date, String hour, String type, String borrowerStatus, int sorter, int delta)
-			throws ParseException {
+	public Event(Item item, String date, String hour, String type, String borrowerStatus, int sorter, int delta) {
 		this.type = type;
 		this.sorter = sorter;
 		this.delta = delta;
@@ -77,21 +137,43 @@ public class Event implements Comparable<Event> {
 		this.item = item;
 		item.addEvent(this);
 	}
+	
+	public Event(String recKey, String date, String hour, String type, String borrowerStatus, int sorter) {
+		this.recKey = recKey;
+		this.type = type;
+		this.sorter = sorter;
+		if (type.equals("loan") || type.equals("request") || type.equals("inventory"))
+			this.delta = 1;
+		else if (type.equals("return") || type.equals("hold") || type.equals("deletion"))
+			this.delta = -1;
+		else 
+			this.delta = 0;
+		this.borrowerStatus = borrowerStatus;
+		setTimeFields(date, hour);
+	}
+	
+	public Event() {}
 
 	private static SimpleDateFormat formatIn = new SimpleDateFormat("yyyyMMddHHmm");
 
 	private static SimpleDateFormat formatOut = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-	private void setTimeFields(String date, String hour) throws ParseException {
+	private void setTimeFields(String date, String hour){
+		if (date.length() > 4)
 		this.year = date.substring(0, 4);
+		else year = "2000";
 
 		while (hour.length() < 4)
 			hour = "0" + hour;
 
 		synchronized (formatIn) {
+			try {
 			Date d = formatIn.parse(date + hour);
 			this.date = formatOut.format(d);
 			this.time = d.getTime();
+			} catch (ParseException pe) {
+				pe.getStackTrace();
+			}
 		}
 	}
 
@@ -206,5 +288,19 @@ public class Event implements Comparable<Event> {
 			return -1;
 		else
 			return this.sorter - other.sorter;
+	}
+
+	/**
+	 * @return the recKey
+	 */
+	public String getRecKey() {
+		return recKey;
+	}
+
+	/**
+	 * @param recKey the recKey to set
+	 */
+	public void setRecKey(String recKey) {
+		this.recKey = recKey;
 	}
 }

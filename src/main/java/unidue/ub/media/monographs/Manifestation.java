@@ -21,6 +21,17 @@ import java.util.regex.Pattern;
 public class Manifestation implements Cloneable {
 
 	private String docNumber;
+	
+	public Manifestation(){
+		
+	}
+
+	/**
+	 * @param docNumber the docNumber to set
+	 */
+	public void setDocNumber(String docNumber) {
+		this.docNumber = docNumber;
+	}
 
 	/** The items. */
 	private List<Item> items = new ArrayList<Item>();
@@ -128,6 +139,10 @@ public class Manifestation implements Cloneable {
 			if (item.getItemSequence() == itemSequence)
 				return item;
 		return null;
+	}
+	
+	public void addItems(List<Item> items) {
+		this.items.addAll(items);
 	}
 
 	/**

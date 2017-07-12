@@ -25,6 +25,7 @@ public class JournalTitle implements Cloneable, Comparable<JournalTitle> {
     @GeneratedValue
     private long id;
 	
+	@Column(columnDefinition = "TEXT")
 	private String name;
 	
 	private String issn;
