@@ -3,7 +3,8 @@ package unidue.ub.media.monographs;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * Representation object of one item
@@ -13,13 +14,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 public class Item {
 
-	public final static String UNKNOWN = "???";
+	final static String UNKNOWN = "???";
 
 	private String collection;
 
-	private String callNo;
-
-	private int itemSequence;
+	private String shelfmark;
 
 	private String subLibrary;
 
@@ -35,11 +34,11 @@ public class Item {
 
 	private String price;
 
-	private String recKey;
+	private String itemId;
 
 	private String etat;
 
-	@JsonBackReference
+	@JsonManagedReference
 	private List<Event> events = new ArrayList<Event>();
 
 	/**
@@ -48,12 +47,10 @@ public class Item {
 	 * 
 	 * @param collection
 	 *            the collection this item belongs to
-	 * @param callNo
+	 * @param shelfmark
 	 *            the shelfmark of this item
 	 * @param subLibrary
 	 *            the sublibrary this item is located in
-	 * @param itemSequence
-	 *            the identifier of this particular item
 	 * @param material
 	 *            the type of material of this item (book, cd-rom etc.)
 	 * @param itemStatus
@@ -67,9 +64,9 @@ public class Item {
 	 * @param price
 	 *            the price of this item
 	 */
-	public Item(String recKey, String collection, String callNo, String subLibrary, int itemSequence, String material,
+	public Item(String itemId, String collection, String shelfmark, String subLibrary, String material,
 			String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price) {
-		this(subLibrary, itemSequence, material, inventoryDate, deletionDate, price);
+		this(itemId, subLibrary, material, inventoryDate, deletionDate, price);
 
 		if ((itemStatus != null) && !itemStatus.trim().isEmpty())
 			this.itemStatus = itemStatus;
@@ -79,9 +76,9 @@ public class Item {
 		if ((collection != null) && !collection.isEmpty())
 			this.collection = collection.trim();
 
-		if ((callNo != null) && !callNo.isEmpty())
-			this.callNo = callNo;
-		this.recKey = recKey;
+		if ((shelfmark != null) && !shelfmark.isEmpty())
+			this.shelfmark = shelfmark;
+		this.itemId = itemId;
 	}
 
 	/**
@@ -90,8 +87,6 @@ public class Item {
 	 * 
 	 * @param subLibrary
 	 *            the sublibrary this item is located in
-	 * @param itemSequence
-	 *            the identifier of this particular item
 	 * @param material
 	 *            the type of material of this item (book, cd-rom etc.)
 	 * @param inventoryDate
@@ -101,15 +96,15 @@ public class Item {
 	 * @param price
 	 *            the price of this item
 	 */
-	public Item(String subLibrary, int itemSequence, String material, String inventoryDate, String deletionDate,
+	public Item(String itemId, String subLibrary, String material, String inventoryDate, String deletionDate,
 			String price) {
+		this.itemId = (itemId.length() > 15) ? itemId.substring(0,15) : itemId;
 		this.subLibrary = subLibrary;
-		this.itemSequence = itemSequence;
 		this.material = material.trim();
 		this.inventoryDate = inventoryDate;
 		this.deletionDate = deletionDate;
 		this.collection = UNKNOWN;
-		this.callNo = UNKNOWN;
+		this.shelfmark = UNKNOWN;
 		this.itemStatus = "xx";
 		this.price = price;
 	}
@@ -120,17 +115,15 @@ public class Item {
 	 * 
 	 * @param subLibrary
 	 *            the sublibrary this item is located in
-	 * @param itemSequence
-	 *            the identifier of this particular item
 	 * @param material
 	 *            the type of material of this item (book, cd-rom etc.)
 	 */
-	Item(String subLibrary, int itemSequence, String material) {
+	Item(String itemId, String subLibrary, String material) {
+		this.itemId = (itemId.length() > 15) ? itemId.substring(0,15) : itemId;
 		this.subLibrary = subLibrary;
-		this.itemSequence = itemSequence;
 		this.material = material.trim();
 		this.collection = UNKNOWN;
-		this.callNo = UNKNOWN;
+		this.shelfmark = UNKNOWN;
 		this.itemStatus = "xx";
 	}
 	
@@ -171,27 +164,18 @@ public class Item {
 	 *
 	 * @return recKey the key in the database
 	 */
-	public String getRecKey() {
-		return recKey;
+	public String getItemId() {
+		return itemId;
 	}
 
 	/**
 	 * sets the key in the Aleph database of this item
 	 *
-	 * @param recKey
+	 * @param itemId
 	 *            the key in the database
 	 */
-	public void setRecKey(String recKey) {
-		this.recKey = recKey;
-	}
-
-	/**
-	 * returns the item sequence identifying this particular item
-	 *
-	 * @return itemSequence the item sequence
-	 */
-	public int getItemSequence() {
-		return itemSequence;
+	public void setItemId(String itemId) {
+		this.itemId = (itemId.length() > 15) ? itemId.substring(0,15) : itemId;
 	}
 
 	/**
@@ -235,8 +219,8 @@ public class Item {
 	 *
 	 * @return callNo the shelfmark
 	 */
-	public String getCallNo() {
-		return callNo;
+	public String getShelfmark() {
+		return shelfmark;
 	}
 
 	/**
@@ -301,17 +285,10 @@ public class Item {
 	}
 
 	/**
-	 * @param callNo the callNo to set
+	 * @param shelfmark the shelfmark to set
 	 */
-	public void setCallNo(String callNo) {
-		this.callNo = callNo;
-	}
-
-	/**
-	 * @param itemSequence the itemSequence to set
-	 */
-	public void setItemSequence(int itemSequence) {
-		this.itemSequence = itemSequence;
+	public void setShelfmark(String shelfmark) {
+		this.shelfmark = shelfmark;
 	}
 
 	/**
@@ -368,5 +345,15 @@ public class Item {
 	 */
 	public void setEvents(List<Event> events) {
 		this.events = events;
+	}
+
+	@JsonIgnore
+	public int getItemSequence() {
+		String sequenceString = "";
+		if (itemId.length() > 9)
+			sequenceString= itemId.substring(9);
+		else
+			sequenceString = "0";
+		return Integer.parseInt(sequenceString);
 	}
 }

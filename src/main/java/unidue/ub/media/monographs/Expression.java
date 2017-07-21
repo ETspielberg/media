@@ -110,13 +110,13 @@ public class Expression implements Cloneable {
 	/**
 	 * returns the document with the specified document number from this work
 	 *
-	 * @param docNumber
+	 * @param titleID
 	 *            the document number of a document within the work
 	 * @return document the document with the corresponding document number
 	 */
-	public Manifestation getDocument(String docNumber) {
+	public Manifestation getDocument(String titleID) {
 		for (Manifestation document : documents)
-			if (document.getDocNumber().equals(docNumber))
+			if (document.getTitleID().equals(titleID))
 				return document;
 		return null;
 	}

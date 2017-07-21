@@ -19,10 +19,7 @@ import javax.persistence.Id;
 public class BibliographicInformation {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-	
-	private String docNumber; 
+	private String titleId;
 	
 	private String isbn;
 	
@@ -55,7 +52,7 @@ public class BibliographicInformation {
 	/**
 	 * creates a new <code>Publication</code>-object
 	 *
-	 * @param docNumber
+	 * @param titleId
 	 *            the document number
 	 * @param authors
 	 *            the authors of the publication
@@ -63,7 +60,8 @@ public class BibliographicInformation {
 	 *            the title of the publication
 	 * 
 	 */
-	public BibliographicInformation(List<String> authors, String title) {
+	public BibliographicInformation(String titleId, List<String> authors, String title) {
+		this.titleId = titleId;
 		this.authors = authors;
 		this.title = title;
 		this.type = "basic";
@@ -315,15 +313,15 @@ public class BibliographicInformation {
 	/**
 	 * @return the docNumber
 	 */
-	public String getDocNumber() {
-		return docNumber;
+	public String getTitleId() {
+		return titleId;
 	}
 
 	/**
-	 * @param docNumber the docNumber to set
+	 * @param titleId the docNumber to set
 	 */
-	public void setDocNumber(String docNumber) {
-		this.docNumber = docNumber;
+	public void setTitleId(String titleId) {
+		this.titleId = titleId;
 	}
 
 	/**

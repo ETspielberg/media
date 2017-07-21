@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * Representation object of one event from one of the three groups loans (loan
@@ -20,12 +20,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 public class Event implements Comparable<Event> {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 	
-	@JsonManagedReference
+	@JsonBackReference
 	private Item item;
 
 	private Event endEvent;
@@ -44,7 +40,7 @@ public class Event implements Comparable<Event> {
 
 	private int delta;
 	
-	private String recKey;
+	private String itemId;
 
 	/**
 	 * @return the sorter
@@ -138,8 +134,8 @@ public class Event implements Comparable<Event> {
 		item.addEvent(this);
 	}
 	
-	public Event(String recKey, String date, String hour, String type, String borrowerStatus, int sorter) {
-		this.recKey = recKey;
+	public Event(String itemId, String date, String hour, String type, String borrowerStatus, int sorter) {
+		this.itemId = itemId;
 		this.type = type;
 		this.sorter = sorter;
 		if (type.equals("loan") || type.equals("request") || type.equals("inventory"))
@@ -293,14 +289,14 @@ public class Event implements Comparable<Event> {
 	/**
 	 * @return the recKey
 	 */
-	public String getRecKey() {
-		return recKey;
+	public String getItemId() {
+		return itemId;
 	}
 
 	/**
-	 * @param recKey the recKey to set
+	 * @param itemId the recKey to set
 	 */
-	public void setRecKey(String recKey) {
-		this.recKey = recKey;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 }

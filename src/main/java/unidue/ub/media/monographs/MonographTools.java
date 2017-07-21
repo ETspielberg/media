@@ -1,5 +1,6 @@
 package unidue.ub.media.monographs;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -67,8 +68,6 @@ public class MonographTools {
 		HashSet<String> keywordsSet = new HashSet<>();
 		try {
 			Element result = transformElement(mabxml, "xsl/mabxml2bibliographicInformation.xsl").detachRootElement().clone();
-			LOGGER.info(result.toString());
-
 			List<Element> authors = result.getChild("authors").getChildren();
 			for (Element author : authors) {
 				bibliographicInformation.addAuthor(author.getText());
@@ -77,20 +76,21 @@ public class MonographTools {
 			List<Element> keywords = result.getChild("keywords").getChildren();
 			for (Element keyword : keywords) {
 				String keywordText = keyword.getText();
-				if (!keywordsSet.contains(keywordText)) {
+				if (!keywordsSet.contains(keywordText) && !keywordText.isEmpty()) {
 					bibliographicInformation.addKeyword(keyword.getText());
 					keywordsSet.add(keywordText);
 				}
 			}
-			bibliographicInformation.setIsbn(result.getChild("isbn").getValue());
-			bibliographicInformation.setDoi(result.getChildText("doi"));
-			bibliographicInformation.setEdition(result.getChildText("edition"));
-			bibliographicInformation.setPlace(result.getChildText("place"));
-			bibliographicInformation.setPublisher(result.getChildText("publisher"));
-			bibliographicInformation.setSeries(result.getChildText("series"));
-			bibliographicInformation.setSubtitle(result.getChild("subtitle").getValue());
-			bibliographicInformation.setTitle(result.getChild("title").getValue());
-			bibliographicInformation.setYear(result.getChild("year").getValue());
+			bibliographicInformation.setIsbn(result.getChild("isbn").getText());
+			bibliographicInformation.setDoi(result.getChild("doi").getText());
+			bibliographicInformation.setEdition(result.getChild("edition").getText());
+			if (result.getChild("place") != null)
+			bibliographicInformation.setPlace(result.getChild("place").getText());
+			bibliographicInformation.setPublisher(result.getChild("publisher").getText());
+			bibliographicInformation.setSeries(result.getChild("series").getText());
+			bibliographicInformation.setSubtitle(result.getChild("subtitle").getText());
+			bibliographicInformation.setTitle(result.getChild("title").getText());
+			bibliographicInformation.setYear(result.getChild("year").getText());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,8 +98,9 @@ public class MonographTools {
 	}
 	
 	private static Document transformElement(Element source, String pathToXSL) throws IOException, TransformerException{
+		File xslFile = new File(pathToXSL);
+		LOGGER.info(xslFile.getAbsolutePath());
 		StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream(pathToXSL));
-		LOGGER.info(stylesource.toString());
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer = factory.newTransformer(stylesource);
         StringWriter writer = new StringWriter();

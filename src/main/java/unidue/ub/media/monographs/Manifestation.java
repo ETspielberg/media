@@ -3,9 +3,9 @@
  */
 package unidue.ub.media.monographs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
@@ -20,188 +20,160 @@ import java.util.regex.Pattern;
  */
 public class Manifestation implements Cloneable {
 
-	private String docNumber;
-	
-	public Manifestation(){
-		
-	}
+	private final static Pattern editionFinder = Pattern.compile(".*\\((\\d+)\\).*");
 
-	/**
-	 * @param docNumber the docNumber to set
-	 */
-	public void setDocNumber(String docNumber) {
-		this.docNumber = docNumber;
-	}
+	private String titleID = "";
 
-	/** The items. */
-	private List<Item> items = new ArrayList<Item>();
-	
+	private String shelfmark = "";
+
+	private String shelfmarkBase = "";
+
+	private List<Item> items = new ArrayList<>();
+
+	private String edition = "1";
+
 	private BibliographicInformation bibliographicInformation;
 
-	/**
-	 * Creates a new Manifestation with the given docNumber.
-	 * 
-	 * 
-	 * @param docNumber
-	 *            the docNumber of the Document.
-	 */
-
-	public Manifestation(String docNumber) {
-		this.docNumber = docNumber;
+	public Manifestation() {
 	}
 
-	/**
-	 * Gets the doc number.
-	 *
-	 * @return the doc number
-	 */
-	public String getDocNumber() {
-		return docNumber;
+	public Manifestation(String titleID) {
+		this.titleID = titleID;
 	}
 
-	/**
-	 * Gets the call no.
-	 *
-	 * @return the call no
-	 */
-	public String getCallNo() {
-		String callNo = "";
-		for (Item item : items) {
-			String itemNo = item.getCallNo();
-			if ((itemNo == null) || (itemNo.equals(Item.UNKNOWN)))
-				continue;
-			itemNo = itemNo.replaceAll("\\+\\d+", "");
-			if (callNo.contains(itemNo))
-				continue;
-			if (!callNo.isEmpty())
-				callNo += ", ";
-			callNo += itemNo;
-		}
-		return callNo;
+
+	public void setTitleID(String titleID) {
+		this.titleID = titleID;
 	}
 
-	/** The reg ex. */
-	String regEx = ".*\\((\\d+)\\).*";
+	public String getTitleID() {
+		return titleID;
+	}
 
-	/** The edition finder. */
-	private static Pattern editionFinder = Pattern.compile(".*\\((\\d+)\\).*");
+	public void setShelfmark(String shelfmark) {
+		this.shelfmark = shelfmark;
+	}
 
-	/**
-	 * Gets the shelfmark base.
-	 *
-	 * @return the shelfmark base
-	 */
+	public String getShelfmark() {
+		return shelfmark;
+	}
+
+	public void setShelfmarkBase(String shelfmarkBase) {
+		this.shelfmarkBase = shelfmarkBase;
+	}
+
 	public String getShelfmarkBase() {
-		String callNo = getCallNo();
-		String shelfmarkBase = editionFinder.matcher(callNo).matches() ? callNo.replaceAll("\\((\\d+)\\)", "") : callNo;
 		return shelfmarkBase;
 	}
 
-	/**
-	 * Gets the edition.
-	 *
-	 * @return the edition
-	 */
 	public String getEdition() {
-		String callNo = getCallNo();
-		Matcher m = editionFinder.matcher(callNo);
-		return m.matches() ? m.group(1) : "1";
+		return edition;
 	}
 
-	/**
-	 * Adds the item.
-	 *
-	 * @param item
-	 *            the item
-	 */
+
 	public void addItem(Item item) {
 		items.add(item);
+		addItemShelfmarkIfNew(item);
 	}
 
-	/**
-	 * Gets the items.
-	 *
-	 * @return the items
-	 */
+	public void addItems(List<Item> items) {
+		for (Item item : items) {
+			addItem(item);
+		}
+	}
+
+
 	public List<Item> getItems() {
 		return items;
 	}
 
-	/**
-	 * Gets the item.
-	 *
-	 * @param itemSequence
-	 *            the item sequence
-	 * @return the item
-	 */
-	public Item getItem(int itemSequence) {
+	public Item getItem(String itemId) {
 		for (Item item : items)
-			if (item.getItemSequence() == itemSequence)
+			if (item.getItemId().equals(itemId))
 				return item;
 		return null;
 	}
-	
-	public void addItems(List<Item> items) {
-		this.items.addAll(items);
+
+
+	public void setItmes(List<Item> items) {
+		this.items = items;
 	}
 
-	/**
-	 * Gets the events.
-	 *
-	 * @return the events
-	 */
+	public BibliographicInformation getBibliographicInformation() {
+		return bibliographicInformation;
+	}
+
+	public void setBibliographicInformation(BibliographicInformation bibliographicInformation) {
+		this.bibliographicInformation = bibliographicInformation;
+	}
+
+	public List<String> getCollections() {
+		Set<String> collections = new HashSet<>();
+		for (Item item : items) {
+			if (!collections.contains(item.getCollection()))
+				collections.add(item.getCollection());
+		}
+		return new ArrayList<>(collections);
+	}
+
+	@JsonIgnore
 	public List<Event> getEvents() {
-		List<Event> events = new ArrayList<Event>();
+		List<Event> events = new ArrayList<>();
 		for (Item item : getItems())
 			events.addAll(item.getEvents());
 		Collections.sort(events);
 		return events;
 	}
 
-	/**
-	 * checks the identity of two manifestations 
-	 * 
-	 * @return true, if the two manifestations have the same docNumber
-	 */
 	@Override
 	public boolean equals(Object other) {
-		return docNumber.equals(((Manifestation) other).docNumber);
+		return shelfmark.equals(((Manifestation) other).shelfmark);
 	}
 
-	/**
-	 * returns the hash code
-	 * 
-	 * @return the hash code
-	 */
 	@Override
 	public int hashCode() {
-		return docNumber.hashCode();
+		return titleID.trim().hashCode();
 	}
-	
-	/**
-	 * instantiates a clone of the object
-	 *
-	 * @return a cloned object
-	 */
+
 	public Manifestation clone() {
-	    Manifestation clone = new Manifestation(docNumber);
-	    for (Item item : items)
-	        clone.addItem(item);
-	    return clone; //for example
+		Manifestation clone = new Manifestation(shelfmark);
+		for (Item item : items)
+			clone.addItem(item);
+		return clone;
 	}
 
-	/**
-	 * @return the bibliographicInformation
-	 */
-	public BibliographicInformation getBibliographicInformation() {
-		return bibliographicInformation;
+	@JsonIgnore
+	public String[] getShelfmarks() {
+		return shelfmark.split(", ");
 	}
 
-	/**
-	 * @param bibliographicInformation the bibliographicInformation to set
-	 */
-	public void setBibliographicInformation(BibliographicInformation bibliographicInformation) {
-		this.bibliographicInformation = bibliographicInformation;
+
+	private void addItemShelfmarkIfNew(Item item) {
+		String shelfmarkItem = item.getShelfmark().replaceAll("\\+\\d+", "");
+		if ((shelfmarkItem == null) || (shelfmarkItem.equals(Item.UNKNOWN)) || shelfmarkItem.isEmpty()) {
+			return;
+		} else if (!shelfmark.contains(shelfmarkItem))
+			addShelfmark(shelfmarkItem);
 	}
 
+	private void addShelfmark(String shelfmark) {
+		if (!this.shelfmark.isEmpty())
+			this.shelfmark += ", ";
+		this.shelfmark += shelfmark;
+		buildEdition(this.shelfmark);
+		buildShelfmarkBase(this.shelfmark);
+	}
+
+	private void buildShelfmarkBase(String shelfmark) {
+		shelfmarkBase = editionFinder.matcher(shelfmark).matches() ? shelfmark.replaceAll("\\((\\d+)\\)", "") : shelfmark;
+	}
+
+	private void buildEdition(String shelfmark) {
+		Matcher m = editionFinder.matcher(shelfmark);
+		edition = m.matches() ? m.group(1) : "1";
+	}
+
+	public boolean contains(String shelfmark) {
+		return this.shelfmark.contains(shelfmark);
+}
 }
