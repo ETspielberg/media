@@ -34,11 +34,14 @@ public class Manifestation implements Cloneable {
 
 	private BibliographicInformation bibliographicInformation;
 
+	private Set<String>  collections;
+
 	public Manifestation() {
 	}
 
 	public Manifestation(String titleID) {
 		this.titleID = titleID;
+		collections = new HashSet<>();
 	}
 
 
@@ -70,10 +73,16 @@ public class Manifestation implements Cloneable {
 		return edition;
 	}
 
+	public List<String> getCollections() {
+		return new ArrayList<String>(collections);
+	}
+
 
 	public void addItem(Item item) {
 		items.add(item);
 		addItemShelfmarkIfNew(item);
+		if (!collections.contains(item.getCollection()))
+		collections.add(item.getCollection());
 	}
 
 	public void addItems(List<Item> items) {
