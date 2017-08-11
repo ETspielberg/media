@@ -116,15 +116,6 @@ public class Manifestation implements Cloneable {
 		this.bibliographicInformation = bibliographicInformation;
 	}
 
-	public List<String> getCollections() {
-		Set<String> collections = new HashSet<>();
-		for (Item item : items) {
-			if (!collections.contains(item.getCollection()))
-				collections.add(item.getCollection());
-		}
-		return new ArrayList<>(collections);
-	}
-
 	@JsonIgnore
 	public List<Event> getEvents() {
 		List<Event> events = new ArrayList<>();

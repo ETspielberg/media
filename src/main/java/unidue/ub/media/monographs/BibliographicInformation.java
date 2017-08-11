@@ -81,270 +81,125 @@ public class BibliographicInformation {
 		type = "empty";
 	}
 
-	/**
-	 * creates a new <code>Publication</code>-object
-	 *
-	 * @param docNumber
-	 *            the document number
-	 * @param isbn
-	 *            the isbn of the publication
-	 * @param authors
-	 *            the authors of the publication
-	 * @param title
-	 *            the title of the publication
-	 * @param publisher
-	 *            the publisher of the publication
-	 * @param place
-	 *            the place where the publication was published
-	 * @param year
-	 *            the year the publication was published
-	 * 
-	 */
-
-
-	/**
-	 * returns the type of the publication
-	 *
-	 * @return type the type of the publication
-	 */
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * returns the ISBN of the publication
-	 *
-	 * @return isbn the ISBN of the publication
-	 */
-	public String getIsbn() {
-		return isbn;
-	}
-
-	/**
-	 * returns the authors of the publication
-	 *
-	 * @return authors the authors of the publication
-	 */
-	public List<String> getAuthors() {
-		return authors;
-	}
-
-	/**
-	 * returns the title of the publication
-	 *
-	 * @return title the title of the publication
-	 */
-	public String getTitle() {
-		return title;
-	}
-
-	/**
-	 * returns the publisher of the publication
-	 *
-	 * @return publisher the publisher of the publication
-	 */
-	public String getPublisher() {
-		return publisher;
-	}
-
-	/**
-	 * returns the place the publication was published
-	 *
-	 * @return place the place the publication was published
-	 */
-	public String getPlace() {
-		return place;
-	}
-
-	/**
-	 * returns the year the publication was published
-	 *
-	 * @return year the year the publication was published
-	 */
-	public String getYear() {
-		return year;
-	}
-
-	/**
-	 * sets the ISBN of the publication
-	 *
-	 * @param newIsbn
-	 *            the ISBN
-	 */
-	public void setIsbn(String newIsbn) {
-		this.isbn = newIsbn;
-	}
-
-	/**
-	 * adds an author to the author list
-	 *
-	 * @param author
-	 *            the name of the author
-	 */
-	public void addAuthor(String author) {
-		authors.add(author);
-	}
-
-	/**
-	 * sets the authors of the publication
-	 *
-	 * @param newAuthors
-	 *            list of author names
-	 */
-	public void setAuthors(List<String> newAuthors) {
-		this.authors = newAuthors;
-	}
-
-		/**
-	 * sets the publisher of the publication
-	 *
-	 * @param newPublisher
-	 *            the name of the publisher
-	 */
-	public void setPublisher(String newPublisher) {
-		this.publisher = newPublisher;
-	}
-
-	/**
-	 * sets the place the publication was published
-	 *
-	 * @param newPlace
-	 *            the name of the place
-	 */
-	public void setPlace(String newPlace) {
-		this.isbn = newPlace;
-	}
-
-	/**
-	 * sets the year the publication was published
-	 *
-	 * @param newYear
-	 *            the year
-	 */
-	public void setYear(String newYear) {
-		this.isbn = newYear;
-	}
-
-	/**
-	 * @return the edition
-	 */
-	public String getEdition() {
-		return edition;
-	}
-
-	/**
-	 * @return the series
-	 */
-	public String getSeries() {
-		return series;
-	}
-
-	/**
-	 * @return the volume
-	 */
-	public int getVolume() {
-		return volume;
-	}
-
-	/**
-	 * @return the keywords
-	 */
-	public List<String> getKeywords() {
-		return keywords;
-	}
-
-	/**
-	 * @param edition the edition to set
-	 */
-	public void setEdition(String edition) {
-		this.edition = edition;
-	}
-
-	/**
-	 * @param series the series to set
-	 */
-	public void setSeries(String series) {
-		this.series = series;
-	}
-
-	/**
-	 * @param volume the volume to set
-	 */
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-
-	/**
-	 * @param keywords the keywords to set
-	 */
-	public void setKeywords(List<String> keywords) {
-		this.keywords = keywords;
-	}
-	
-	/**
-	 * @param keyword the keyword to add
-	 */
-	public void addKeyword(String keyword) {
-		keywords.add(keyword);
-	}
-	
-	
-	/**
-	 * @param type the type to set
-	 */
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	/**
-	 * @return the doi
-	 */
-	public String getDoi() {
-		return doi;
-	}
-
-	/**
-	 * @param doi the doi to set
-	 */
-	public void setDoi(String doi) {
-		this.doi = doi;
-	}
-
-	/**
-	 * @return the docNumber
-	 */
 	public String getTitleId() {
 		return titleId;
 	}
 
-	/**
-	 * @param titleId the docNumber to set
-	 */
 	public void setTitleId(String titleId) {
 		this.titleId = titleId;
 	}
 
-	/**
-	 * @return the subtitle
-	 */
-	public String getSubtitle() {
-		return subtitle;
+	public String getIsbn() {
+		return isbn;
 	}
 
-	/**
-	 * @param title the title to set
-	 */
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public String getDoi() {
+		return doi;
+	}
+
+	public void setDoi(String doi) {
+		this.doi = doi;
+	}
+
+	public List<String> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	/**
-	 * @param subtitle the subtitle to set
-	 */
+	public String getSubtitle() {
+		return subtitle;
+	}
+
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}
 
-	
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getEdition() {
+		return edition;
+	}
+
+	public void setEdition(String edition) {
+		this.edition = edition;
+	}
+
+	public String getSeries() {
+		return series;
+	}
+
+	public void setSeries(String series) {
+		this.series = series;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public List<String> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(List<String> keywords) {
+		this.keywords = keywords;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void addAuthor(String author) {
+		authors.add(author);
+	}
+
+
+	public void addKeyword(String keyword) {
+		keywords.add(keyword);
+	}
 
 }

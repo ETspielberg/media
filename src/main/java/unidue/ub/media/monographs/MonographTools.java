@@ -66,40 +66,51 @@ public class MonographTools {
 	public static BibliographicInformation buildBibligraphicInformationFromMABXML(Element mabxml) {
 		BibliographicInformation bibliographicInformation = new BibliographicInformation();
 		HashSet<String> keywordsSet = new HashSet<>();
+		Element result = new Element("bibliographicInformation");
 		try {
-			Element result = transformElement(mabxml, "xsl/mabxml2bibliographicInformation.xsl").detachRootElement().clone();
-			List<Element> authors = result.getChild("authors").getChildren();
-			for (Element author : authors) {
-				bibliographicInformation.addAuthor(author.getText());
-			}
-
-			List<Element> keywords = result.getChild("keywords").getChildren();
-			for (Element keyword : keywords) {
-				String keywordText = keyword.getText();
-				if (!keywordsSet.contains(keywordText) && !keywordText.isEmpty()) {
-					bibliographicInformation.addKeyword(keyword.getText());
-					keywordsSet.add(keywordText);
-				}
-			}
-			bibliographicInformation.setIsbn(result.getChild("isbn").getText());
-			bibliographicInformation.setDoi(result.getChild("doi").getText());
-			bibliographicInformation.setEdition(result.getChild("edition").getText());
-			if (result.getChild("place") != null)
-			bibliographicInformation.setPlace(result.getChild("place").getText());
-			bibliographicInformation.setPublisher(result.getChild("publisher").getText());
-			bibliographicInformation.setSeries(result.getChild("series").getText());
-			bibliographicInformation.setSubtitle(result.getChild("subtitle").getText());
-			bibliographicInformation.setTitle(result.getChild("title").getText());
-			bibliographicInformation.setYear(result.getChild("year").getText());
+			result = transformElement(mabxml, "xsl/mabxml2bibliographicInformation.xsl").detachRootElement().clone();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+			List<Element> authors = result.getChild("authors").getChildren();
+			if (authors.size() > 0) {
+				for (Element author : authors) {
+					bibliographicInformation.addAuthor(author.getValue());
+				}
+			}
+
+			List<Element> keywords = result.getChild("keywords").getChildren();
+			if (keywords.size()> 0) {
+				for (Element keyword : keywords) {
+					String keywordText = keyword.getText();
+					if (!keywordsSet.contains(keywordText) && !keywordText.isEmpty()) {
+						bibliographicInformation.addKeyword(keyword.getText());
+						keywordsSet.add(keywordText);
+					}
+				}
+			}
+			bibliographicInformation.setIsbn(getField(result,"isbn"));
+			bibliographicInformation.setDoi(getField(result,"doi"));
+			bibliographicInformation.setEdition(getField(result,"edition"));
+			bibliographicInformation.setPlace(getField(result,"place"));
+			bibliographicInformation.setPublisher(getField(result,"publisher"));
+			bibliographicInformation.setSeries(getField(result,"series"));
+			bibliographicInformation.setSubtitle(getField(result,"subtitle"));
+			bibliographicInformation.setTitle(getField(result,"title"));
+			bibliographicInformation.setYear(getField(result,"year"));
+
 		return bibliographicInformation;
 	}
-	
+
+	private static String getField(Element result, String field) {
+		if (result.getChild(field) != null) {
+			return result.getChild(field).getValue();
+		} else return "";
+	}
+
+
 	private static Document transformElement(Element source, String pathToXSL) throws IOException, TransformerException{
 		File xslFile = new File(pathToXSL);
-		LOGGER.info(xslFile.getAbsolutePath());
 		StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream(pathToXSL));
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer = factory.newTransformer(stylesource);
