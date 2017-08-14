@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="31be5ed4-c411-4787-ace2-9d1e1338b95e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MonographTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MonographTools.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,71 +26,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BibliographicInformation.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BibliographicInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1246">
+            <state relative-caret-position="901">
               <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
               <folding>
                 <element signature="e#1615#1616#0" expanded="true" />
-                <element signature="e#1658#1659#0" expanded="true" />
-                <element signature="e#1687#1688#0" expanded="true" />
-                <element signature="e#1715#1716#0" expanded="true" />
-                <element signature="e#1733#1734#0" expanded="true" />
-                <element signature="e#1770#1771#0" expanded="true" />
-                <element signature="e#1793#1794#0" expanded="true" />
-                <element signature="e#1820#1821#0" expanded="true" />
-                <element signature="e#1837#1838#0" expanded="true" />
-                <element signature="e#1872#1873#0" expanded="true" />
-                <element signature="e#1893#1894#0" expanded="true" />
-                <element signature="e#1930#1931#0" expanded="true" />
-                <element signature="e#1951#1952#0" expanded="true" />
-                <element signature="e#2000#2001#0" expanded="true" />
-                <element signature="e#2029#2030#0" expanded="true" />
-                <element signature="e#2058#2059#0" expanded="true" />
-                <element signature="e#2077#2078#0" expanded="true" />
-                <element signature="e#2116#2117#0" expanded="true" />
-                <element signature="e#2141#2142#0" expanded="true" />
-                <element signature="e#2173#2174#0" expanded="true" />
-                <element signature="e#2195#2196#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
-                <element signature="e#2271#2272#0" expanded="true" />
-                <element signature="e#2304#2305#0" expanded="true" />
-                <element signature="e#2327#2328#0" expanded="true" />
-                <element signature="e#2374#2375#0" expanded="true" />
-                <element signature="e#2407#2408#0" expanded="true" />
-                <element signature="e#2436#2437#0" expanded="true" />
-                <element signature="e#2455#2456#0" expanded="true" />
-                <element signature="e#2494#2495#0" expanded="true" />
-                <element signature="e#2519#2520#0" expanded="true" />
-                <element signature="e#2547#2548#0" expanded="true" />
-                <element signature="e#2565#2566#0" expanded="true" />
-                <element signature="e#2602#2603#0" expanded="true" />
-                <element signature="e#2625#2626#0" expanded="true" />
-                <element signature="e#2656#2657#0" expanded="true" />
-                <element signature="e#2677#2678#0" expanded="true" />
-                <element signature="e#2720#2721#0" expanded="true" />
-                <element signature="e#2749#2750#0" expanded="true" />
-                <element signature="e#2779#2780#0" expanded="true" />
-                <element signature="e#2799#2800#0" expanded="true" />
-                <element signature="e#2840#2841#0" expanded="true" />
-                <element signature="e#2867#2868#0" expanded="true" />
-                <element signature="e#2894#2895#0" expanded="true" />
-                <element signature="e#2914#2915#0" expanded="true" />
-                <element signature="e#2952#2953#0" expanded="true" />
-                <element signature="e#2979#2980#0" expanded="true" />
-                <element signature="e#3017#3018#0" expanded="true" />
-                <element signature="e#3039#3040#0" expanded="true" />
-                <element signature="e#3090#3091#0" expanded="true" />
-                <element signature="e#3121#3122#0" expanded="true" />
-                <element signature="e#3149#3150#0" expanded="true" />
-                <element signature="e#3167#3168#0" expanded="true" />
-                <element signature="e#3204#3205#0" expanded="true" />
-                <element signature="e#3227#3228#0" expanded="true" />
-                <element signature="e#3268#3269#0" expanded="true" />
-                <element signature="e#3294#3295#0" expanded="true" />
-                <element signature="e#3338#3339#0" expanded="true" />
-                <element signature="e#3366#3367#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +41,35 @@
       <file leaf-file-name="TimeAndCount.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+            <state relative-caret-position="629">
+              <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Event.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+              <folding>
+                <element signature="e#6123#6124#0" expanded="true" />
+                <element signature="e#6145#6146#0" expanded="true" />
+                <element signature="e#6188#6189#0" expanded="true" />
+                <element signature="e#6219#6220#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shelfanalysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Shelfanalysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="20" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -110,7 +78,7 @@
       <file leaf-file-name="Manifestation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
+            <state relative-caret-position="1598">
               <caret line="122" column="29" lean-forward="false" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
               <folding>
                 <element signature="e#1649#1650#0" expanded="true" />
@@ -179,14 +147,14 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MabBlob.java" />
         <option value="$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MonographTools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java" />
       </list>
     </option>
   </component>
@@ -225,6 +193,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,9 +265,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -734,14 +702,15 @@
       <workItem from="1500629281698" duration="2076000" />
       <workItem from="1500641959684" duration="4250000" />
       <workItem from="1502282990530" duration="3155000" />
+      <workItem from="1502685358046" duration="3664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46906000" />
+    <option name="totallyTimeSpent" value="50570000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-8" width="1869" height="1096" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -758,7 +727,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16729628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16684607" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1049,13 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Shelfanalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1085,29 +1047,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MabBlob.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" column="1" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1130,7 +1074,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
+        <state relative-caret-position="1598">
           <caret line="122" column="29" lean-forward="false" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
           <folding>
             <element signature="e#1649#1650#0" expanded="true" />
@@ -1149,68 +1093,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1246">
+        <state relative-caret-position="901">
           <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
           <folding>
             <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-            <element signature="e#1687#1688#0" expanded="true" />
-            <element signature="e#1715#1716#0" expanded="true" />
-            <element signature="e#1733#1734#0" expanded="true" />
-            <element signature="e#1770#1771#0" expanded="true" />
-            <element signature="e#1793#1794#0" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1837#1838#0" expanded="true" />
-            <element signature="e#1872#1873#0" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-            <element signature="e#1930#1931#0" expanded="true" />
-            <element signature="e#1951#1952#0" expanded="true" />
-            <element signature="e#2000#2001#0" expanded="true" />
-            <element signature="e#2029#2030#0" expanded="true" />
-            <element signature="e#2058#2059#0" expanded="true" />
-            <element signature="e#2077#2078#0" expanded="true" />
-            <element signature="e#2116#2117#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
-            <element signature="e#2173#2174#0" expanded="true" />
-            <element signature="e#2195#2196#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
-            <element signature="e#2304#2305#0" expanded="true" />
-            <element signature="e#2327#2328#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2407#2408#0" expanded="true" />
-            <element signature="e#2436#2437#0" expanded="true" />
-            <element signature="e#2455#2456#0" expanded="true" />
-            <element signature="e#2494#2495#0" expanded="true" />
-            <element signature="e#2519#2520#0" expanded="true" />
-            <element signature="e#2547#2548#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
-            <element signature="e#2625#2626#0" expanded="true" />
-            <element signature="e#2656#2657#0" expanded="true" />
-            <element signature="e#2677#2678#0" expanded="true" />
-            <element signature="e#2720#2721#0" expanded="true" />
-            <element signature="e#2749#2750#0" expanded="true" />
-            <element signature="e#2779#2780#0" expanded="true" />
-            <element signature="e#2799#2800#0" expanded="true" />
-            <element signature="e#2840#2841#0" expanded="true" />
-            <element signature="e#2867#2868#0" expanded="true" />
-            <element signature="e#2894#2895#0" expanded="true" />
-            <element signature="e#2914#2915#0" expanded="true" />
-            <element signature="e#2952#2953#0" expanded="true" />
-            <element signature="e#2979#2980#0" expanded="true" />
-            <element signature="e#3017#3018#0" expanded="true" />
-            <element signature="e#3039#3040#0" expanded="true" />
-            <element signature="e#3090#3091#0" expanded="true" />
-            <element signature="e#3121#3122#0" expanded="true" />
-            <element signature="e#3149#3150#0" expanded="true" />
-            <element signature="e#3167#3168#0" expanded="true" />
-            <element signature="e#3204#3205#0" expanded="true" />
-            <element signature="e#3227#3228#0" expanded="true" />
-            <element signature="e#3268#3269#0" expanded="true" />
-            <element signature="e#3294#3295#0" expanded="true" />
-            <element signature="e#3338#3339#0" expanded="true" />
-            <element signature="e#3366#3367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Shelfanalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding>
+            <element signature="e#6123#6124#0" expanded="true" />
+            <element signature="e#6145#6146#0" expanded="true" />
+            <element signature="e#6188#6189#0" expanded="true" />
+            <element signature="e#6219#6220#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,6 +2,9 @@ package unidue.ub.media.monographs;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -41,6 +44,8 @@ public class Event implements Comparable<Event> {
 	private int delta;
 	
 	private String itemId;
+
+	private long duration;
 
 	/**
 	 * @return the sorter
@@ -152,6 +157,7 @@ public class Event implements Comparable<Event> {
 
 	private static SimpleDateFormat formatIn = new SimpleDateFormat("yyyyMMddHHmm");
 
+	private final static long dayInMillis = 86400000L;
 	private static SimpleDateFormat formatOut = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 	private void setTimeFields(String date, String hour){
@@ -171,6 +177,15 @@ public class Event implements Comparable<Event> {
 				pe.getStackTrace();
 			}
 		}
+	}
+
+	public void calculateDuration(){
+		long durationInMilliseconds;
+		if (endEvent != null)
+			durationInMilliseconds = endEvent.getTime() - time;
+		else
+			durationInMilliseconds = System.currentTimeMillis() - time;
+		duration = durationInMilliseconds / dayInMillis;
 	}
 
 	/**
@@ -258,6 +273,14 @@ public class Event implements Comparable<Event> {
 	 */
 	public String getBorrowerStatus() {
 		return borrowerStatus;
+	}
+
+	public long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(long duration) {
+		this.duration = duration;
 	}
 
 	/**

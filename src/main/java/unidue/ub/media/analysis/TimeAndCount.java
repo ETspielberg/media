@@ -1,6 +1,8 @@
 package unidue.ub.media.analysis;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Plain old java object holding the combination of time and count.
@@ -10,6 +12,10 @@ import javax.persistence.Entity;
  */
 @Entity
 public class TimeAndCount {
+
+    @Id
+    @GeneratedValue
+    private long id;
 	
     private long x;
 
@@ -19,6 +25,8 @@ public class TimeAndCount {
         this.x = x;
         this.y = y;
     }
+
+    public TimeAndCount(){ }
 
     public long getX() {
         return x;
