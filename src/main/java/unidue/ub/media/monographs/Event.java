@@ -182,7 +182,9 @@ public class Event implements Comparable<Event> {
 	public void calculateDuration(){
 		long durationInMilliseconds;
 		if (endEvent != null)
+			if (endEvent.getTime() != 0)
 			durationInMilliseconds = endEvent.getTime() - time;
+		else durationInMilliseconds = 0;
 		else
 			durationInMilliseconds = System.currentTimeMillis() - time;
 		duration = durationInMilliseconds / dayInMillis;

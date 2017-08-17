@@ -36,12 +36,15 @@ public class Manifestation implements Cloneable {
 
 	private Set<String>  collections;
 
+	private Set<String> materials;
+
 	public Manifestation() {
 	}
 
 	public Manifestation(String titleID) {
 		this.titleID = titleID;
 		collections = new HashSet<>();
+		materials = new HashSet<>();
 	}
 
 
@@ -77,12 +80,16 @@ public class Manifestation implements Cloneable {
 		return new ArrayList<String>(collections);
 	}
 
+	public List<String> getMaterials() { return new ArrayList<String>(materials); }
+
 
 	public void addItem(Item item) {
 		items.add(item);
 		addItemShelfmarkIfNew(item);
 		if (!collections.contains(item.getCollection()))
 		collections.add(item.getCollection());
+		if (!materials.contains(item.getMaterial()))
+			materials.add(item.getMaterial());
 	}
 
 	public void addItems(List<Item> items) {
