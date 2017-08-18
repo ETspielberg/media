@@ -1,6 +1,5 @@
 package unidue.ub.media.monographs;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -20,14 +19,10 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.transform.JDOMSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MonographTools {
 
 	private final static int LEVENTHRESHOLD = 100;
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(MonographTools.class);
 			
 	/**
 	 * returns the Levenshtein distance comparing the authors and title of two
@@ -52,8 +47,7 @@ public class MonographTools {
 		// for title comparison take only the first items of the list, in case
 		// of different depth of catalogueing with respect to sub-titles.
 		titleLeven += StringUtils.getLevenshteinDistance(first.getTitle(), other.getTitle());
-		int totalLeven = authorLeven + titleLeven;
-		return totalLeven;
+		return authorLeven + titleLeven;
 	}
 
 	/**
@@ -68,7 +62,7 @@ public class MonographTools {
 		HashSet<String> keywordsSet = new HashSet<>();
 		Element result = new Element("bibliographicInformation");
 		try {
-			result = transformElement(mabxml, "xsl/mabxml2bibliographicInformation.xsl").detachRootElement().clone();
+			result = transformElement(mabxml).detachRootElement().clone();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -109,20 +103,17 @@ public class MonographTools {
 	}
 
 
-	private static Document transformElement(Element source, String pathToXSL) throws IOException, TransformerException{
-		File xslFile = new File(pathToXSL);
-		StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream(pathToXSL));
+	private static Document transformElement(Element source) throws IOException, TransformerException{
+		StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream("xsl/mabxml2bibliographicInformation.xsl"));
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer = factory.newTransformer(stylesource);
         StringWriter writer = new StringWriter();
         Result result = new StreamResult(writer);
         transformer.transform(new JDOMSource(source), result);
         String resultsString = writer.toString();
-        LOGGER.info(resultsString);
         SAXBuilder builder = new SAXBuilder();
         try {
-        Document resultDoc = builder.build(new StringReader(resultsString));
-        return resultDoc;
+        return builder.build(new StringReader(resultsString));
         } catch (JDOMException jdome) {
         	return null;
         }

@@ -4,6 +4,7 @@
 package unidue.ub.media.monographs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import unidue.ub.media.analysis.UsageData;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -38,6 +39,10 @@ public class Manifestation implements Cloneable {
 
 	private Set<String> materials;
 
+	private Set<String> usergroups;
+
+	private UsageData statistics;
+
 	public Manifestation() {
 	}
 
@@ -45,6 +50,9 @@ public class Manifestation implements Cloneable {
 		this.titleID = titleID;
 		collections = new HashSet<>();
 		materials = new HashSet<>();
+		usergroups = new HashSet<>();
+		statistics = new UsageData();
+		statistics.setName(titleID);
 	}
 
 
@@ -82,6 +90,15 @@ public class Manifestation implements Cloneable {
 
 	public List<String> getMaterials() { return new ArrayList<String>(materials); }
 
+	public List<String> getUsergroups() {return new ArrayList<String>(usergroups); }
+
+	public UsageData getStatistics() {
+		return statistics;
+	}
+
+	public void setStatistics(UsageData statistics) {
+		this.statistics = statistics;
+	}
 
 	public void addItem(Item item) {
 		items.add(item);
@@ -130,6 +147,15 @@ public class Manifestation implements Cloneable {
 			events.addAll(item.getEvents());
 		Collections.sort(events);
 		return events;
+	}
+
+	public void buildUsergroupList() {
+		for (Event event : getEvents()) {
+			if (event.getBorrowerStatus() != null) {
+				if (!usergroups.contains(event.getBorrowerStatus()))
+					usergroups.add(event.getBorrowerStatus());
+			}
+		}
 	}
 
 	@Override
