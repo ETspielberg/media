@@ -1,4 +1,6 @@
-package unidue.ub.media.analysis;
+package unidue.ub.media.unidue.ub.media.usage;
+
+import unidue.ub.media.analysis.TimeAndCount;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

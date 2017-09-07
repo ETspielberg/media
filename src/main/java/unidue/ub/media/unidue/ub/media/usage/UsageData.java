@@ -1,4 +1,4 @@
-package unidue.ub.media.analysis;
+package unidue.ub.media.unidue.ub.media.usage;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

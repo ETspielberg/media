@@ -4,7 +4,7 @@
 package unidue.ub.media.monographs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import unidue.ub.media.analysis.UsageData;
+import unidue.ub.media.unidue.ub.media.usage.UsageData;
 
 import java.util.*;
 import java.util.regex.Matcher;

@@ -24,6 +24,8 @@ public class Eventanalysis {
 	private String mab;
 
 	@Id
+	private String identifier;
+
 	private String titleId;
 
 	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
@@ -49,26 +51,26 @@ public class Eventanalysis {
 
 	private double slope;
 
-	private int lastStock;
+	private long lastStock;
 
-	private int maxLoansAbs;
+	private long maxLoansAbs;
 	
-	private int proposedDeletion;
+	private long proposedDeletion;
 
 	@Column(columnDefinition = "TEXT")
 	private String comment;
 	
 	private String status;
 
-	private int maxNumberRequest;
+	private long maxNumberRequest;
 	
-	private int maxItemsNeeded;
+	private long maxItemsNeeded;
 	
-	private int daysRequested;
+	private long daysRequested;
 	
-	private int numberRequests;
+	private long numberRequests;
 	
-	private int proposedPurchase;
+	private long proposedPurchase;
 
 	/**
 	 * Builds a new instance of a <code>EventAnalysis</code>-object, setting
@@ -76,7 +78,7 @@ public class Eventanalysis {
 	 * 
 	 */
 	public Eventanalysis() {
-
+		this.identifier = "";
 		// general information
 		this.mab = "";
 		this.titleId = "";
@@ -127,6 +129,7 @@ public class Eventanalysis {
 	 */
 	public void setStockcontrolId(String stockcontrolId) {
 		this.stockcontrolId = stockcontrolId;
+		this.identifier = stockcontrolId + "-" + titleId;
 	}
 
 	/**
@@ -259,7 +262,7 @@ public class Eventanalysis {
 	 * @param newProposedDeletion
 	 *            number of items proposed to be deleted
 	 */
-	public void setProposedDeletion(int newProposedDeletion) {
+	public void setProposedDeletion(long newProposedDeletion) {
 		this.proposedDeletion = newProposedDeletion;
 	}
 
@@ -299,6 +302,7 @@ public class Eventanalysis {
 	 */
 	public void setTitleId(String titleId) {
 		this.titleId = titleId;
+		this.identifier = stockcontrolId + "-" + titleId;
 	}
 
 	/**
@@ -344,7 +348,7 @@ public class Eventanalysis {
 	 * 
 	 * @return lastStock number of items at the end of the analysis period
 	 */
-	public int getLastStock() {
+	public long getLastStock() {
 		return lastStock;
 	}
 
@@ -354,7 +358,7 @@ public class Eventanalysis {
 	 * @param lastStock
 	 *            number of items at the end of the analysis period
 	 */
-	public void setLastStock(int lastStock) {
+	public void setLastStock(long lastStock) {
 		this.lastStock = lastStock;
 	}
 
@@ -364,7 +368,7 @@ public class Eventanalysis {
 	 * 
 	 * @return maxLoansAbs maximum number of items loaned
 	 */
-	public int getMaxLoansAbs() {
+	public long getMaxLoansAbs() {
 		return maxLoansAbs;
 	}
 
@@ -374,7 +378,7 @@ public class Eventanalysis {
 	 * @param maxLoansAbs
 	 *            maximum number of items loaned
 	 */
-	public void setMaxLoansAbs(int maxLoansAbs) {
+	public void setMaxLoansAbs(long maxLoansAbs) {
 		this.maxLoansAbs = maxLoansAbs;
 	}
 
@@ -384,7 +388,7 @@ public class Eventanalysis {
 	 * 
 	 * @return maxNumberRequest maximum number of items requested
 	 */
-	public int getMaxNumberRequest() {
+	public long getMaxNumberRequest() {
 		return maxNumberRequest;
 	}
 
@@ -403,7 +407,7 @@ public class Eventanalysis {
 	 * @param maxNumberRequest
 	 *            maximum number of items requested
 	 */
-	public void setMaxNumberRequest(int maxNumberRequest) {
+	public void setMaxNumberRequest(long maxNumberRequest) {
 		this.maxNumberRequest = maxNumberRequest;
 	}
 
@@ -414,7 +418,7 @@ public class Eventanalysis {
 	 * @return maxItemsNeeded maximum number of items needed (stock and
 	 *         requests)
 	 */
-	public int getMaxItemsNeeded() {
+	public long getMaxItemsNeeded() {
 		return maxItemsNeeded;
 	}
 
@@ -425,7 +429,7 @@ public class Eventanalysis {
 	 * @param maxItemsNeeded
 	 *            maximum number of items needed (stock and requests)
 	 */
-	public void setMaxItemsNeeded(int maxItemsNeeded) {
+	public void setMaxItemsNeeded(long maxItemsNeeded) {
 		this.maxItemsNeeded = maxItemsNeeded;
 	}
 
@@ -434,7 +438,7 @@ public class Eventanalysis {
 	 * 
 	 * @return daysRequested days items were requested
 	 */
-	public int getDaysRequested() {
+	public long getDaysRequested() {
 		return daysRequested;
 	}
 
@@ -444,7 +448,7 @@ public class Eventanalysis {
 	 * @param daysRequested
 	 *            days items were requested
 	 */
-	public void setDaysRequested(int daysRequested) {
+	public void setDaysRequested(long daysRequested) {
 		this.daysRequested = daysRequested;
 	}
 
@@ -453,7 +457,7 @@ public class Eventanalysis {
 	 * 
 	 * @return numberRequests number of requests
 	 */
-	public int getNumberRequests() {
+	public long getNumberRequests() {
 		return numberRequests;
 	}
 
@@ -463,7 +467,7 @@ public class Eventanalysis {
 	 * @param numberRequests
 	 *            number of requests
 	 */
-	public void setNumberRequests(int numberRequests) {
+	public void setNumberRequests(long numberRequests) {
 		this.numberRequests = numberRequests;
 	}
 
@@ -472,7 +476,7 @@ public class Eventanalysis {
 	 * 
 	 * @return proposedPurchase number of proposed purchases
 	 */
-	public int getProposedPurchase() {
+	public long getProposedPurchase() {
 		return proposedPurchase;
 	}
 
@@ -482,7 +486,7 @@ public class Eventanalysis {
 	 * @param proposedPurchase
 	 *            number of proposed purchases
 	 */
-	public void setProposedPurchase(int proposedPurchase) {
+	public void setProposedPurchase(long proposedPurchase) {
 		this.proposedPurchase = proposedPurchase;
 	}
 
@@ -491,7 +495,7 @@ public class Eventanalysis {
 	 * 
 	 * @return proposedDeletion number of proposed deletions
 	 */
-	public int getProposedDeletion() {
+	public long getProposedDeletion() {
 		return proposedDeletion;
 	}
 

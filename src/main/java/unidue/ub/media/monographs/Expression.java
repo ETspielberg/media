@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Representation of one expression consisting of different manifestations
@@ -14,11 +15,22 @@ import javax.persistence.Entity;
 @Entity
 public class Expression implements Cloneable {
 
+	@Id
+	private String id;
+
 	private String shelfmarkBase;
 	
 	private BibliographicInformation bibliographicInformation;
 
 	private List<Manifestation> documents = new ArrayList<>();
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	/**
 	 * creates a new <code>Work</code>-object with the given basic shelfmark

@@ -1,4 +1,7 @@
-package unidue.ub.media.analysis;
+package unidue.ub.media.unidue.ub.media.usage;
+
+import unidue.ub.media.unidue.ub.media.usage.Timeline;
+import unidue.ub.media.unidue.ub.media.usage.TimelineGroup;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

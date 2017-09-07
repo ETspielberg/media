@@ -147,7 +147,7 @@ public class Event implements Comparable<Event> {
 			this.delta = 1;
 		else if (type.equals("return") || type.equals("hold") || type.equals("deletion"))
 			this.delta = -1;
-		else 
+		else
 			this.delta = 0;
 		this.borrowerStatus = borrowerStatus;
 		setTimeFields(date, hour);
