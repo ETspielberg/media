@@ -202,4 +202,30 @@ public class BibliographicInformation {
 		keywords.add(keyword);
 	}
 
+	@Override
+	public String toString() {
+		String mab = "";
+		for (int i = 0; i < authors.size(); i++) {
+			if (i > 0)
+				mab += ", ";
+			mab += authors.get(i);
+		}
+		mab += ": " + title + ". ";
+		if (!subtitle.isEmpty())
+			mab += subtitle + ". ";
+		if (!series.isEmpty())
+			mab += "Erschienen in " + series + ".";
+		if (volume != 0)
+			mab += "Band " + volume;
+		if (!edition.isEmpty())
+			mab += edition + ". Ausgabe.";
+		if (!publisher.isEmpty())
+			mab += publisher + ", ";
+		if (!place.isEmpty())
+			mab += place + ", ";
+		if (!year.isEmpty())
+			mab += year + ". ";
+		return mab;
+	}
+
 }

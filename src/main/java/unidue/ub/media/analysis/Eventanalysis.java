@@ -53,6 +53,8 @@ public class Eventanalysis {
 
 	private long lastStock;
 
+	private long lastStockLendable;
+
 	private long maxLoansAbs;
 	
 	private long proposedDeletion;
@@ -88,6 +90,7 @@ public class Eventanalysis {
 		this.shelfmark = "";
 		this.shelfmarkBase = "";
 		this.lastStock = 0;
+		this.lastStockLendable = 0;
 		this.meanStock = 0;
 
 		// maximal Loan from timeline
@@ -361,6 +364,16 @@ public class Eventanalysis {
 	public void setLastStock(long lastStock) {
 		this.lastStock = lastStock;
 	}
+
+	public long getLastStockLendable() {
+		return lastStockLendable;
+	}
+
+	public void setLastStockLendable(long lastStockLendable) {
+		this.lastStockLendable = lastStockLendable;
+	}
+
+
 
 	/**
 	 * retrieves the maximum number of items loaned throughout the period of

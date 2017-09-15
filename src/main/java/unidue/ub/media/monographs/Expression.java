@@ -1,6 +1,9 @@
 package unidue.ub.media.monographs;
 
+import ch.qos.logback.core.joran.event.EndEvent;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,7 +25,7 @@ public class Expression implements Cloneable {
 	
 	private BibliographicInformation bibliographicInformation;
 
-	private List<Manifestation> documents = new ArrayList<>();
+	private List<Manifestation> manifestations = new ArrayList<>();
 
 	public String getId() {
 		return id;
@@ -68,19 +71,19 @@ public class Expression implements Cloneable {
 	 * @param document
 	 *            the document to be added
 	 */
-	public void addDocument(Manifestation document) {
-		documents.add(document);
+	public void addManifestation(Manifestation document) {
+		manifestations.add(document);
 	}
 
 	/**
 	 * checks whether a document is already in this work
 	 *
 	 * @return boolean true if work contains document
-	 * @param document
+	 * @param manifestation
 	 *            the document to be tested
 	 */
-	public boolean contains(Manifestation document) {
-		return document.getShelfmarkBase().equals(this.shelfmarkBase);
+	public boolean contains(Manifestation manifestation) {
+		return manifestation.getShelfmarkBase().equals(this.shelfmarkBase);
 	}
 
 	/**
@@ -89,8 +92,8 @@ public class Expression implements Cloneable {
 	 * @return documents the list of documents
 	 */
 
-	public List<Manifestation> getDocuments() {
-		return documents;
+	public List<Manifestation> getManifestations() {
+		return manifestations;
 	}
 
 	/**
@@ -100,9 +103,16 @@ public class Expression implements Cloneable {
 	 */
 	public List<Event> getEvents() {
 		List<Event> events = new ArrayList<>();
-		for (Manifestation document : documents) {
-			events.addAll(document.getEvents());
+		for (Manifestation manifestation : manifestations) {
+			List<Event> eventsManifestation = manifestation.getEvents();
+			for (Event event : eventsManifestation) {
+				events.add(event);
+				if (event.getEndEvent() != null)
+					events.add(event.getEndEvent());
+			}
+
 		}
+		Collections.sort(events);
 		return events;
 	}
 
@@ -113,7 +123,7 @@ public class Expression implements Cloneable {
 	 */
 	public List<Item> getItems() {
 		List<Item> items = new ArrayList<>();
-		for (Manifestation document : documents) {
+		for (Manifestation document : manifestations) {
 			items.addAll(document.getItems());
 		}
 		return items;
@@ -127,7 +137,7 @@ public class Expression implements Cloneable {
 	 * @return document the document with the corresponding document number
 	 */
 	public Manifestation getDocument(String titleID) {
-		for (Manifestation document : documents)
+		for (Manifestation document : manifestations)
 			if (document.getTitleID().equals(titleID))
 				return document;
 		return null;
@@ -173,7 +183,7 @@ public class Expression implements Cloneable {
 	 * @param documents the documents to set
 	 */
 	public void setDocuments(List<Manifestation> documents) {
-		this.documents = documents;
+		this.manifestations = documents;
 	}
 
 	/**
@@ -183,8 +193,8 @@ public class Expression implements Cloneable {
 	 */
 	public Expression clone() {
 	    Expression clone = new Expression(shelfmarkBase);
-	    for (Manifestation document : documents)
-	        clone.addDocument(document);
+	    for (Manifestation document : manifestations)
+	        clone.addManifestation(document);
 	    return clone;
 	}
 
