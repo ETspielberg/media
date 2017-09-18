@@ -41,11 +41,7 @@ public class Eventanalysis {
 
 	private String shelfmark;
 
-	private String shelfmarkBase;
-
 	private double meanRelativeLoan;
-
-	private double meanStock;
 
 	private double maxRelativeLoan;
 
@@ -74,6 +70,8 @@ public class Eventanalysis {
 	
 	private long proposedPurchase;
 
+	private long calds;
+
 	/**
 	 * Builds a new instance of a <code>EventAnalysis</code>-object, setting
 	 * the individual counters to 0 and the text fields to an empty string.
@@ -88,10 +86,9 @@ public class Eventanalysis {
 		this.stockcontrolId = "";
 		this.materials = "";
 		this.shelfmark = "";
-		this.shelfmarkBase = "";
 		this.lastStock = 0;
 		this.lastStockLendable = 0;
-		this.meanStock = 0;
+		this.calds = 0;
 
 		// maximal Loan from timeline
 		this.maxRelativeLoan = 0;
@@ -111,6 +108,14 @@ public class Eventanalysis {
 		this.proposedPurchase = 0;
 	}
 
+
+	public long getCalds() {
+		return calds;
+	}
+
+	public void setCalds(long calds) {
+		this.calds = calds;
+	}
 
 	/**
 	 * retrieves the description of the <code>stockcontrolProperties</code> used
@@ -277,15 +282,6 @@ public class Eventanalysis {
 	 */
 	public double getMeanRelativeLoan() {
 		return meanRelativeLoan;
-	}
-
-	/**
-	 * retrieves the mean number of items in stock throughout the analysis
-	 * 
-	 * @return meanStock mean number of items in stock
-	 */
-	public double getMeanStock() {
-		return meanStock;
 	}
 
 	/**
@@ -522,15 +518,6 @@ public class Eventanalysis {
 		this.meanRelativeLoan = meanRelativeLoan;
 	}
 
-	/**
-	 * set the mean stock throughout the period of analysis
-	 * 
-	 * @param meanStock
-	 *            the mean stock
-	 */
-	public void setMeanStock(double meanStock) {
-		this.meanStock = meanStock;
-	}
 
 	/**
 	 * set the comment of the analysis
@@ -542,24 +529,6 @@ public class Eventanalysis {
 		this.comment = comment;
 	}
 
-	/**
-	 * retrieve the basic shelfmark without the edition information
-	 * 
-	 * @return the shelfmarkBase
-	 */
-	public String getShelfmarkBase() {
-		return shelfmarkBase;
-	}
-
-	/**
-	 * set the basic shelfmark without the edition information
-	 * 
-	 * @param shelfmarkBase
-	 *            the shelfmarkBase to set
-	 */
-	public void setShelfmarkBase(String shelfmarkBase) {
-		this.shelfmarkBase = shelfmarkBase;
-	}
 
 	/**
 	 * @return the status
@@ -574,4 +543,6 @@ public class Eventanalysis {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+
 }

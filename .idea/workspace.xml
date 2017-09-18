@@ -4,8 +4,6 @@
     <list default="true" id="31be5ed4-c411-4787-ace2-9d1e1338b95e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,13 +88,14 @@
       <file leaf-file-name="Eventanalysis.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3485">
-              <caret line="373" column="5" lean-forward="false" selection-start-line="373" selection-start-column="5" selection-end-line="373" selection-end-column="5" />
+            <state relative-caret-position="306">
+              <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
               <folding>
-                <element signature="e#7591#7592#0" expanded="true" />
-                <element signature="e#7622#7623#0" expanded="true" />
-                <element signature="e#7683#7684#0" expanded="true" />
-                <element signature="e#7732#7733#0" expanded="true" />
+                <element signature="e#2177#2178#0" expanded="true" />
+                <element signature="e#2214#2215#0" expanded="true" />
+                <element signature="e#2239#2240#0" expanded="true" />
+                <element signature="e#7527#7528#0" expanded="true" />
+                <element signature="e#7576#7577#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,7 +104,7 @@
       <file leaf-file-name="BibliographicInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="2431">
               <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
               <folding>
                 <element signature="e#1594#1595#0" expanded="true" />
@@ -118,7 +117,7 @@
       <file leaf-file-name="Expression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="1581">
               <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
               <folding>
                 <element signature="e#624#625#0" expanded="true" />
@@ -208,8 +207,8 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/UsageData.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/Collection.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
       </list>
     </option>
   </component>
@@ -247,6 +246,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -336,9 +338,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -788,12 +787,13 @@
       <workItem from="1504766222625" duration="305000" />
       <workItem from="1504767349366" duration="2672000" />
       <workItem from="1505194640217" duration="617000" />
-      <workItem from="1505288790099" duration="5156000" />
+      <workItem from="1505288790099" duration="5408000" />
+      <workItem from="1505710743751" duration="718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80196000" />
+    <option name="totallyTimeSpent" value="81166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -1205,7 +1205,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="2431">
           <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
           <folding>
             <element signature="e#1594#1595#0" expanded="true" />
@@ -1216,7 +1216,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
+        <state relative-caret-position="1581">
           <caret line="114" column="33" lean-forward="false" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
           <folding>
             <element signature="e#624#625#0" expanded="true" />
@@ -1229,13 +1229,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3485">
-          <caret line="373" column="5" lean-forward="false" selection-start-line="373" selection-start-column="5" selection-end-line="373" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
           <folding>
-            <element signature="e#7591#7592#0" expanded="true" />
-            <element signature="e#7622#7623#0" expanded="true" />
-            <element signature="e#7683#7684#0" expanded="true" />
-            <element signature="e#7732#7733#0" expanded="true" />
+            <element signature="e#2177#2178#0" expanded="true" />
+            <element signature="e#2214#2215#0" expanded="true" />
+            <element signature="e#2239#2240#0" expanded="true" />
+            <element signature="e#7527#7528#0" expanded="true" />
+            <element signature="e#7576#7577#0" expanded="true" />
           </folding>
         </state>
       </provider>
