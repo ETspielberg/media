@@ -22,8 +22,6 @@ public class Expression implements Cloneable {
 	private String id;
 
 	private String shelfmarkBase;
-	
-	private BibliographicInformation bibliographicInformation;
 
 	private List<Manifestation> manifestations = new ArrayList<>();
 
@@ -169,15 +167,11 @@ public class Expression implements Cloneable {
 	 * @return the bibliographicInformation
 	 */
 	public BibliographicInformation getBibliographicInformation() {
-		return bibliographicInformation;
+		Collections.sort(manifestations);
+		BibliographicInformation information = manifestations.get(manifestations.size()-1).getBibliographicInformation();
+		return information;
 	}
 
-	/**
-	 * @param bibliographicInformation the bibliographicInformation to set
-	 */
-	public void setBibliographicInformation(BibliographicInformation bibliographicInformation) {
-		this.bibliographicInformation = bibliographicInformation;
-	}
 
 	/**
 	 * @param documents the documents to set

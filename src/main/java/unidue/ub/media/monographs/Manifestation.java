@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * @author Frank L\u00FCtzenkirchen, Eike Spielberg
  * @version 1
  */
-public class Manifestation implements Cloneable {
+public class Manifestation implements Cloneable,Comparable<Manifestation> {
 
 	private final static Pattern editionFinder = Pattern.compile(".*\\((\\d+)\\).*");
 
@@ -204,6 +204,12 @@ public class Manifestation implements Cloneable {
 	private void buildEdition(String shelfmark) {
 		Matcher m = editionFinder.matcher(shelfmark);
 		edition = m.matches() ? m.group(1) : "1";
+	}
+
+	public int compareTo(Manifestation other) {
+		if (Integer.parseInt(this.edition) > Integer.parseInt(other.getEdition()))
+			return 1;
+		else return -1;
 	}
 
 	public boolean contains(String shelfmark) {
