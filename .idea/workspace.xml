@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31be5ed4-c411-4787-ace2-9d1e1338b95e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/JournalTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MonographTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Counter.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Counter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Collection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/Collection.java">
+      <file leaf-file-name="MonographTools.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="731">
+              <caret line="147" column="4" lean-forward="false" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -50,12 +48,9 @@
       <file leaf-file-name="BibliographicInformation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
-              <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
-              <folding>
-                <element signature="e#1594#1595#0" expanded="true" />
-                <element signature="e#1615#1616#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-612">
+              <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,7 +58,7 @@
       <file leaf-file-name="Expression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
+            <state relative-caret-position="2618">
               <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
               <folding />
             </state>
@@ -73,70 +68,20 @@
       <file leaf-file-name="JournalCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1156#1157#0" expanded="true" />
-                <element signature="e#1173#1174#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1271#1272#0" expanded="true" />
-                <element signature="e#1352#1353#0" expanded="true" />
-                <element signature="e#1370#1371#0" expanded="true" />
-                <element signature="e#1451#1452#0" expanded="true" />
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1546#1547#0" expanded="true" />
-                <element signature="e#1567#1568#0" expanded="true" />
-                <element signature="e#1674#1675#0" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#2339#2340#0" expanded="true" />
-                <element signature="e#2371#2372#0" expanded="true" />
-                <element signature="e#2498#2499#0" expanded="true" />
-                <element signature="e#2531#2532#0" expanded="true" />
-                <element signature="e#2665#2666#0" expanded="true" />
-                <element signature="e#2700#2701#0" expanded="true" />
-                <element signature="e#2823#2824#0" expanded="true" />
-                <element signature="e#2854#2855#0" expanded="true" />
-                <element signature="e#2984#2985#0" expanded="true" />
-                <element signature="e#3016#3017#0" expanded="true" />
-                <element signature="e#3144#3145#0" expanded="true" />
-                <element signature="e#3171#3172#0" expanded="true" />
-                <element signature="e#3277#3278#0" expanded="true" />
-                <element signature="e#3304#3305#0" expanded="true" />
-                <element signature="e#3413#3414#0" expanded="true" />
-                <element signature="e#3441#3442#0" expanded="true" />
-                <element signature="e#3579#3580#0" expanded="true" />
-                <element signature="e#3614#3615#0" expanded="true" />
-                <element signature="e#3772#3773#0" expanded="true" />
-                <element signature="e#3813#3814#0" expanded="true" />
-                <element signature="e#3949#3950#0" expanded="true" />
-                <element signature="e#3983#3984#0" expanded="true" />
-                <element signature="e#4138#4139#0" expanded="true" />
-                <element signature="e#4178#4179#0" expanded="true" />
-                <element signature="e#4319#4320#0" expanded="true" />
-                <element signature="e#4352#4353#0" expanded="true" />
-                <element signature="e#4512#4513#0" expanded="true" />
-                <element signature="e#4551#4552#0" expanded="true" />
-                <element signature="e#4717#4718#0" expanded="true" />
-                <element signature="e#4753#4754#0" expanded="true" />
-                <element signature="e#6487#6488#0" expanded="true" />
-                <element signature="e#6509#6510#0" expanded="true" />
-                <element signature="e#9448#9449#0" expanded="true" />
-                <element signature="e#9464#9465#0" expanded="true" />
-                <marker date="1506943665299" expanded="false" signature="10449:10454" ph=" { " />
-                <marker date="1506943665299" expanded="false" signature="10470:10473" ph=" }" />
-                <marker date="1506943665299" expanded="false" signature="10566:10571" ph=" { " />
-                <marker date="1506943665299" expanded="false" signature="10596:10599" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseCounter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1039#1040#0" expanded="true" />
@@ -168,13 +113,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java">
+      <file leaf-file-name="JournalTools.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Nrequests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+              <folding>
+                <element signature="e#1508#1509#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#1574#1575#0" expanded="true" />
+                <element signature="e#1597#1598#0" expanded="true" />
+                <element signature="e#1632#1633#0" expanded="true" />
+                <element signature="e#1659#1660#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+                <element signature="e#1904#1905#0" expanded="true" />
+                <element signature="e#4921#4922#0" expanded="true" />
+                <element signature="e#4965#4966#0" expanded="true" />
+                <element signature="e#4995#4996#0" expanded="true" />
+                <element signature="e#5049#5050#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,8 +161,8 @@
       <file leaf-file-name="EbookCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2278">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="697">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1440#1441#0" expanded="true" />
@@ -295,7 +273,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Documentanalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Item.java" />
@@ -313,7 +290,6 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/UsageData.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/Collection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java" />
@@ -321,8 +297,13 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" />
       </list>
     </option>
   </component>
@@ -340,9 +321,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
-    <option name="width" value="1856" />
-    <option name="height" value="1080" />
+    <option name="x" value="985" />
+    <option name="width" value="942" />
+    <option name="height" value="1087" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -360,8 +341,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -430,6 +411,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="media" type="b2602c69:ProjectViewProjectNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
               <item name="usage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -451,7 +441,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -903,12 +893,14 @@
       <workItem from="1505194640217" duration="617000" />
       <workItem from="1505288790099" duration="5408000" />
       <workItem from="1505710743751" duration="2304000" />
-      <workItem from="1506687758797" duration="10919000" />
+      <workItem from="1506687758797" duration="12220000" />
+      <workItem from="1507020026771" duration="4890000" />
+      <workItem from="1507535219769" duration="6767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93671000" />
+    <option name="totallyTimeSpent" value="106629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -930,7 +922,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1648707" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -944,6 +935,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -954,7 +946,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1155,13 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="280" column="26" lean-forward="false" selection-start-line="280" selection-start-column="21" selection-end-line="280" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MabBlob.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl">
       <provider selected="true" editor-type-id="text-editor">
@@ -1193,32 +1186,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/JournalTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/TimeAndCount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="63" column="5" lean-forward="false" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#995#996#0" expanded="false" />
-            <element signature="e#1050#1051#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MonographTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="27" column="78" lean-forward="false" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,9 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1244,9 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1254,30 +1219,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#912#913#0" expanded="false" />
-            <element signature="e#982#983#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/Collection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="85">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
-          <folding>
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,19 +1246,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Expression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
+        <state relative-caret-position="2618">
           <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,7 +1256,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,8 +1269,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2278">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1440#1441#0" expanded="true" />
@@ -1397,70 +1335,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1370#1371#0" expanded="true" />
-            <element signature="e#1451#1452#0" expanded="true" />
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1546#1547#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1674#1675#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#2339#2340#0" expanded="true" />
-            <element signature="e#2371#2372#0" expanded="true" />
-            <element signature="e#2498#2499#0" expanded="true" />
-            <element signature="e#2531#2532#0" expanded="true" />
-            <element signature="e#2665#2666#0" expanded="true" />
-            <element signature="e#2700#2701#0" expanded="true" />
-            <element signature="e#2823#2824#0" expanded="true" />
-            <element signature="e#2854#2855#0" expanded="true" />
-            <element signature="e#2984#2985#0" expanded="true" />
-            <element signature="e#3016#3017#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-            <element signature="e#3277#3278#0" expanded="true" />
-            <element signature="e#3304#3305#0" expanded="true" />
-            <element signature="e#3413#3414#0" expanded="true" />
-            <element signature="e#3441#3442#0" expanded="true" />
-            <element signature="e#3579#3580#0" expanded="true" />
-            <element signature="e#3614#3615#0" expanded="true" />
-            <element signature="e#3772#3773#0" expanded="true" />
-            <element signature="e#3813#3814#0" expanded="true" />
-            <element signature="e#3949#3950#0" expanded="true" />
-            <element signature="e#3983#3984#0" expanded="true" />
-            <element signature="e#4138#4139#0" expanded="true" />
-            <element signature="e#4178#4179#0" expanded="true" />
-            <element signature="e#4319#4320#0" expanded="true" />
-            <element signature="e#4352#4353#0" expanded="true" />
-            <element signature="e#4512#4513#0" expanded="true" />
-            <element signature="e#4551#4552#0" expanded="true" />
-            <element signature="e#4717#4718#0" expanded="true" />
-            <element signature="e#4753#4754#0" expanded="true" />
-            <element signature="e#6487#6488#0" expanded="true" />
-            <element signature="e#6509#6510#0" expanded="true" />
-            <element signature="e#9448#9449#0" expanded="true" />
-            <element signature="e#9464#9465#0" expanded="true" />
-            <marker date="1506943665299" expanded="false" signature="10449:10454" ph=" { " />
-            <marker date="1506943665299" expanded="false" signature="10470:10473" ph=" }" />
-            <marker date="1506943665299" expanded="false" signature="10566:10571" ph=" { " />
-            <marker date="1506943665299" expanded="false" signature="10596:10599" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1039#1040#0" expanded="true" />
@@ -1488,6 +1366,71 @@
             <element signature="e#2604#2605#0" expanded="true" />
             <element signature="e#2650#2651#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+          <folding>
+            <element signature="e#1508#1509#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1574#1575#0" expanded="true" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#4921#4922#0" expanded="true" />
+            <element signature="e#4965#4966#0" expanded="true" />
+            <element signature="e#4995#4996#0" expanded="true" />
+            <element signature="e#5049#5050#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="147" column="4" lean-forward="false" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

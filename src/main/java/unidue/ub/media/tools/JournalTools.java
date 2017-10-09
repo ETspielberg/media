@@ -1,4 +1,4 @@
-package unidue.ub.media.journals;
+package unidue.ub.media.tools;
 
 import java.time.LocalDate;
 import java.util.HashSet;

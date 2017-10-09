@@ -64,13 +64,24 @@ public class BibliographicInformation {
 		this.titleId = titleId;
 		this.authors = authors;
 		this.title = title;
-		this.type = "basic";
+		type = "basic";
+		isbn = "";
+		subtitle = "";
+		publisher = "";
+		place = "";
+		year = "";
+		edition = "";
+		series = "";
+		volume = 0;
+		keywords = new ArrayList<>();
 	}
 
 	public BibliographicInformation() {
+		titleId = "";
 		isbn = "";
 		authors = new ArrayList<>();
 		title = "";
+		subtitle = "";
 		publisher = "";
 		place = "";
 		year = "";
@@ -205,12 +216,15 @@ public class BibliographicInformation {
 	@Override
 	public String toString() {
 		String mab = "";
-		for (int i = 0; i < authors.size(); i++) {
-			if (i > 0)
-				mab += ", ";
-			mab += authors.get(i);
+		if (authors != null) {
+			for (int i = 0; i < authors.size(); i++) {
+				if (i > 0)
+					mab += ", ";
+				mab += authors.get(i);
+			}
 		}
-		mab += ": " + title + ". ";
+		if (!title.isEmpty())
+			mab += ": " + title + ". ";
 		if (!subtitle.isEmpty())
 			mab += subtitle + ". ";
 		if (!series.isEmpty())

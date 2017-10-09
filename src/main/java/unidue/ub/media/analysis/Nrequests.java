@@ -4,13 +4,14 @@
 package unidue.ub.media.analysis;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import unidue.ub.media.monographs.Event;
+import unidue.ub.media.monographs.Item;
+import unidue.ub.media.monographs.Manifestation;
 
 /**
  * Plain old java object holding the entrie of the requests hitlist. 
@@ -31,23 +32,18 @@ public class Nrequests implements Cloneable {
 	
 	private double ratio;
 	
-	private int NRequests;
+	public int NRequests;
 	
-	private int NItems;
+	public int NItems;
 	
-	private int NLoans;
+	public int NLoans;
 	
-	private int NLendable;
+	public int NLendable;
 	
-	private int duration;
-	
-	private String status;
-	
-	private String alertControl;
-	
-	private boolean forAlert;
-	
-	private boolean forReader;
+	public long totalDuration;
+
+	@Transient
+	private List<String> forAlertControls;
 	
 	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
 	private Date date = new Date();
@@ -64,10 +60,31 @@ public class Nrequests implements Cloneable {
 		NLoans = 0;
 		NLendable = 1;
 		mab = "";
-		duration = 1;
-		alertControl = "";
-		forAlert = false;
-		forReader = false;
+		totalDuration = 1L;
+	}
+
+	public Nrequests(String titleId,String shelfmark, double ratio, int NItems, int NLendable, int NRequests, int NLoans) {
+		this.titleId = titleId;
+		this.shelfmark = shelfmark;
+		this.NItems = NItems;
+		this.NLendable = NLendable;
+		this.NLoans = NLoans;
+		this.NRequests = NRequests;
+		this.ratio = ratio;
+		this.mab = "";
+		this.totalDuration = 1L;
+	}
+
+	public void setShelfmark(String shelfmark) {
+		this.shelfmark = shelfmark;
+	}
+
+	public String getShelfmark() {
+		return shelfmark;
+	}
+
+	public long getTotalDuration() {
+		return totalDuration;
 	}
 
 	/**
@@ -82,16 +99,16 @@ public class Nrequests implements Cloneable {
 	 * returns the duration of requests
 	 * @return the duration
 	 */
-	public int getDuration() {
-		return duration;
+	public long geTotalDuration() {
+		return totalDuration;
 	}
 
 	/**
 	 * sets the duration
-	 * @param duration the duration to set
+	 * @param totalDuration the duration to set
 	 */
-	public void setDuration(int duration) {
-		this.duration = duration;
+	public void setTotalDuration(long totalDuration) {
+		this.totalDuration = totalDuration;
 	}
 
 	/**
@@ -234,75 +251,39 @@ public class Nrequests implements Cloneable {
      * returns the alert control 
      * @return the alert control
      */
-    public String getAlertControl() {
-        return alertControl;
+    public List<String> getForAlertControls() {
+        return forAlertControls;
     }
 
     /**
      * sets the number of alert control
-     * @param alertControl the alert control to set
+     * @param forAlertControls the alert control to set
      */
-    public void setAlertControl(String alertControl) {
-        this.alertControl = alertControl;
-    }
-    
-    /**
-     * returns the boolean whether the entry is within the scope of an alert control
-     * @return true, if the thresholds are surpassed
-     */
-    public boolean getForAlert() {
-        return forAlert;
+    public void setForAlertControls(List<String> forAlertControls) {
+        this.forAlertControls = forAlertControls;
     }
 
-    /**
-     * sets the boolean whether the entry is within the scope of an alert control
-     * @param forAlert true, if the thresholds are surpassed
-     */
-    public void setForAlert(boolean forAlert) {
-        this.forAlert = forAlert;
-    }
-	
-    /**
-     * returns the boolean whether the entry is within the scope of a reader control
-     * @return true, if the thresholds are surpassed
-     */
-    public boolean getForReader() {
-        return forReader;
-    }
 
-    /**
-     * sets the boolean whether the entry is within the scope of a reader control
-     * @param forReader true, if the thresholds are surpassed
-     */
-    public void setForReader(boolean forReader) {
-        this.forReader = forReader;
-    }
+    public void addForAlertControls(String forAlertControl) {
+		forAlertControls.add(forAlertControl);
+	}
+
+	public void updateRatio() {
+		ratio = (double) NRequests / (double) NLendable;
+	}
+
 
 	public Nrequests clone() {
 	    Nrequests clone = new Nrequests();
-	    clone.setAlertControl(alertControl);
 	    clone.setCallNo(shelfmark);
 	    clone.setTitleId(titleId);
-	    clone.setDuration(duration);
+	    clone.setTotalDuration(totalDuration);
 	    clone.setMab(mab);
 	    clone.setNItems(NItems);
 	    clone.setNLendable(NLendable);
 	    clone.setNLoans(NLoans);
 	    clone.setNRequests(NRequests);
+	    clone.setForAlertControls(forAlertControls);
 	    return clone;   
-	}
-
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(String status) {
-		this.status = status;
 	}
 } 

@@ -1,10 +1,14 @@
-package unidue.ub.media.analysis;
+package unidue.ub.media.tools;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
+import unidue.ub.media.analysis.Counter;
+import unidue.ub.media.analysis.DatabaseCounter;
+import unidue.ub.media.analysis.EbookCounter;
+import unidue.ub.media.analysis.JournalCounter;
 
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
@@ -35,7 +39,7 @@ public class CounterTools {
      * @exception IOException thrown upon errors occurring writing of the SUSHI response to the SAX-Buuilder
      * @exception JDOMException thrown upon errors parsing the xml structure of the SUSHI response
      */
-    public static List<Counter> convertSOAPMessageToCounters(SOAPMessage sushi) throws SOAPException, IOException, JDOMException {
+    public static List<? extends Counter> convertSOAPMessageToCounters(SOAPMessage sushi) throws SOAPException, IOException, JDOMException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         sushi.writeTo(out);
         String sushiString = new String(out.toByteArray());
@@ -45,14 +49,13 @@ public class CounterTools {
         Element report = sushiElement.getChild("Body", namespaceSOAP).getChild("ReportResponse", namespaceSushiCounter).getChild("Report", namespaceSushiCounter).getChild("Report", namespaceCounter);
         String type = report.getAttributeValue("Name");
         List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
-        List<Counter> counters = new ArrayList<>();
         switch (type) {
-            case "JR1" : counters.addAll(convertCounterElementsToJournalCounters(reportItems));
-            case "BR2" : counters.addAll(convertCounterElementsToEbookCounters(reportItems));
-            case "DR1" : counters.addAll(convertCounterElementsToDatabaseCounters(reportItems));
+            case "JR1" : return convertCounterElementsToJournalCounters(reportItems);
+            case "BR2" : return convertCounterElementsToEbookCounters(reportItems);
+            case "DR1" : return convertCounterElementsToDatabaseCounters(reportItems);
         }
 
-        return counters;
+        return null;
     }
 
     public static List<DatabaseCounter> convertCounterElementsToDatabaseCounters(List<Element> reportItems) {
