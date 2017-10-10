@@ -7,6 +7,8 @@ import java.time.LocalDate;
 @Entity
 public class DatabaseCounter extends Counter {
 
+    private String title = "";
+
     private String platform = "";
 
     private String publisher = "";
@@ -41,6 +43,14 @@ public class DatabaseCounter extends Counter {
         this.month = month;
         this.year = year;
         id = year + month + publisher + platform;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getId() {

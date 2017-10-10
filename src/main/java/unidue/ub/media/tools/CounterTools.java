@@ -51,6 +51,7 @@ public class CounterTools {
         List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
         switch (type) {
             case "JR1" : return convertCounterElementsToJournalCounters(reportItems);
+            case "BR1" : return convertCounterElementsToEbookCounters(reportItems);
             case "BR2" : return convertCounterElementsToEbookCounters(reportItems);
             case "DR1" : return convertCounterElementsToDatabaseCounters(reportItems);
         }
@@ -63,6 +64,7 @@ public class CounterTools {
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
+            String title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
@@ -71,18 +73,27 @@ public class CounterTools {
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 DatabaseCounter counter = new DatabaseCounter(publisher,platform,month,year);
+                counter.setTitle(title);
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
-                        case "record_view":
+                        case "record_view": {
                             counter.setRecordViews(value);
-                        case "result_click":
+                            break;
+                        }
+                        case "result_click": {
                             counter.setResultClicks(value);
-                        case "search_reg":
+                            break;
+                        }
+                        case "search_reg": {
                             counter.setRegularSearches(value);
-                        case "search_fed":
+                            break;
+                        }
+                        case "search_fed": {
                             counter.setFederatedAndAutomatedSearches(value);
+                            break;
+                        }
                     }
                 }
                 counters.add(counter);
@@ -96,6 +107,7 @@ public class CounterTools {
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
+            String title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             List<Element> identifiers = item.getChildren("ItemIdentifier", namespaceCounter);
             String onlineIsbn = "";
@@ -107,11 +119,26 @@ public class CounterTools {
                 String identifierType = identifier.getChild("Type", namespaceCounter).getValue();
                 String value = identifier.getChild("Value", namespaceCounter).getValue();
                 switch (identifierType) {
-                    case "Online_ISBN" : onlineIsbn = value;
-                    case "Print_ISBN" : printIsbn = value;
-                    case "ISNI" : isni = value;
-                    case "DOI" : doi = value;
-                    case "Proprietary" : proprietary = value;
+                    case "Online_ISBN" : {
+                        onlineIsbn = value;
+                        break;
+                    }
+                    case "Print_ISBN" : {
+                        printIsbn = value;
+                        break;
+                    }
+                    case "ISNI" : {
+                        isni = value;
+                        break;
+                    }
+                    case "DOI" : {
+                        doi = value;
+                        break;
+                    }
+                    case "Proprietary" : {
+                        proprietary = value;
+                        break;
+                    }
                 }
             }
             for (Element itemPerformance : itemPerformances) {
@@ -121,27 +148,43 @@ public class CounterTools {
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 EbookCounter counter = new EbookCounter(onlineIsbn,platform,month,year);
-                counter.setDoi(doi).setProprietaryIdentifier(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher);
+                counter.setDoi(doi).setProprietaryIdentifier(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher).setTitle(title);
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
-                        case "ft_pdf":
+                        case "ft_pdf": {
                             counter.setPdfRequests(value);
-                        case "ft_pdf_mobile":
+                            break;
+                        }
+                        case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
-                        case "ft_html":
+                            break;
+                        }
+                        case "ft_html": {
                             counter.setHtmlRequests(value);
-                        case "ft_html_mobile":
+                            break;
+                        }
+                        case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
-                        case "ft_ps":
+                            break;
+                        }
+                        case "ft_ps": {
                             counter.setPsRequests(value);
-                        case "ft_ps_mobile":
+                            break;
+                        }
+                        case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
-                        case "ft_epub":
+                            break;
+                        }
+                        case "ft_epub": {
                             counter.setEpubRequest(value);
-                        case "ft_total":
+                            break;
+                        }
+                        case "ft_total": {
                             counter.setTotalRequests(value);
+                            break;
+                        }
                     }
                 }
                 counters.add(counter);
@@ -165,9 +208,18 @@ public class CounterTools {
                 String identifierType = identifier.getChild("Type", namespaceCounter).getValue();
                 String value = identifier.getChild("Value", namespaceCounter).getValue();
                 switch (identifierType) {
-                    case "Online_ISSN" : onlineISSN = value;
-                    case "Print_ISSN" : printISSN = value;
-                    case "Proprietary" : proprietary = value;
+                    case "Online_ISSN" :  {
+                        onlineISSN = value;
+                        break;
+                    }
+                    case "Print_ISSN" : {
+                        printISSN = value;
+                        break;
+                    }
+                    case "Proprietary" : {
+                        proprietary = value;
+                        break;
+                    }
                 }
             }
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
@@ -183,20 +235,34 @@ public class CounterTools {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
-                        case "ft_html":
+                        case "ft_html": {
                             counter.setHtmlRequests(value);
-                        case "ft_html_mobile":
+                            break;
+                        }
+                        case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
-                        case "ft_pdf":
+                            break;
+                        }
+                        case "ft_pdf": {
                             counter.setPdfRequests(value);
-                        case "ft_pdf_mobile":
+                            break;
+                        }
+                        case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
-                        case "ft_ps":
+                            break;
+                        }
+                        case "ft_ps": {
                             counter.setPsRequests(value);
-                        case "ft_ps_mobile":
+                            break;
+                        }
+                        case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
-                        case "ft_total":
+                            break;
+                        }
+                        case "ft_total": {
                             counter.setTotalRequests(value);
+                            break;
+                        }
                     }
                     counters.add(counter);
                 }
