@@ -3,6 +3,7 @@ package unidue.ub.media.tools;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
@@ -143,6 +144,7 @@ public class MonographTools {
             }
         }
         if (nrequests.NRequests > 0) {
+            nrequests.setDate(new Date());
             nrequests.setTitleId(manifestation.getTitleID());
             nrequests.setShelfmark(manifestation.getShelfmark());
             nrequests.setMab(manifestation.getBibliographicInformation().toString());
