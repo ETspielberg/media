@@ -5,6 +5,8 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import unidue.ub.media.analysis.Counter;
 import unidue.ub.media.analysis.DatabaseCounter;
 import unidue.ub.media.analysis.EbookCounter;
@@ -31,6 +33,8 @@ public class CounterTools {
 
     private static final Namespace namespaceSOAP = Namespace.getNamespace("http://schemas.xmlsoap.org/soap/envelope/");
 
+    public final static Logger log = LoggerFactory.getLogger(CounterTools.class);
+
     /**
      * returns a list of <code>Counter</code> objects generated from the response of a SUSHI request.
      * @param sushi the SUSHI response
@@ -46,14 +50,23 @@ public class CounterTools {
         SAXBuilder builder = new SAXBuilder();
         Document sushiDoc = builder.build(new StringReader(sushiString));
         Element sushiElement = sushiDoc.detachRootElement().clone();
-        Element report = sushiElement.getChild("Body", namespaceSOAP).getChild("ReportResponse", namespaceSushiCounter).getChild("Report", namespaceSushiCounter).getChild("Report", namespaceCounter);
-        String type = report.getAttributeValue("Name");
-        List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
-        switch (type) {
-            case "JR1" : return convertCounterElementsToJournalCounters(reportItems);
-            case "BR1" : return convertCounterElementsToEbookCounters(reportItems);
-            case "BR2" : return convertCounterElementsToEbookCounters(reportItems);
-            case "DR1" : return convertCounterElementsToDatabaseCounters(reportItems);
+        try {
+            Element report = sushiElement.getChild("Body", namespaceSOAP).getChild("ReportResponse", namespaceSushiCounter).getChild("Report", namespaceSushiCounter).getChild("Report", namespaceCounter);
+            String type = report.getAttributeValue("Name");
+            List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
+            switch (type) {
+                case "JR1":
+                    return convertCounterElementsToJournalCounters(reportItems);
+                case "BR1":
+                    return convertCounterElementsToEbookCounters(reportItems);
+                case "BR2":
+                    return convertCounterElementsToEbookCounters(reportItems);
+                case "DR1":
+                    return convertCounterElementsToDatabaseCounters(reportItems);
+            }
+        } catch (Exception e) {
+            log.info("could not convert SOAP response: \n");
+            log.info(sushiString);
         }
 
         return null;
