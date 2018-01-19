@@ -12,6 +12,8 @@ public class EbookCounter extends Counter {
 
     private String title = "";
 
+    private String profile;
+
     private String publisher = "";
 
     private String doi = "";
@@ -222,5 +224,13 @@ public class EbookCounter extends Counter {
 
     public void setEpubRequest(long epubRequest) {
         this.epubRequest = epubRequest;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }

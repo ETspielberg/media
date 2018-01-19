@@ -18,6 +18,8 @@ public class JournalCounter extends Counter {
     
     @Id
     private String id;
+
+    private String profile;
     
     private String printIssn = "";
     
@@ -437,5 +439,12 @@ public class JournalCounter extends Counter {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
+    }
 }

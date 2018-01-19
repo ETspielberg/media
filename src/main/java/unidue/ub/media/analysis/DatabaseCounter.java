@@ -11,6 +11,8 @@ public class DatabaseCounter extends Counter {
 
     private String platform = "";
 
+    private String profile;
+
     private String publisher = "";
 
     private int month;
@@ -123,5 +125,13 @@ public class DatabaseCounter extends Counter {
 
     public void setRecordViews(long recordViews) {
         this.recordViews = recordViews;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }

@@ -1,13 +1,12 @@
 package unidue.ub.media.analysis;
 
-import java.time.LocalDate;
-
 public abstract class Counter implements Comparable<Counter>{
 
     private int month;
 
     private int year;
 
+    private String profile;
 
     /**
      * compares one COUNTER report to the other. Allows for time-dependent ordering of COUNTER reports.
@@ -28,5 +27,4 @@ public abstract class Counter implements Comparable<Counter>{
                 return this.month - other.month;
         }
     }
-
 }

@@ -19,6 +19,8 @@ public class Journaldata {
 
     private double impactfactor;
 
+    private double journalrank;
+
     private String anchor;
 
     private String[] orders;
@@ -96,6 +98,14 @@ public class Journaldata {
     public Journaldata setSnip(double snip) {
         this.snip = snip;
         return this;
+    }
+
+    public double getJournalrank() {
+        return journalrank;
+    }
+
+    public void setJournalrank(double journalrank) {
+        this.journalrank = journalrank;
     }
 
     public int getYear() {
