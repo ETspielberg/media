@@ -226,6 +226,7 @@ public class CounterTools {
         List<JournalCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
             String fullname = item.getChild("ItemName", namespaceCounter).getValue();
+            log.info("reading data for " + fullname);
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
             String type = item.getChild("ItemDataType", namespaceCounter).getValue();
@@ -256,7 +257,6 @@ public class CounterTools {
             }
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             for (Element itemPerformance : itemPerformances) {
-
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);

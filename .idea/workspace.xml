@@ -156,8 +156,8 @@
       <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="109" column="76" lean-forward="false" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
+            <state relative-caret-position="-116">
+              <caret line="258" column="62" lean-forward="false" selection-start-line="258" selection-start-column="62" selection-end-line="258" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -841,12 +841,12 @@
       <workItem from="1516200925557" duration="1396000" />
       <workItem from="1516266761723" duration="4201000" />
       <workItem from="1516604400830" duration="9000" />
-      <workItem from="1516612091295" duration="3253000" />
+      <workItem from="1516612091295" duration="4505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145955000" />
+    <option name="totallyTimeSpent" value="147207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -1334,8 +1334,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="109" column="76" lean-forward="false" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
+        <state relative-caret-position="-116">
+          <caret line="258" column="62" lean-forward="false" selection-start-line="258" selection-start-column="62" selection-end-line="258" selection-end-column="62" />
           <folding />
         </state>
       </provider>
