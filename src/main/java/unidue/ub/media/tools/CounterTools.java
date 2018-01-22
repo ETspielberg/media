@@ -73,23 +73,27 @@ public class CounterTools {
 
     public static List<DatabaseCounter> convertCounterElementsToDatabaseCounters(List<Element> reportItems) {
         List<DatabaseCounter> counters = new ArrayList<>();
+        int metricsConverted = 0;
+        int metricsTotal= 0;
+        log.info("found usage data for " + reportItems.size() + " items.");
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
             String title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
-            log.info("found usage data for " + itemPerformances.size() + " items.");
+            log.info("found usage data for " + itemPerformances.size() + " time ranges.");
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
+                log.info("reading metrics for " + month + "-" + year);
                 DatabaseCounter counter = new DatabaseCounter(publisher,platform,month,year);
                 counter.setTitle(title);
-                int metricsConverted = 0;
-                int metricsTotal = instances.size();
+
                 for (Element instance : instances) {
+                    metricsTotal++;
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
@@ -113,17 +117,24 @@ public class CounterTools {
                             metricsConverted++;
                             break;
                         }
+                        default: {
+                            log.info("not a categorized metric.");
+                        }
                     }
                 }
                 counters.add(counter);
-                log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
+
             }
         }
+        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
         log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
+        int metricsConverted = 0;
+        int metricsTotal= 0;
+        log.info("found usage data for " + reportItems.size() + " items.");
         List<EbookCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
@@ -159,6 +170,8 @@ public class CounterTools {
                     case "Proprietary" : {
                         proprietary = value;
                         break;
+                    }default: {
+                        log.info("not a categorized identifier type.");
                     }
                 }
             }
@@ -170,8 +183,6 @@ public class CounterTools {
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 EbookCounter counter = new EbookCounter(onlineIsbn,platform,month,year);
                 counter.setDoi(doi).setProprietaryIdentifier(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher).setTitle(title);
-                int metricsConverted = 0;
-                int metricsTotal = instances.size();
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
@@ -216,17 +227,23 @@ public class CounterTools {
                             metricsConverted++;
                             break;
                         }
+                        default: {
+                            log.info("not a categorized metric.");
+                        }
                     }
                 }
                 counters.add(counter);
-                log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
             }
         }
+        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
         log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
     public static List<JournalCounter> convertCounterElementsToJournalCounters(List<Element> reportItems) {
+        int metricsConverted = 0;
+        int metricsTotal= 0;
+        log.info("found usage data for " + reportItems.size() + " items.");
         List<JournalCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
             String fullname = item.getChild("ItemName", namespaceCounter).getValue();
@@ -253,6 +270,9 @@ public class CounterTools {
                         proprietary = value;
                         break;
                     }
+                    default: {
+                        log.info("not a categorized identifierType.");
+                    }
                 }
             }
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
@@ -263,10 +283,9 @@ public class CounterTools {
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
+                log.info("reading metrics for " + month + "-" + year);
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher);
-                int metricsConverted = 0;
-                int metricsTotal = instances.size();
 
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
@@ -307,6 +326,9 @@ public class CounterTools {
                             metricsConverted++;
                             break;
                         }
+                        default: {
+                            log.info("not a categorized metric.");
+                        }
                     }
                     counters.add(counter);
                     log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
@@ -314,6 +336,7 @@ public class CounterTools {
             }
         }
         log.info("read " + counters.size() + " database counter statistics from counter element.");
+        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
         return counters;
     }
 
