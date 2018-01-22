@@ -73,8 +73,6 @@ public class CounterTools {
 
     public static List<DatabaseCounter> convertCounterElementsToDatabaseCounters(List<Element> reportItems) {
         List<DatabaseCounter> counters = new ArrayList<>();
-        int metricsConverted = 0;
-        int metricsTotal= 0;
         log.info("found usage data for " + reportItems.size() + " items.");
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
@@ -93,32 +91,27 @@ public class CounterTools {
                 counter.setTitle(title);
 
                 for (Element instance : instances) {
-                    metricsTotal++;
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
                         case "record_view": {
                             counter.setRecordViews(value);
-                            metricsConverted++;
                             break;
                         }
                         case "result_click": {
                             counter.setResultClicks(value);
-                            metricsConverted++;
                             break;
                         }
                         case "search_reg": {
                             counter.setRegularSearches(value);
-                            metricsConverted++;
                             break;
                         }
                         case "search_fed": {
                             counter.setFederatedAndAutomatedSearches(value);
-                            metricsConverted++;
                             break;
                         }
                         default: {
-                            log.info("not a categorized metric.");
+                            log.info(metricType + " is not a categorized metric.");
                         }
                     }
                 }
@@ -126,14 +119,11 @@ public class CounterTools {
 
             }
         }
-        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
         log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
-        int metricsConverted = 0;
-        int metricsTotal= 0;
         log.info("found usage data for " + reportItems.size() + " items.");
         List<EbookCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
@@ -171,7 +161,7 @@ public class CounterTools {
                         proprietary = value;
                         break;
                     }default: {
-                        log.info("not a categorized identifier type.");
+                        log.info(identifierType + " is not a categorized identifier type.");
                     }
                 }
             }
@@ -189,60 +179,49 @@ public class CounterTools {
                     switch (metricType) {
                         case "ft_pdf": {
                             counter.setPdfRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_html": {
                             counter.setHtmlRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_ps": {
                             counter.setPsRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_epub": {
                             counter.setEpubRequest(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_total": {
                             counter.setTotalRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         default: {
-                            log.info("not a categorized metric.");
+                            log.info(metricType + " is not a categorized metric.");
                         }
                     }
                 }
                 counters.add(counter);
             }
         }
-        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
         log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
     public static List<JournalCounter> convertCounterElementsToJournalCounters(List<Element> reportItems) {
-        int metricsConverted = 0;
-        int metricsTotal= 0;
         log.info("found usage data for " + reportItems.size() + " items.");
         List<JournalCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
@@ -271,7 +250,7 @@ public class CounterTools {
                         break;
                     }
                     default: {
-                        log.info("not a categorized identifierType.");
+                        log.info(identifierType + " is not a categorized identifier type.");
                     }
                 }
             }
@@ -293,50 +272,41 @@ public class CounterTools {
                     switch (metricType) {
                         case "ft_html": {
                             counter.setHtmlRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf": {
                             counter.setPdfRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_ps": {
                             counter.setPsRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
-                            metricsConverted++;
                             break;
                         }
                         case "ft_total": {
                             counter.setTotalRequests(value);
-                            metricsConverted++;
                             break;
                         }
                         default: {
-                            log.info("not a categorized metric.");
+                            log.info(metricType + " is not a categorized metric.");
                         }
                     }
                     counters.add(counter);
-                    log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
                 }
             }
         }
-        log.info("read " + counters.size() + " database counter statistics from counter element.");
-        log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
+        log.info("read " + counters.size() + " counter statistics from counter element.");
         return counters;
     }
 

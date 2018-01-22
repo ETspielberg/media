@@ -156,8 +156,8 @@
       <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-65">
-              <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="109" column="76" lean-forward="false" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -841,12 +841,12 @@
       <workItem from="1516200925557" duration="1396000" />
       <workItem from="1516266761723" duration="4201000" />
       <workItem from="1516604400830" duration="9000" />
-      <workItem from="1516612091295" duration="2817000" />
+      <workItem from="1516612091295" duration="3253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145519000" />
+    <option name="totallyTimeSpent" value="145955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -1334,8 +1334,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="288" column="0" lean-forward="true" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="109" column="76" lean-forward="false" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
           <folding />
         </state>
       </provider>
