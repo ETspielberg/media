@@ -303,10 +303,11 @@ public class CounterTools {
                         }
                     }
                     counters.add(counter);
-                    long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
-                    if (counter.getTotalRequests() != totalRequests)
-                        log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
+
                 }
+                long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
+                if (counter.getTotalRequests() != totalRequests)
+                    log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
             }
         }
         log.info("read " + counters.size() + " counter statistics from counter element.");
