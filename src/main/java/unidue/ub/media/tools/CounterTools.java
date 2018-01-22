@@ -305,7 +305,7 @@ public class CounterTools {
                     counters.add(counter);
                     long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
                     if (counter.getTotalRequests() != totalRequests)
-                        log.info("sum of individual requests does not match total requests!");
+                        log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
                 }
             }
         }
