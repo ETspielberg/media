@@ -68,7 +68,6 @@ public class CounterTools {
             log.info("could not convert SOAP response: \n");
             log.info(sushiString);
         }
-
         return null;
     }
 
@@ -79,6 +78,7 @@ public class CounterTools {
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
             String title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
+            log.info("found usage data for " + itemPerformances.size() + " items.");
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
@@ -87,31 +87,39 @@ public class CounterTools {
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 DatabaseCounter counter = new DatabaseCounter(publisher,platform,month,year);
                 counter.setTitle(title);
+                int metricsConverted = 0;
+                int metricsTotal = instances.size();
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
                         case "record_view": {
                             counter.setRecordViews(value);
+                            metricsConverted++;
                             break;
                         }
                         case "result_click": {
                             counter.setResultClicks(value);
+                            metricsConverted++;
                             break;
                         }
                         case "search_reg": {
                             counter.setRegularSearches(value);
+                            metricsConverted++;
                             break;
                         }
                         case "search_fed": {
                             counter.setFederatedAndAutomatedSearches(value);
+                            metricsConverted++;
                             break;
                         }
                     }
                 }
                 counters.add(counter);
+                log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
             }
         }
+        log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
@@ -162,47 +170,59 @@ public class CounterTools {
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 EbookCounter counter = new EbookCounter(onlineIsbn,platform,month,year);
                 counter.setDoi(doi).setProprietaryIdentifier(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher).setTitle(title);
+                int metricsConverted = 0;
+                int metricsTotal = instances.size();
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
                         case "ft_pdf": {
                             counter.setPdfRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_html": {
                             counter.setHtmlRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_ps": {
                             counter.setPsRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_epub": {
                             counter.setEpubRequest(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_total": {
                             counter.setTotalRequests(value);
+                            metricsConverted++;
                             break;
                         }
                     }
                 }
                 counters.add(counter);
+                log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
             }
         }
+        log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 
@@ -237,6 +257,7 @@ public class CounterTools {
             }
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             for (Element itemPerformance : itemPerformances) {
+
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
@@ -244,43 +265,55 @@ public class CounterTools {
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher);
+                int metricsConverted = 0;
+                int metricsTotal = instances.size();
+
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();
                     switch (metricType) {
                         case "ft_html": {
                             counter.setHtmlRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_html_mobile": {
                             counter.setHtmlRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf": {
                             counter.setPdfRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_pdf_mobile": {
                             counter.setPdfRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_ps": {
                             counter.setPsRequests(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_ps_mobile": {
                             counter.setPsRequestsMobile(value);
+                            metricsConverted++;
                             break;
                         }
                         case "ft_total": {
                             counter.setTotalRequests(value);
+                            metricsConverted++;
                             break;
                         }
                     }
                     counters.add(counter);
+                    log.info("converted " + metricsConverted + " of " + metricsTotal + " metrics.");
                 }
             }
         }
+        log.info("read " + counters.size() + " database counter statistics from counter element.");
         return counters;
     }
 

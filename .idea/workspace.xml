@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31be5ed4-c411-4787-ace2-9d1e1338b95e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Counter.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Counter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Journaldata.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Journaldata.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,16 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Event.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,7 +55,7 @@
       <file leaf-file-name="Journaldata.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Journaldata.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="1479">
               <caret line="102" column="36" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -105,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseCounter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DatabaseCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -120,10 +106,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="MonographTools.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2074">
+              <caret line="146" column="40" lean-forward="false" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BibliographicInformation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="JournalCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
+            <state relative-caret-position="6596">
               <caret line="442" column="32" lean-forward="false" selection-start-line="442" selection-start-column="32" selection-end-line="442" selection-end-column="32" />
               <folding>
                 <element signature="e#10691#10692#0" expanded="true" />
@@ -137,7 +143,7 @@
       <file leaf-file-name="EbookCounter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="2856">
               <caret line="228" column="32" lean-forward="false" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
               <folding>
                 <element signature="e#5054#5055#0" expanded="true" />
@@ -148,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+            <state relative-caret-position="3692">
+              <caret line="281" column="47" lean-forward="true" selection-start-line="281" selection-start-column="47" selection-end-line="281" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -228,7 +234,6 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CounterTools.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/JournalCollection.java" />
@@ -239,12 +244,13 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/Journalcollection.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/Journaltitle.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Journaldata.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Counter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/DatabaseCounter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java" />
       </list>
     </option>
   </component>
@@ -283,8 +289,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,12 +361,20 @@
               <item name="media" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="media" type="b2602c69:ProjectViewProjectNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="usage" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -825,12 +840,14 @@
       <workItem from="1516167842403" duration="613000" />
       <workItem from="1516175743329" duration="61000" />
       <workItem from="1516200925557" duration="1396000" />
-      <workItem from="1516266761723" duration="1743000" />
+      <workItem from="1516266761723" duration="4201000" />
+      <workItem from="1516604400830" duration="9000" />
+      <workItem from="1516612091295" duration="1530000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140235000" />
+    <option name="totallyTimeSpent" value="144232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -844,8 +861,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -856,8 +873,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1114,14 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/JournalTools.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1147,14 +1156,6 @@
             <element signature="e#4995#4996#0" expanded="true" />
             <element signature="e#5049#5050#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="146" column="40" lean-forward="false" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1234,17 +1235,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="32" lean-forward="false" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Journaldata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="1479">
           <caret line="102" column="36" lean-forward="false" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1289,7 +1282,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/JournalCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
+        <state relative-caret-position="6596">
           <caret line="442" column="32" lean-forward="false" selection-start-line="442" selection-start-column="32" selection-end-line="442" selection-end-column="32" />
           <folding>
             <element signature="e#10691#10692#0" expanded="true" />
@@ -1301,7 +1294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/EbookCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
+        <state relative-caret-position="2856">
           <caret line="228" column="32" lean-forward="false" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
           <folding>
             <element signature="e#5054#5055#0" expanded="true" />
@@ -1321,6 +1314,30 @@
             <element signature="e#2957#2958#0" expanded="true" />
             <element signature="e#2995#2996#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="146" column="40" lean-forward="false" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3692">
+          <caret line="281" column="47" lean-forward="true" selection-start-line="281" selection-start-column="47" selection-end-line="281" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
