@@ -262,7 +262,6 @@ public class CounterTools {
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
-                log.info("reading metrics for " + month + "-" + year);
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher);
 
