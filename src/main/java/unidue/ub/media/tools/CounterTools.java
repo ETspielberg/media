@@ -222,11 +222,9 @@ public class CounterTools {
     }
 
     public static List<JournalCounter> convertCounterElementsToJournalCounters(List<Element> reportItems) {
-        log.info("found usage data for " + reportItems.size() + " items.");
         List<JournalCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
             String fullname = item.getChild("ItemName", namespaceCounter).getValue();
-            log.info("reading data for " + fullname);
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
             String type = item.getChild("ItemDataType", namespaceCounter).getValue();
