@@ -73,20 +73,17 @@ public class CounterTools {
 
     public static List<DatabaseCounter> convertCounterElementsToDatabaseCounters(List<Element> reportItems) {
         List<DatabaseCounter> counters = new ArrayList<>();
-        log.info("found usage data for " + reportItems.size() + " items.");
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
             String title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
-            log.info("found usage data for " + itemPerformances.size() + " time ranges.");
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
-                log.info("reading metrics for " + month + "-" + year);
                 DatabaseCounter counter = new DatabaseCounter(publisher,platform,month,year);
                 counter.setTitle(title);
 
@@ -116,7 +113,6 @@ public class CounterTools {
                     }
                 }
                 counters.add(counter);
-
             }
         }
         log.info("read " + counters.size() + " database counter statistics from counter element.");
@@ -124,7 +120,6 @@ public class CounterTools {
     }
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
-        log.info("found usage data for " + reportItems.size() + " items.");
         List<EbookCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
@@ -214,6 +209,9 @@ public class CounterTools {
                         }
                     }
                 }
+                long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
+                if (counter.getTotalRequests() != totalRequests)
+                    log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
                 counters.add(counter);
             }
         }
@@ -310,5 +308,4 @@ public class CounterTools {
         log.info("read " + counters.size() + " counter statistics from counter element.");
         return counters;
     }
-
 }
