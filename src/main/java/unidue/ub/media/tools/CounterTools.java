@@ -232,6 +232,7 @@ public class CounterTools {
             String onlineISSN = "";
             String printISSN = "";
             String proprietary = "";
+            String doi = "";
             for (Element identifier : identifiers) {
                 String identifierType = identifier.getChild("Type", namespaceCounter).getValue();
                 String value = identifier.getChild("Value", namespaceCounter).getValue();
@@ -248,6 +249,9 @@ public class CounterTools {
                         proprietary = value;
                         break;
                     }
+                    case "DOI" : {
+                        doi = value;
+                    }
                     default: {
                         log.info(identifierType + " is not a categorized identifier type.");
                     }
@@ -263,7 +267,7 @@ public class CounterTools {
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
                 if (onlineISSN.isEmpty())
                     counter.setId(year + month + printISSN+platform);
-                counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher);
+                counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher).setDoi(doi);
 
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());

@@ -24,10 +24,10 @@ public class JournalCounter extends Counter {
     private String printIssn = "";
     
     private String onlineIssn = "";
+
+    private String doi;
     
     private String category = "";
-    
-    private String doi = "";
     
     private String proprietary = "";
     
@@ -256,6 +256,7 @@ public class JournalCounter extends Counter {
         this.printIssn = printIssn;
         return this;
     }
+
 
     /**
      * sets the Issns of online journals
