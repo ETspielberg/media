@@ -251,6 +251,7 @@ public class CounterTools {
                     }
                     case "DOI" : {
                         doi = value;
+                        break;
                     }
                     default: {
                         log.info(identifierType + " is not a categorized identifier type.");
@@ -266,7 +267,7 @@ public class CounterTools {
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
                 if (onlineISSN.isEmpty())
-                    counter.setId(year + month + printISSN+platform);
+                    counter.setId(String.valueOf(year) + "-" + String.valueOf(month) + "-" + printISSN + platform);
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher).setDoi(doi);
 
                 for (Element instance : instances) {
