@@ -210,8 +210,10 @@ public class CounterTools {
                     }
                 }
                 long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
-                if (counter.getTotalRequests() != totalRequests)
+                if (counter.getTotalRequests() != totalRequests) {
                     log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
+                    counter.setTotalRequests(Math.max(totalRequests,counter.getTotalRequests()));
+                }
                 counters.add(counter);
             }
         }
@@ -301,8 +303,10 @@ public class CounterTools {
 
                 }
                 long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
-                if (counter.getTotalRequests() != totalRequests)
+                if (counter.getTotalRequests() != totalRequests) {
                     log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
+                    counter.setTotalRequests(Math.max(totalRequests,counter.getTotalRequests()));
+                }
             }
         }
         log.info("read " + counters.size() + " counter statistics from counter element.");
