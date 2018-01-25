@@ -262,12 +262,22 @@ public class CounterTools {
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
+                log.info("start date from response: " + startDate);
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
-                JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
-                if (onlineISSN.isEmpty())
-                    counter.setId(String.valueOf(year) + "-" + String.valueOf(month) + "-" + printISSN + platform);
+                JournalCounter counter;
+                if (onlineISSN.isEmpty()) {
+                    if (printISSN.isEmpty()) {
+                        if (doi.isEmpty())
+                            counter = new JournalCounter(onlineISSN,"proprietary",platform,month,year);
+                        else
+                            counter = new JournalCounter(onlineISSN,"doi",platform,month,year);
+                    } else
+                        counter = new JournalCounter(onlineISSN,"printIssn",platform,month,year);
+                } else
+                    counter = new JournalCounter(onlineISSN,"onlineIssn",platform,month,year);
+                counter.caluclateId();
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher).setDoi(doi);
 
                 for (Element instance : instances) {

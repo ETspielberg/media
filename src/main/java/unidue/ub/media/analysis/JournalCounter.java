@@ -116,15 +116,30 @@ public class JournalCounter extends Counter {
     	onlineIssn = "";
     	month = today.getMonthValue();
     	year = today.getYear();
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
     }
 
-	public JournalCounter(String onlineIssn, String platform, int month, int year) {
-		this.onlineIssn = onlineIssn;
+	public JournalCounter(String identifier, String type, String platform, int month, int year) {
 		this.platform = platform;
 		this.month = month;
 		this.year = year;
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + identifier + platform;
+		switch (identifier) {
+            case "onlineIssn": {
+                this.onlineIssn = identifier;
+                break;
+            }
+            case "printIssn": {
+                this.printIssn = identifier;
+                break;
+            }
+            case "DOI": {
+                this.doi = identifier;
+                break;
+            }
+            default: {
+                this.proprietary = identifier;
+            }
+        }
 	}
 
     /**
@@ -315,7 +330,7 @@ public class JournalCounter extends Counter {
 
 	public void setPlatform(String platform) {
 		this.platform = platform;
-        id = year + "-" + month + "-"  + onlineIssn + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
 	}
 
 	/**
@@ -437,6 +452,19 @@ public class JournalCounter extends Counter {
 	public String getCategory() {
 		return category;
 	}
+
+	public void caluclateId() {
+        if (onlineIssn.isEmpty()) {
+            if (printIssn.isEmpty()) {
+                if (doi.isEmpty())
+                    id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + proprietary + platform;
+                else
+                    id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + doi + platform;
+            } else
+                id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + printIssn + platform;
+        } else
+            id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
+    }
 
 	/**
 	 * @param category the category to set
