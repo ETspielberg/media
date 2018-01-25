@@ -25,7 +25,7 @@ public class JournalCounter extends Counter {
     
     private String onlineIssn = "";
 
-    private String doi;
+    private String doi = "";
     
     private String category = "";
     
