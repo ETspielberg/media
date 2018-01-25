@@ -36,7 +36,7 @@ public class DatabaseCounter extends Counter {
         year = today.getYear();
         platform = "";
         publisher = "";
-        id = year + month + publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public DatabaseCounter(String publisher,String platform, int year, int month) {
@@ -44,7 +44,7 @@ public class DatabaseCounter extends Counter {
         this.publisher = publisher;
         this.month = month;
         this.year = year;
-        id = year + month + publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public String getTitle() {
@@ -65,7 +65,7 @@ public class DatabaseCounter extends Counter {
 
     public void setPlatform(String platform) {
         this.platform = platform;
-        id = year + month +publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public String getPublisher() {
@@ -74,7 +74,7 @@ public class DatabaseCounter extends Counter {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
-        id = year + month +publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public int getMonth() {
@@ -83,7 +83,7 @@ public class DatabaseCounter extends Counter {
 
     public void setMonth(int month) {
         this.month = month;
-        id = year + month +publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public int getYear() {
@@ -92,7 +92,7 @@ public class DatabaseCounter extends Counter {
 
     public void setYear(int year) {
         this.year = year;
-        id = year + "_" + month + "_" +publisher + platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
     }
 
     public long getRegularSearches() {

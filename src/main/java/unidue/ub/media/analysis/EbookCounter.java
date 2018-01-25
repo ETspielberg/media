@@ -54,7 +54,7 @@ public class EbookCounter extends Counter {
         LocalDate today = LocalDate.now();
         month = today.getMonthValue();
         year = today.getYear();
-        id = String.valueOf(year)+String.valueOf(month)+onlineIsbn+platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public EbookCounter(String onlineIsbn,String platform, int month, int year) {
@@ -62,7 +62,7 @@ public class EbookCounter extends Counter {
         this.platform = platform;
         this.year = year;
         this.month = month;
-        id = String.valueOf(year)+String.valueOf(month)+onlineIsbn+platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public String getTitle() {
@@ -97,6 +97,7 @@ public class EbookCounter extends Counter {
 
     public void setPlatform(String platform) {
         this.platform = platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public String getProprietaryIdentifier() {
@@ -123,7 +124,7 @@ public class EbookCounter extends Counter {
 
     public void setOnlineIsbn(String onlineIsbn) {
         this.onlineIsbn = onlineIsbn;
-        id = String.valueOf(year)+String.valueOf(month)+onlineIsbn+platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public String getIsni() {
@@ -150,7 +151,7 @@ public class EbookCounter extends Counter {
 
     public void setYear(int year) {
         this.year = year;
-        id = String.valueOf(year)+String.valueOf(month)+onlineIsbn+platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public int getMonth() {
@@ -159,7 +160,7 @@ public class EbookCounter extends Counter {
 
     public void setMonth(int month) {
         this.month = month;
-        id = String.valueOf(year)+String.valueOf(month)+onlineIsbn+platform;
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
     public long getHtmlRequests() {

@@ -261,6 +261,8 @@ public class CounterTools {
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 JournalCounter counter = new JournalCounter(onlineISSN,platform,month,year);
+                if (onlineISSN.isEmpty())
+                    counter.setId(year + month + printISSN+platform);
                 counter.setFullName(fullname).setType(type).setPrintIssn(printISSN).setAbbreviation(proprietary).setPublisher(publisher);
 
                 for (Element instance : instances) {
