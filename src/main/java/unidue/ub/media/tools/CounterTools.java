@@ -262,7 +262,6 @@ public class CounterTools {
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
                 String startDate = period.getChild("Begin", namespaceCounter).getValue();
-                log.info("start date from response: " + startDate);
                 List<Element> instances = itemPerformance.getChildren("Instance", namespaceCounter);
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
@@ -270,11 +269,11 @@ public class CounterTools {
                 if (onlineISSN.isEmpty()) {
                     if (printISSN.isEmpty()) {
                         if (doi.isEmpty())
-                            counter = new JournalCounter(onlineISSN,"proprietary",platform,month,year);
+                            counter = new JournalCounter(proprietary,"proprietary",platform,month,year);
                         else
-                            counter = new JournalCounter(onlineISSN,"doi",platform,month,year);
+                            counter = new JournalCounter(doi,"doi",platform,month,year);
                     } else
-                        counter = new JournalCounter(onlineISSN,"printIssn",platform,month,year);
+                        counter = new JournalCounter(printISSN,"printIssn",platform,month,year);
                 } else
                     counter = new JournalCounter(onlineISSN,"onlineIssn",platform,month,year);
                 counter.caluclateId();

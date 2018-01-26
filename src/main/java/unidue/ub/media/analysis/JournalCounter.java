@@ -280,7 +280,6 @@ public class JournalCounter extends Counter {
      */
     public JournalCounter setOnlineIssn(String onlineIssn) {
         this.onlineIssn = onlineIssn;
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
         return this;
     }
 
@@ -330,7 +329,6 @@ public class JournalCounter extends Counter {
 
 	public void setPlatform(String platform) {
 		this.platform = platform;
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
 	}
 
 	/**
@@ -340,7 +338,6 @@ public class JournalCounter extends Counter {
      */
     public JournalCounter setYear(int year) {
         this.year = year;
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
         return this;
     }
 
@@ -351,7 +348,6 @@ public class JournalCounter extends Counter {
      */
     public JournalCounter setMonth(int month) {
         this.month = month;
-        id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIssn + platform;
         return this;
     }
 
