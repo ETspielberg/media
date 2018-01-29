@@ -44,22 +44,19 @@ public class CounterTools {
      * @exception JDOMException thrown upon errors parsing the xml structure of the SUSHI response
      */
     public static List<? extends Counter> convertSOAPMessageToCounters(SOAPMessage sushi) throws SOAPException, IOException, JDOMException {
-        log.info("started COUNTER converter.");
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         sushi.writeTo(out);
         String sushiString = new String(out.toByteArray());
-        log.info(sushiString);
         SAXBuilder builder = new SAXBuilder();
         Document sushiDoc = builder.build(new StringReader(sushiString));
         Element sushiElement = sushiDoc.detachRootElement().clone();
         try {
             Element report = sushiElement.getChild("Body", namespaceSOAP).getChild("ReportResponse", namespaceSushiCounter).getChild("Report", namespaceSushiCounter).getChild("Report", namespaceCounter);
             String type;
-            if (report.getAttributeValue("name") != null)
+            if (report.getAttributeValue("Name") != null)
                 type = report.getAttributeValue("Name");
             else
                 type = report.getAttributeValue("ID");
-            log.info("type of report: " + type);
             List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
             switch (type) {
                 case "JR1":
@@ -127,7 +124,6 @@ public class CounterTools {
     }
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
-        log.info("started EBook-Converter for " + reportItems.size() + " items.");
         List<EbookCounter> counters = new ArrayList<>();
 
         for (Element item : reportItems) {
@@ -137,14 +133,12 @@ public class CounterTools {
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             List<Element> identifiers = item.getChildren("ItemIdentifier", namespaceCounter);
             String onlineIsbn = "";
-            log.info(onlineIsbn);
             String doi = "";
             String printIsbn = "";
             String isni = "";
             String proprietary = "";
             for (Element identifier : identifiers) {
                 String identifierType = identifier.getChild("Type", namespaceCounter).getValue();
-                log.info(identifierType);
                 String value = identifier.getChild("Value", namespaceCounter).getValue();
                 switch (identifierType) {
                     case "Online_ISBN" : {

@@ -84,8 +84,8 @@
       <file leaf-file-name="CounterTools.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+            <state relative-caret-position="187">
+              <caret line="140" column="97" lean-forward="false" selection-start-line="140" selection-start-column="97" selection-end-line="140" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -787,12 +787,12 @@
       <workItem from="1516896689079" duration="87000" />
       <workItem from="1516898646997" duration="954000" />
       <workItem from="1516949254677" duration="3906000" />
-      <workItem from="1517206969583" duration="1836000" />
+      <workItem from="1517206969583" duration="2098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169107000" />
+    <option name="totallyTimeSpent" value="169369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -1310,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/CounterTools.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+        <state relative-caret-position="187">
+          <caret line="140" column="97" lean-forward="false" selection-start-line="140" selection-start-column="97" selection-end-line="140" selection-end-column="97" />
           <folding />
         </state>
       </provider>
