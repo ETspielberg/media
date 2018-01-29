@@ -132,12 +132,14 @@ public class CounterTools {
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             List<Element> identifiers = item.getChildren("ItemIdentifier", namespaceCounter);
             String onlineIsbn = "";
+            log.info(onlineIsbn);
             String doi = "";
             String printIsbn = "";
             String isni = "";
             String proprietary = "";
             for (Element identifier : identifiers) {
                 String identifierType = identifier.getChild("Type", namespaceCounter).getValue();
+                log.info(identifierType);
                 String value = identifier.getChild("Value", namespaceCounter).getValue();
                 switch (identifierType) {
                     case "Online_ISBN" : {
@@ -213,7 +215,7 @@ public class CounterTools {
                         }
                     }
                 }
-                long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile();
+                long totalRequests = counter.getHtmlRequests() + counter.getHtmlRequestsMobile() + counter.getPdfRequests() + counter.getPdfRequestsMobile() + counter.getPsRequests() + counter.getPsRequestsMobile() + counter.getEpubRequest();
                 if (counter.getTotalRequests() != totalRequests) {
                     log.warn("sum of individual requests (" + totalRequests + ") does not match total requests (" + counter.getTotalRequests() + ")!");
                     counter.setTotalRequests(Math.max(totalRequests,counter.getTotalRequests()));
