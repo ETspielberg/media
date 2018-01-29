@@ -59,6 +59,7 @@ public class CounterTools {
                 type = report.getAttributeValue("Name");
             else
                 type = report.getAttributeValue("ID");
+            log.info("type of report: " + type);
             List<Element> reportItems = report.getChild("Customer", namespaceCounter).getChildren("ReportItems", namespaceCounter);
             switch (type) {
                 case "JR1":
