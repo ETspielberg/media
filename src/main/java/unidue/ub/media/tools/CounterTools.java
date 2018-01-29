@@ -44,9 +44,11 @@ public class CounterTools {
      * @exception JDOMException thrown upon errors parsing the xml structure of the SUSHI response
      */
     public static List<? extends Counter> convertSOAPMessageToCounters(SOAPMessage sushi) throws SOAPException, IOException, JDOMException {
+        log.info("started COUNTER converter.");
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         sushi.writeTo(out);
         String sushiString = new String(out.toByteArray());
+        log.info(sushiString);
         SAXBuilder builder = new SAXBuilder();
         Document sushiDoc = builder.build(new StringReader(sushiString));
         Element sushiElement = sushiDoc.detachRootElement().clone();
