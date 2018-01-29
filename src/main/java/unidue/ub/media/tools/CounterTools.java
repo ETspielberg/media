@@ -127,7 +127,9 @@ public class CounterTools {
     }
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
+        log.info("started EBook-Converter for " + reportItems.size() + " items.");
         List<EbookCounter> counters = new ArrayList<>();
+
         for (Element item : reportItems) {
             String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
             String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
