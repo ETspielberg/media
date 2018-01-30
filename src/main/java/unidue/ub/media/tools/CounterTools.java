@@ -79,9 +79,15 @@ public class CounterTools {
     public static List<DatabaseCounter> convertCounterElementsToDatabaseCounters(List<Element> reportItems) {
         List<DatabaseCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
-            String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
-            String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
-            String title = item.getChild("ItemName", namespaceCounter).getValue();
+            String publisher = "";
+            if (item.getChild("ItemPublisher", namespaceCounter) != null)
+                publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
+            String platform = "";
+            if (item.getChild("ItemPlatform", namespaceCounter) != null)
+                platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
+            String title = "";
+            if (item.getChild("ItemName", namespaceCounter) != null)
+                title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             for (Element itemPerformance : itemPerformances) {
                 Element period = itemPerformance.getChild("Period", namespaceCounter);
@@ -126,11 +132,16 @@ public class CounterTools {
 
     public static List<EbookCounter> convertCounterElementsToEbookCounters(List<Element> reportItems) {
         List<EbookCounter> counters = new ArrayList<>();
-
         for (Element item : reportItems) {
-            String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
-            String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
-            String title = item.getChild("ItemName", namespaceCounter).getValue();
+            String publisher = "";
+            if (item.getChild("ItemPublisher", namespaceCounter) != null)
+                publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
+            String platform = "";
+            if (item.getChild("ItemPlatform", namespaceCounter) != null)
+                platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
+            String title = "";
+            if (item.getChild("ItemName", namespaceCounter) != null)
+                title = item.getChild("ItemName", namespaceCounter).getValue();
             List<Element> itemPerformances = item.getChildren("ItemPerformance", namespaceCounter);
             List<Element> identifiers = item.getChildren("ItemIdentifier", namespaceCounter);
             String onlineIsbn = "";
@@ -230,10 +241,18 @@ public class CounterTools {
     public static List<JournalCounter> convertCounterElementsToJournalCounters(List<Element> reportItems) {
         List<JournalCounter> counters = new ArrayList<>();
         for (Element item : reportItems) {
-            String fullname = item.getChild("ItemName", namespaceCounter).getValue();
-            String publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
-            String platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
-            String type = item.getChild("ItemDataType", namespaceCounter).getValue();
+            String fullname = "";
+            if (item.getChild("ItemName", namespaceCounter) != null)
+                fullname = item.getChild("ItemName", namespaceCounter).getValue();
+            String publisher = "";
+            if (item.getChild("ItemPublisher", namespaceCounter) != null)
+                publisher = item.getChild("ItemPublisher", namespaceCounter).getValue();
+            String platform = "";
+            if (item.getChild("ItemPlatform", namespaceCounter) != null)
+                platform = item.getChild("ItemPlatform", namespaceCounter).getValue();
+            String type = "";
+            if (item.getChild("ItemDataType", namespaceCounter) != null)
+                type = item.getChild("ItemDataType", namespaceCounter).getValue();
             List<Element> identifiers = item.getChildren("ItemIdentifier", namespaceCounter);
             String onlineISSN = "";
             String printISSN = "";
