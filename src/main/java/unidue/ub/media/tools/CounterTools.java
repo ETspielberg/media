@@ -50,7 +50,7 @@ public class CounterTools {
         SAXBuilder builder = new SAXBuilder();
         Document sushiDoc = builder.build(new StringReader(sushiString));
         Element sushiElement = sushiDoc.detachRootElement().clone();
-        try {
+        //try {
             Element report = sushiElement.getChild("Body", namespaceSOAP).getChild("ReportResponse", namespaceSushiCounter).getChild("Report", namespaceSushiCounter).getChild("Report", namespaceCounter);
             String type;
             if (report.getAttributeValue("Name") != null)
@@ -68,10 +68,11 @@ public class CounterTools {
                 case "DR1":
                     return convertCounterElementsToDatabaseCounters(reportItems);
             }
-        } catch (Exception e) {
+        /*} catch (Exception e) {
             log.info("could not convert SOAP response: \n");
             log.info(sushiString);
         }
+        */
         return null;
     }
 
