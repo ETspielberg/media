@@ -42,6 +42,8 @@ public class Nrequests implements Cloneable {
 	
 	public long totalDuration;
 
+	public String status;
+
 	@Transient
 	private List<String> forAlertControls;
 	
@@ -61,6 +63,7 @@ public class Nrequests implements Cloneable {
 		NLendable = 1;
 		mab = "";
 		totalDuration = 1L;
+		status = "NEW";
 	}
 
 	public Nrequests(String titleId,String shelfmark, double ratio, int NItems, int NLendable, int NRequests, int NLoans) {
@@ -71,8 +74,17 @@ public class Nrequests implements Cloneable {
 		this.NLoans = NLoans;
 		this.NRequests = NRequests;
 		this.ratio = ratio;
-		this.mab = "";
-		this.totalDuration = 1L;
+		mab = "";
+		totalDuration = 1L;
+		status = "NEW";
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setShelfmark(String shelfmark) {

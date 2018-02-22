@@ -49,6 +49,8 @@ public class BibliographicInformation {
 
 	private String type;
 
+	private String alephIdnetifier;
+
 	/**
 	 * creates a new <code>Publication</code>-object
 	 *
@@ -208,6 +210,13 @@ public class BibliographicInformation {
 		authors.add(author);
 	}
 
+	public String getAlephIdnetifier() {
+		return alephIdnetifier;
+	}
+
+	public void setAlephIdnetifier(String alephIdnetifier) {
+		this.alephIdnetifier = alephIdnetifier;
+	}
 
 	public void addKeyword(String keyword) {
 		keywords.add(keyword);

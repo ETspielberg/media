@@ -97,6 +97,7 @@ public class MonographTools {
         bibliographicInformation.setSubtitle(getField(result, "subtitle"));
         bibliographicInformation.setTitle(getField(result, "title"));
         bibliographicInformation.setYear(getField(result, "year"));
+        bibliographicInformation.setAlephIdnetifier(getField(result, "alephIdentifier"));
 
         return bibliographicInformation;
     }
