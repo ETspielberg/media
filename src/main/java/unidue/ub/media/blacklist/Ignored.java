@@ -1,4 +1,4 @@
-package unidue.ub.media.analysis;
+package unidue.ub.media.blacklist;
 
 import java.util.Date;
 
@@ -20,9 +20,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Ignored {
 
-    @Id
     private String titleId;
 
+    @Id
 	private String identifier;
 	
 	private String shelfmark;
@@ -38,7 +38,7 @@ public class Ignored {
 	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
 	private Date date = new Date();
 	
-	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
+	@JsonFormat(pattern = "dd.MM.yyyy")
 	private Date expire;
 
 	public String getTitleIdId() {

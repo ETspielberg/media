@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31be5ed4-c411-4787-ace2-9d1e1338b95e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/BibliographicInformation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl" afterPath="$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java" afterPath="$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Nrequests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Nrequests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2193">
-              <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state relative-caret-position="578">
+              <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="10" />
               <folding>
                 <element signature="e#1541#1542#0" expanded="true" />
                 <element signature="e#1561#1562#0" expanded="true" />
@@ -45,10 +42,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Manifestation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ignored.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Eventanalysis.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1128">
+            <state relative-caret-position="1734">
               <caret line="111" column="26" lean-forward="false" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
               <folding />
             </state>
@@ -107,7 +124,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Documentanalysis.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/MabBlob.java" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/CollectionUsage.java" />
@@ -145,6 +161,8 @@
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/tools/MonographTools.java" />
         <option value="$PROJECT_DIR$/src/main/resources/xsl/mabxml2bibliographicInformation.xsl" />
         <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java" />
       </list>
     </option>
   </component>
@@ -184,7 +202,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,6 +244,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="media" type="462c0819:PsiDirectoryNode" />
               <item name="analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="media" type="b2602c69:ProjectViewProjectNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+              <item name="blacklist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="media" type="b2602c69:ProjectViewProjectNode" />
@@ -282,8 +309,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -765,12 +792,15 @@
       <workItem from="1518423027441" duration="598000" />
       <workItem from="1518505888122" duration="1191000" />
       <workItem from="1518755296838" duration="31000" />
-      <workItem from="1519317118740" duration="162000" />
+      <workItem from="1519317118740" duration="265000" />
+      <workItem from="1519317430628" duration="606000" />
+      <workItem from="1519731325497" duration="612000" />
+      <workItem from="1519999845590" duration="240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177464000" />
+    <option name="totallyTimeSpent" value="179025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-8" width="1872" height="1096" extended-state="6" />
@@ -836,7 +866,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
@@ -885,7 +915,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
@@ -920,7 +950,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
@@ -941,7 +971,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
@@ -1026,13 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/journals/Journal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2686">
@@ -1103,13 +1126,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Ignored.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/unidue/ub/media/usage/UsageData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1175,7 +1191,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Eventanalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
+        <state relative-caret-position="1734">
           <caret line="111" column="26" lean-forward="false" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
           <folding />
         </state>
@@ -1183,8 +1199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/analysis/Nrequests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2193">
-          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state relative-caret-position="578">
+          <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="10" />
           <folding>
             <element signature="e#1541#1542#0" expanded="true" />
             <element signature="e#1561#1562#0" expanded="true" />
@@ -1203,6 +1219,22 @@
             <element signature="e#5163#5164#0" expanded="true" />
             <element signature="e#5217#5218#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/monographs/Manifestation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unidue/ub/media/blacklist/Ignored.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
