@@ -9,6 +9,8 @@
   exclude-result-prefixes="xsl mabxml"
 >
 
+  <xsl:output name="text" />
+
   <xsl:template match="mabxml:datensatz">
 
     <!-- 
