@@ -49,7 +49,9 @@ public class BibliographicInformation {
 
 	private String type;
 
-	private String alephIdnetifier;
+	private String otherIdentifier;
+
+	private String fullDescription;
 
 	/**
 	 * creates a new <code>Publication</code>-object
@@ -75,6 +77,8 @@ public class BibliographicInformation {
 		edition = "";
 		series = "";
 		volume = 0;
+		otherIdentifier = "";
+		fullDescription = "";
 		keywords = new ArrayList<>();
 	}
 
@@ -92,6 +96,8 @@ public class BibliographicInformation {
 		volume = 0;
 		keywords = new ArrayList<>();
 		type = "empty";
+		otherIdentifier = "";
+		fullDescription  = "";
 	}
 
 	public String getTitleId() {
@@ -210,16 +216,24 @@ public class BibliographicInformation {
 		authors.add(author);
 	}
 
-	public String getAlephIdnetifier() {
-		return alephIdnetifier;
+	public String getOtherIdentifier() {
+		return otherIdentifier;
 	}
 
-	public void setAlephIdnetifier(String alephIdnetifier) {
-		this.alephIdnetifier = alephIdnetifier;
+	public void setOtherIdentifier(String otherIdentifier) {
+		this.otherIdentifier = otherIdentifier;
 	}
 
 	public void addKeyword(String keyword) {
 		keywords.add(keyword);
+	}
+
+	public String getFullDescription() {
+		return fullDescription;
+	}
+
+	public void setFullDescription(String fullDescription) {
+		this.fullDescription = fullDescription;
 	}
 
 	@Override

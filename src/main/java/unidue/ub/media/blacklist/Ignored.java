@@ -26,7 +26,7 @@ public class Ignored {
 	private String identifier;
 	
 	private String shelfmark;
-	
+
 	private String type;
 	
 	@Column(columnDefinition = "TEXT")

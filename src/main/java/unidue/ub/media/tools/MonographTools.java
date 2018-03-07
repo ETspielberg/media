@@ -7,10 +7,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
-import javax.xml.transform.Result;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -20,6 +17,8 @@ import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.transform.JDOMSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import unidue.ub.media.analysis.Nrequests;
 import unidue.ub.media.monographs.BibliographicInformation;
 import unidue.ub.media.monographs.Event;
@@ -31,6 +30,8 @@ public class MonographTools {
     private final static int LEVENTHRESHOLD = 100;
 
     private final static long daysInMillis = 1000L * 60L * 60L * 24L;
+
+    private static final Logger log = LoggerFactory.getLogger(MonographTools.class);
 
     /**
      * returns the Levenshtein distance comparing the authors and title of two
@@ -68,38 +69,44 @@ public class MonographTools {
         Element result = new Element("bibliographicInformation");
         try {
             result = transformElement(mabxml).detachRootElement().clone();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        List<Element> authors = result.getChild("authors").getChildren();
-        if (authors.size() > 0) {
-            for (Element author : authors) {
-                bibliographicInformation.addAuthor(author.getValue());
-            }
-        }
-
-        List<Element> keywords = result.getChild("keywords").getChildren();
-        if (keywords.size() > 0) {
-            for (Element keyword : keywords) {
-                String keywordText = keyword.getText();
-                if (!keywordsSet.contains(keywordText) && !keywordText.isEmpty()) {
-                    bibliographicInformation.addKeyword(keyword.getText());
-                    keywordsSet.add(keywordText);
+            List<Element> authors = result.getChild("authors").getChildren();
+            if (authors.size() > 0) {
+                for (Element author : authors) {
+                    bibliographicInformation.addAuthor(author.getValue());
                 }
             }
-        }
-        bibliographicInformation.setIsbn(getField(result, "isbn"));
-        bibliographicInformation.setDoi(getField(result, "doi"));
-        bibliographicInformation.setEdition(getField(result, "edition"));
-        bibliographicInformation.setPlace(getField(result, "place"));
-        bibliographicInformation.setPublisher(getField(result, "publisher"));
-        bibliographicInformation.setSeries(getField(result, "series"));
-        bibliographicInformation.setSubtitle(getField(result, "subtitle"));
-        bibliographicInformation.setTitle(getField(result, "title"));
-        bibliographicInformation.setYear(getField(result, "year"));
-        bibliographicInformation.setAlephIdnetifier(getField(result, "alephIdentifier"));
 
-        return bibliographicInformation;
+            List<Element> keywords = result.getChild("keywords").getChildren();
+            if (keywords.size() > 0) {
+                for (Element keyword : keywords) {
+                    String keywordText = keyword.getText();
+                    if (!keywordsSet.contains(keywordText) && !keywordText.isEmpty()) {
+                        bibliographicInformation.addKeyword(keyword.getText());
+                        keywordsSet.add(keywordText);
+                    }
+                }
+            }
+            bibliographicInformation.setIsbn(getField(result, "isbn"));
+            bibliographicInformation.setDoi(getField(result, "doi"));
+            bibliographicInformation.setEdition(getField(result, "edition"));
+            bibliographicInformation.setPlace(getField(result, "place"));
+            bibliographicInformation.setPublisher(getField(result, "publisher"));
+            bibliographicInformation.setSeries(getField(result, "series"));
+            bibliographicInformation.setSubtitle(getField(result, "subtitle"));
+            bibliographicInformation.setTitle(getField(result, "title"));
+            bibliographicInformation.setYear(getField(result, "year"));
+            bibliographicInformation.setOtherIdentifier(getField(result, "alephIdentifier"));
+        } catch (Exception e) {
+            log.warn("could not convert mab-xml data to bibliographic information.");
+        }
+        try {
+            String isbdDescriptiuon = getIsbdDescritpion(mabxml);
+            bibliographicInformation.setFullDescription(isbdDescriptiuon);
+        } catch (TransformerException te) {
+            log.warn("could not build ISBD description from mab-xml data.");
+        }
+            return bibliographicInformation;
+
     }
 
     private static String getField(Element result, String field) {
@@ -123,7 +130,16 @@ public class MonographTools {
         } catch (JDOMException jdome) {
             return null;
         }
+    }
 
+    private static String getIsbdDescritpion(Element source) throws TransformerException {
+        StreamSource stylesource = new StreamSource(MonographTools.class.getClassLoader().getResourceAsStream("xsl/mabxml-isbd.xsl"));
+        TransformerFactory factory = TransformerFactory.newInstance();
+        Transformer transformer = factory.newTransformer(stylesource);
+        StringWriter writer = new StringWriter();
+        Result result = new StreamResult(writer);
+        transformer.transform(new JDOMSource(source), result);
+        return writer.toString();
     }
 
     public static Nrequests getNrequestsFor(Manifestation manifestation, String statusLendable) {
@@ -150,6 +166,7 @@ public class MonographTools {
             nrequests.setShelfmark(manifestation.getShelfmark());
             nrequests.setMab(manifestation.getBibliographicInformation().toString());
             nrequests.updateRatio();
+            nrequests.setMab(manifestation.getBibliographicInformation().getFullDescription());
             return nrequests;
         } else
             return null;
