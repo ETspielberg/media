@@ -41,6 +41,8 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 
 	private Set<String> usergroups;
 
+	private Set<String> subLibraries;
+
 	private UsageData statistics;
 
 	public Manifestation() {
@@ -51,6 +53,7 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 		collections = new HashSet<>();
 		materials = new HashSet<>();
 		usergroups = new HashSet<>();
+		subLibraries = new HashSet<>();
 		statistics = new UsageData();
 		statistics.setName(titleID);
 	}
@@ -85,12 +88,14 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 	}
 
 	public List<String> getCollections() {
-		return new ArrayList<String>(collections);
+		return new ArrayList<>(collections);
 	}
 
-	public List<String> getMaterials() { return new ArrayList<String>(materials); }
+	public List<String> getMaterials() { return new ArrayList<>(materials); }
 
-	public List<String> getUsergroups() {return new ArrayList<String>(usergroups); }
+	public List<String> getUsergroups() {return new ArrayList<>(usergroups); }
+
+	public List<String> getSubLibraries() {return new ArrayList<>(subLibraries); }
 
 	public UsageData getStatistics() {
 		return statistics;
@@ -107,6 +112,8 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 		collections.add(item.getCollection());
 		if (!materials.contains(item.getMaterial()))
 			materials.add(item.getMaterial());
+		if (!subLibraries.contains(item.getSubLibrary()))
+			subLibraries.add(item.getSubLibrary());
 	}
 
 	public void addItems(List<Item> items) {

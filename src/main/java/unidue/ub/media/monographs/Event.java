@@ -143,9 +143,9 @@ public class Event implements Comparable<Event> {
 		this.itemId = itemId;
 		this.type = type;
 		this.sorter = sorter;
-		if (type.equals("loan") || type.equals("request") || type.equals("inventory"))
+		if (type.equals("loan") || type.equals("request") || type.equals("inventory") || type.equals("cald"))
 			this.delta = 1;
-		else if (type.equals("return") || type.equals("hold") || type.equals("deletion"))
+		else if (type.equals("return") || type.equals("hold") || type.equals("deletion") || type.equals("caldDelivery"))
 			this.delta = -1;
 		else
 			this.delta = 0;
