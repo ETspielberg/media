@@ -1,250 +1,282 @@
 /**
- * 
+ *
  */
 package unidue.ub.media.analysis;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import unidue.ub.media.monographs.Event;
-import unidue.ub.media.monographs.Item;
-import unidue.ub.media.monographs.Manifestation;
-
 /**
- * Plain old java object holding the entrie of the requests hitlist. 
- * 
+ * Plain old java object holding the entrie of the requests hitlist.
+ *
  * @author Eike Spielberg
  * @version 1
  */
 @Entity
 public class Nrequests implements Cloneable {
 
-	@Column(columnDefinition = "TEXT")
-	private String mab;
+    @Column(columnDefinition = "TEXT")
+    private String mab;
 
-	@Id
-	private String titleId;
-	
-	private String shelfmark;
-	
-	private double ratio;
-	
-	public int NRequests;
-	
-	public int NItems;
-	
-	public int NLoans;
-	
-	public int NLendable;
-	
-	public long totalDuration;
+    @Id
+    private String identifier;
 
-	public String status;
+    private String titleId;
 
-	@Transient
-	private List<String> forAlertControls;
-	
-	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
-	private Date date = new Date();
-	
-	/**
-	 * general constructor and initialization
-	 */
-	public Nrequests() {
-		titleId = "";
-		ratio = 1.0;
-		shelfmark = "";
-		NRequests = 0;
-		NItems = 1;
-		NLoans = 0;
-		NLendable = 1;
-		mab = "";
-		totalDuration = 1L;
-		status = "NEW";
-	}
+    private String shelfmark;
 
-	public Nrequests(String titleId,String shelfmark, double ratio, int NItems, int NLendable, int NRequests, int NLoans) {
-		this.titleId = titleId;
-		this.shelfmark = shelfmark;
-		this.NItems = NItems;
-		this.NLendable = NLendable;
-		this.NLoans = NLoans;
-		this.NRequests = NRequests;
-		this.ratio = ratio;
-		mab = "";
-		totalDuration = 1L;
-		status = "NEW";
-	}
+    private double ratio;
 
-	public String getStatus() {
-		return status;
-	}
+    public int NRequests;
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public int NItems;
 
-	public void setShelfmark(String shelfmark) {
-		this.shelfmark = shelfmark;
-	}
+    public int NLoans;
 
-	public String getShelfmark() {
-		return shelfmark;
-	}
+    public int NLendable;
 
-	public long getTotalDuration() {
-		return totalDuration;
-	}
+    public long totalDuration;
 
-	/**
-	 * returns the shelfmark
-	 * @return the callNo
-	 */
-	public String getCallNo() {
-		return shelfmark;
-	}
+    public String status;
 
-	/**
-	 * returns the duration of requests
-	 * @return the duration
-	 */
-	public long geTotalDuration() {
-		return totalDuration;
-	}
+    @Transient
+    private List<String> forAlertControls;
 
-	/**
-	 * sets the duration
-	 * @param totalDuration the duration to set
-	 */
-	public void setTotalDuration(long totalDuration) {
-		this.totalDuration = totalDuration;
-	}
+    @JsonFormat(pattern = "dd.MM.yyyy")
+    private Date date;
 
-	/**
-	 * sets the shelfmark
-	 * @param callNo the callNo to set
-	 */
-	public void setCallNo(String callNo) {
-		this.shelfmark = callNo;
-	}
+    /**
+     * general constructor and initialization
+     */
+    public Nrequests() {
+        titleId = "";
+        ratio = 1.0;
+        shelfmark = "";
+        NRequests = 0;
+        NItems = 1;
+        NLoans = 0;
+        NLendable = 1;
+        mab = "";
+        totalDuration = 1L;
+        identifier = this.titleId + String.valueOf(System.currentTimeMillis());
+        date = new Date();
+        status = "NEW";
+    }
 
-	/**
-	 * returns the bibliographic data
-	 * @return the mab
-	 */
-	public String getMab() {
-		return mab;
-	}
+    public Nrequests(String titleId, String shelfmark, double ratio, int NItems, int NLendable, int NRequests, int NLoans) {
+        this.titleId = titleId;
+        this.shelfmark = shelfmark;
+        this.NItems = NItems;
+        this.NLendable = NLendable;
+        this.NLoans = NLoans;
+        this.NRequests = NRequests;
+        this.ratio = ratio;
+        date = new Date();
+        identifier = this.titleId + String.valueOf(System.currentTimeMillis());
+        mab = "";
+        totalDuration = 1L;
+        status = "NEW";
+    }
 
-	/**
-	 * sets the bibliographic data
-	 * @param mab the mab to set
-	 */
-	public void setMab(String mab) {
-		this.mab = mab;
-	}
+    public String getIdentifier() {
+        return identifier;
+    }
 
-	/**
-	 * returns the document number for the manifestation 
-	 * @return the titleId
-	 */
-	public String getTitleId() {
-		return titleId;
-	}
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 
-	/**
-	 * sets the document number for this manifestation
-	 * @param titleId the titleId to set
-	 */
-	public void setTitleId(String titleId) {
-		this.titleId = titleId;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	/**
-	 * returns the ratio (number of requested items / number of lendable items)
-	 * @return the ratio
-	 */
-	public double getRatio() {
-		return ratio;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	/**
-	 * sets the ratio (number of requested items / number of lendable items)
-	 * @param ratio the ratio to set
-	 */
-	public void setRatio(double ratio) {
-		this.ratio = ratio;
-	}
+    public void setShelfmark(String shelfmark) {
+        this.shelfmark = shelfmark;
+    }
 
-	/**
-	 * returns the number of requests
-	 * @return the nRequests
-	 */
-	public int getNRequests() {
-		return NRequests;
-	}
+    public String getShelfmark() {
+        return shelfmark;
+    }
 
-	/**
-	 * sets the number of requests
-	 * @param nRequests the nRequests to set
-	 */
-	public void setNRequests(int nRequests) {
-		NRequests = nRequests;
-	}
+    public long getTotalDuration() {
+        return totalDuration;
+    }
 
-	/**
-	 * returns the number of items
-	 * @return the nItems
-	 */
-	public int getNItems() {
-		return NItems;
-	}
+    /**
+     * returns the shelfmark
+     *
+     * @return the callNo
+     */
+    public String getCallNo() {
+        return shelfmark;
+    }
 
-	/**
-	 * sets the number of items
-	 * @param nItems the nItems to set
-	 */
-	public void setNItems(int nItems) {
-		NItems = nItems;
-	}
+    /**
+     * returns the duration of requests
+     *
+     * @return the duration
+     */
+    public long geTotalDuration() {
+        return totalDuration;
+    }
 
-	/**
-	 * returns the number of loans
-	 * @return the nLoans
-	 */
-	public int getNLoans() {
-		return NLoans;
-	}
+    /**
+     * sets the duration
+     *
+     * @param totalDuration the duration to set
+     */
+    public void setTotalDuration(long totalDuration) {
+        this.totalDuration = totalDuration;
+    }
 
-	/**
-	 * sets the number of loans
-	 * @param nLoans the nLoans to set
-	 */
-	public void setNLoans(int nLoans) {
-		NLoans = nLoans;
-	}
+    /**
+     * sets the shelfmark
+     *
+     * @param callNo the callNo to set
+     */
+    public void setCallNo(String callNo) {
+        this.shelfmark = callNo;
+    }
 
-	/**
-	 * returns the number of lendable items
-	 * @return the nLendable
-	 */
-	public int getNLendable() {
-		return NLendable;
-	}
+    /**
+     * returns the bibliographic data
+     *
+     * @return the mab
+     */
+    public String getMab() {
+        return mab;
+    }
 
-	/**
-	 * sets the number of lendable items
-	 * @param nLendable the nLendable to set
-	 */
-	public void setNLendable(int nLendable) {
-		NLendable = nLendable;
-	}
-	
-	/**
+    /**
+     * sets the bibliographic data
+     *
+     * @param mab the mab to set
+     */
+    public void setMab(String mab) {
+        this.mab = mab;
+    }
+
+    /**
+     * returns the document number for the manifestation
+     *
+     * @return the titleId
+     */
+    public String getTitleId() {
+        return titleId;
+    }
+
+    /**
+     * sets the document number for this manifestation
+     *
+     * @param titleId the titleId to set
+     */
+    public void setTitleId(String titleId) {
+        this.titleId = titleId;
+    }
+
+    /**
+     * returns the ratio (number of requested items / number of lendable items)
+     *
+     * @return the ratio
+     */
+    public double getRatio() {
+        return ratio;
+    }
+
+    /**
+     * sets the ratio (number of requested items / number of lendable items)
+     *
+     * @param ratio the ratio to set
+     */
+    public void setRatio(double ratio) {
+        this.ratio = ratio;
+    }
+
+    /**
+     * returns the number of requests
+     *
+     * @return the nRequests
+     */
+    public int getNRequests() {
+        return NRequests;
+    }
+
+    /**
+     * sets the number of requests
+     *
+     * @param nRequests the nRequests to set
+     */
+    public void setNRequests(int nRequests) {
+        NRequests = nRequests;
+    }
+
+    /**
+     * returns the number of items
+     *
+     * @return the nItems
+     */
+    public int getNItems() {
+        return NItems;
+    }
+
+    /**
+     * sets the number of items
+     *
+     * @param nItems the nItems to set
+     */
+    public void setNItems(int nItems) {
+        NItems = nItems;
+    }
+
+    /**
+     * returns the number of loans
+     *
+     * @return the nLoans
+     */
+    public int getNLoans() {
+        return NLoans;
+    }
+
+    /**
+     * sets the number of loans
+     *
+     * @param nLoans the nLoans to set
+     */
+    public void setNLoans(int nLoans) {
+        NLoans = nLoans;
+    }
+
+    /**
+     * returns the number of lendable items
+     *
+     * @return the nLendable
+     */
+    public int getNLendable() {
+        return NLendable;
+    }
+
+    /**
+     * sets the number of lendable items
+     *
+     * @param nLendable the nLendable to set
+     */
+    public void setNLendable(int nLendable) {
+        NLendable = nLendable;
+    }
+
+    /**
      * returns the timestamp
+     *
      * @return the timestamp
      */
     public Date getDate() {
@@ -253,14 +285,16 @@ public class Nrequests implements Cloneable {
 
     /**
      * sets the number of date
+     *
      * @param date the date to set
      */
     public void setDate(Date date) {
         this.date = date;
     }
-	
-	/**
-     * returns the alert control 
+
+    /**
+     * returns the alert control
+     *
      * @return the alert control
      */
     public List<String> getForAlertControls() {
@@ -269,6 +303,7 @@ public class Nrequests implements Cloneable {
 
     /**
      * sets the number of alert control
+     *
      * @param forAlertControls the alert control to set
      */
     public void setForAlertControls(List<String> forAlertControls) {
@@ -277,25 +312,27 @@ public class Nrequests implements Cloneable {
 
 
     public void addForAlertControls(String forAlertControl) {
-		forAlertControls.add(forAlertControl);
-	}
+        forAlertControls.add(forAlertControl);
+    }
 
-	public void updateRatio() {
-		ratio = (double) NRequests / (double) NLendable;
-	}
+    public void updateRatio() {
+        ratio = (double) NRequests / (double) NLendable;
+    }
 
 
-	public Nrequests clone() {
-	    Nrequests clone = new Nrequests();
-	    clone.setCallNo(shelfmark);
-	    clone.setTitleId(titleId);
-	    clone.setTotalDuration(totalDuration);
-	    clone.setMab(mab);
-	    clone.setNItems(NItems);
-	    clone.setNLendable(NLendable);
-	    clone.setNLoans(NLoans);
-	    clone.setNRequests(NRequests);
-	    clone.setForAlertControls(forAlertControls);
-	    return clone;   
-	}
+    public Nrequests clone() {
+        Nrequests clone = new Nrequests();
+        clone.setCallNo(shelfmark);
+        clone.setTitleId(titleId);
+        clone.setTotalDuration(totalDuration);
+        clone.setMab(mab);
+        clone.setNItems(NItems);
+        clone.setNLendable(NLendable);
+        clone.setNLoans(NLoans);
+        clone.setNRequests(NRequests);
+        clone.setForAlertControls(forAlertControls);
+        clone.setIdentifier(identifier);
+        clone.setDate(date);
+        return clone;
+    }
 } 

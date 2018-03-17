@@ -151,15 +151,6 @@ public class Item {
 	}
 
 	/**
-	 * returns the sub-library this item is located in
-	 *
-	 * @return subLibrary the sub-library this item is located in
-	 */
-	public String getSublibrary() {
-		return subLibrary;
-	}
-
-	/**
 	 * returns the key in the Aleph database of this item
 	 *
 	 * @return recKey the key in the database
