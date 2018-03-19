@@ -145,9 +145,11 @@ public class MonographTools {
     public static Nrequests getNrequestsFor(Manifestation manifestation, String statusLendable) {
         Nrequests nrequests = new Nrequests();
         for (Item item : manifestation.getItems()) {
-            nrequests.NItems++;
-            if (statusLendable.contains(item.getItemStatus())) {
-                nrequests.NLendable++;
+            if (item.getDeletionDate().equals("")) {
+                nrequests.NItems++;
+                if (statusLendable.contains(item.getItemStatus())) {
+                    nrequests.NLendable++;
+                }
             }
         }
         for (Event event : manifestation.getEvents()) {
