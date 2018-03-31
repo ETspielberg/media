@@ -134,4 +134,8 @@ public class DatabaseCounter extends Counter {
     public void setProfile(String profile) {
         this.profile = profile;
     }
+
+    public void caluclateId() {
+        id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + publisher + platform;
+    }
 }
