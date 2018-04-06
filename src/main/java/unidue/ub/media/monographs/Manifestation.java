@@ -43,8 +43,6 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 
 	private Set<String> subLibraries;
 
-	private UsageData statistics;
-
 	public Manifestation() {
 	}
 
@@ -54,8 +52,6 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 		materials = new HashSet<>();
 		usergroups = new HashSet<>();
 		subLibraries = new HashSet<>();
-		statistics = new UsageData();
-		statistics.setName(titleID);
 	}
 
 
@@ -96,14 +92,6 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 	public List<String> getUsergroups() {return new ArrayList<>(usergroups); }
 
 	public List<String> getSubLibraries() {return new ArrayList<>(subLibraries); }
-
-	public UsageData getStatistics() {
-		return statistics;
-	}
-
-	public void setStatistics(UsageData statistics) {
-		this.statistics = statistics;
-	}
 
 	public void addItem(Item item) {
 		items.add(item);
