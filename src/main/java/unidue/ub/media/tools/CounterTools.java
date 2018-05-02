@@ -183,7 +183,7 @@ public class CounterTools {
                 int year = Integer.parseInt(startDate.substring(0, 4));
                 int month = Integer.parseInt(startDate.substring(5, 7));
                 EbookCounter counter = new EbookCounter(onlineIsbn,platform,month,year);
-                counter.setDoi(doi).setProprietary(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher).setTitle(title);
+                counter.setDoi(doi).setProprietaryIdentifier(proprietary).setIsni(isni).setPrintIsbn(printIsbn).setPublisher(publisher).setTitle(title);
                 for (Element instance : instances) {
                     long value = Long.parseLong(instance.getChild("Count", namespaceCounter).getValue().trim());
                     String metricType = instance.getChild("MetricType", namespaceCounter).getValue();

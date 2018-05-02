@@ -168,7 +168,10 @@ public class MonographTools {
             nrequests.setShelfmark(manifestation.getShelfmark());
             nrequests.setMab(manifestation.getBibliographicInformation().toString());
             nrequests.updateRatio();
-            nrequests.setMab(manifestation.getBibliographicInformation().getFullDescription());
+            BibliographicInformation bibliographicInformation = manifestation.getBibliographicInformation();
+            if (bibliographicInformation.getIsbn() != null )
+                nrequests.setIsbn(bibliographicInformation.getIsbn());
+            nrequests.setMab(bibliographicInformation.getFullDescription());
             return nrequests;
         } else
             return null;

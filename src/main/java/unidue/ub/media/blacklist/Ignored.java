@@ -34,10 +34,10 @@ public class Ignored {
 	
 	@Column(columnDefinition = "TEXT")
     private String mab;
-	
+
 	@JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
 	private Date date = new Date();
-	
+
 	@JsonFormat(pattern = "dd.MM.yyyy")
 	private Date expire;
 

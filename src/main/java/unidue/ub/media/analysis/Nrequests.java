@@ -29,6 +29,8 @@ public class Nrequests implements Cloneable {
 
     private String titleId;
 
+    private String isbn;
+
     private String shelfmark;
 
     private double ratio;
@@ -67,6 +69,7 @@ public class Nrequests implements Cloneable {
         identifier = this.titleId + String.valueOf(System.currentTimeMillis());
         date = new Date();
         status = "NEW";
+        isbn = "";
     }
 
     public Nrequests(String titleId, String shelfmark, double ratio, int NItems, int NLendable, int NRequests, int NLoans) {
@@ -77,11 +80,20 @@ public class Nrequests implements Cloneable {
         this.NLoans = NLoans;
         this.NRequests = NRequests;
         this.ratio = ratio;
+        this.isbn = "";
         date = new Date();
         identifier = this.titleId + String.valueOf(System.currentTimeMillis());
         mab = "";
         totalDuration = 1L;
         status = "NEW";
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getIdentifier() {

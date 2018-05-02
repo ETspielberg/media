@@ -20,7 +20,7 @@ public class EbookCounter extends Counter {
 
     private String platform = "";
 
-    private String proprietary = "";
+    private String proprietaryIdentifier = "";
 
     private String printIsbn = "";
 
@@ -100,12 +100,12 @@ public class EbookCounter extends Counter {
         id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
-    public String getProprietary() {
-        return proprietary;
+    public String getProprietaryIdentifier() {
+        return proprietaryIdentifier;
     }
 
-    public EbookCounter setProprietary(String proprietary) {
-        this.proprietary = proprietary;
+    public EbookCounter setProprietaryIdentifier(String proprietaryIdentifier) {
+        this.proprietaryIdentifier = proprietaryIdentifier;
         return this;
     }
 
@@ -239,7 +239,7 @@ public class EbookCounter extends Counter {
         if (onlineIsbn.isEmpty()) {
             if (printIsbn.isEmpty()) {
                 if (doi.isEmpty())
-                    id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + proprietary + platform;
+                    id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + proprietaryIdentifier + platform;
                 else
                     id = String.valueOf(year) + "-" + String.valueOf(month) + "-" + doi + platform;
             } else
