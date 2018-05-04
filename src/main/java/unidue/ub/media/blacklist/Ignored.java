@@ -45,7 +45,7 @@ public class Ignored {
 		return titleId;
 	}
 
-	public void setTitleId(String id) {
+	public void setTitleId(String titleId) {
 		this.titleId = titleId;
 	}
 
