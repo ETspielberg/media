@@ -41,7 +41,7 @@ public class Ignored {
 	@JsonFormat(pattern = "dd.MM.yyyy")
 	private Date expire;
 
-	public String getTitleIdId() {
+	public String getTitleId() {
 		return titleId;
 	}
 
