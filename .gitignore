@@ -3,4 +3,4 @@ target
 .settings
 .mvn
 .classpath
-.idea
+.idea/

@@ -21,7 +21,7 @@ public class JournalTools {
 
     private final static Pattern issnPattern = Pattern.compile("(\\d\\d\\d[0-9,A-Z]\\d\\d\\d[0-9,A-Z])");
 
-    private static final Pattern yearPattern = Pattern.compile("((19|20)\\d\\d)");
+    private static final Pattern yearPattern = Pattern.compile("(201\\d)");
 
     /**
      * determine whether the given journal identifier is a issn (returns string "issn), a comma-separated issn list (returns "list") or the anchor of a journal collection returns ("collection").
