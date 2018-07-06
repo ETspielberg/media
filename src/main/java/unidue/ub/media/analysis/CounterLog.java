@@ -29,6 +29,10 @@ public class CounterLog {
 
     private Date timestamp;
 
+    public CounterLog() {
+        this.timestamp = new Date();
+    }
+
     public String getId() {
         return id;
     }
