@@ -163,6 +163,14 @@ public class EbookCounter extends Counter {
         id = String.valueOf(year) + "-" + String.valueOf(month) + "-"  + onlineIsbn + platform;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public long getHtmlRequests() {
         return htmlRequests;
     }
