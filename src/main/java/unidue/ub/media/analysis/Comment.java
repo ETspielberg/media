@@ -19,7 +19,7 @@ public class Comment {
 
     private String user;
 
-    private List<String> sharedWith;
+    private String[] sharedWith;
 
     @Column(columnDefinition = "TEXT")
     private String contents;
@@ -29,11 +29,11 @@ public class Comment {
     Comment() {
     }
 
-    public List<String> getSharedWith() {
+    public String[] getSharedWith() {
         return sharedWith;
     }
 
-    public void setSharedWith(List<String> sharedWith) {
+    public void setSharedWith(String[] sharedWith) {
         this.sharedWith = sharedWith;
     }
 
