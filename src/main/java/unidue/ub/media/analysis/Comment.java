@@ -17,7 +17,7 @@ public class Comment {
     @JsonFormat(pattern = "dd.MM.yyyy HH:mm:ss")
     private Date creationDate;
 
-    private String user;
+    private String username;
 
     private String[] sharedWith;
 
@@ -45,12 +45,12 @@ public class Comment {
         this.creationDate = creationDate;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getContents() {
