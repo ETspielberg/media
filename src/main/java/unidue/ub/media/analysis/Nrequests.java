@@ -58,14 +58,14 @@ public class Nrequests implements Cloneable {
      */
     public Nrequests() {
         titleId = "";
-        ratio = 1.0;
+        ratio = 0.0;
         shelfmark = "";
         NRequests = 0;
-        NItems = 1;
+        NItems = 0;
         NLoans = 0;
-        NLendable = 1;
+        NLendable = 0;
         mab = "";
-        totalDuration = 1L;
+        totalDuration = 0L;
         identifier = this.titleId + String.valueOf(System.currentTimeMillis());
         date = new Date();
         status = "NEW";
