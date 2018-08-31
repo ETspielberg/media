@@ -83,6 +83,13 @@ public class Item {
 		this.itemId = itemId;
 	}
 
+	public Item(String itemId, String collection, String shelfmark, String subLibrary, String material,
+				String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price, String noteOpac) {
+		this(itemId, collection, shelfmark, subLibrary, material,itemStatus, processStatus, inventoryDate, deletionDate, price);
+
+		this.noteOpac = noteOpac;
+	}
+
 	/**
 	 * Creates a new <code>Item</code>.
 	 * 
