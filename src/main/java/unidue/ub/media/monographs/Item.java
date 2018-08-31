@@ -38,6 +38,8 @@ public class Item {
 
 	private String etat;
 
+	private String noteOpac;
+
 	@JsonManagedReference
 	private List<Event> events = new ArrayList<Event>();
 
@@ -129,6 +131,14 @@ public class Item {
 	
 	public Item() {
 		
+	}
+
+	public String getNoteOpac() {
+		return noteOpac;
+	}
+
+	public void setNoteOpac(String noteOpac) {
+		this.noteOpac = noteOpac;
 	}
 
 	/**
