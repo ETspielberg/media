@@ -185,7 +185,7 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 
 	private void addShelfmark(String shelfmark) {
 		if (!this.shelfmark.isEmpty())
-			this.shelfmark += ", ";
+			this.shelfmark += "; ";
 		this.shelfmark += shelfmark;
 		buildEdition(this.shelfmark);
 		buildShelfmarkBase(this.shelfmark);

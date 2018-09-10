@@ -6,7 +6,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Helpful tools for handling of journals
@@ -17,7 +18,7 @@ public class JournalTools {
     
     private final static int yearOfToday = LocalDate.now().getYear();
 
-    private final static Logger LOGGER = Logger.getLogger(JournalTools.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(JournalTools.class);
 
     private final static Pattern issnPattern = Pattern.compile("(\\d\\d\\d[0-9,A-Z]\\d\\d\\d[0-9,A-Z])");
 

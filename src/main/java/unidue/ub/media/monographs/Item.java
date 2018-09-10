@@ -86,7 +86,6 @@ public class Item {
 	public Item(String itemId, String collection, String shelfmark, String subLibrary, String material,
 				String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price, String noteOpac) {
 		this(itemId, collection, shelfmark, subLibrary, material,itemStatus, processStatus, inventoryDate, deletionDate, price);
-
 		this.noteOpac = noteOpac;
 	}
 
