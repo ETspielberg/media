@@ -1,7 +1,5 @@
 package unidue.ub.media.monographs;
 
-import ch.qos.logback.core.joran.event.EndEvent;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
