@@ -40,6 +40,8 @@ public class Item {
 
 	private String noteOpac;
 
+	private String barcode;
+
 	@JsonManagedReference
 	private List<Event> events = new ArrayList<Event>();
 
@@ -87,6 +89,13 @@ public class Item {
 				String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price, String noteOpac) {
 		this(itemId, collection, shelfmark, subLibrary, material,itemStatus, processStatus, inventoryDate, deletionDate, price);
 		this.noteOpac = noteOpac;
+	}
+
+	public Item(String itemId, String collection, String shelfmark, String subLibrary, String material,
+				String itemStatus, String processStatus, String inventoryDate, String deletionDate, String price, String noteOpac, String barcode) {
+		this(itemId, collection, shelfmark, subLibrary, material,itemStatus, processStatus, inventoryDate, deletionDate, price);
+		this.noteOpac = noteOpac;
+		this.barcode = barcode;
 	}
 
 	/**
@@ -352,6 +361,14 @@ public class Item {
 	 */
 	public void setEvents(List<Event> events) {
 		this.events = events;
+	}
+
+	public String getBarcode() {
+		return barcode;
+	}
+
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
 	}
 
 	@JsonIgnore
