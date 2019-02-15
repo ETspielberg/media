@@ -174,6 +174,16 @@ public class Manifestation implements Cloneable,Comparable<Manifestation> {
 		return shelfmark.split(", ");
 	}
 
+	@JsonIgnore
+	public List<String> getBarcodes() {
+		List<String> barcodes = new ArrayList<>();
+		for (Item item : this.items) {
+			if (item.getBarcode() != null && !"".equals(item.getBarcode()))
+				barcodes.add(item.getBarcode());
+		}
+		return barcodes;
+	}
+
 
 	private void addItemShelfmarkIfNew(Item item) {
 		String shelfmarkItem = item.getShelfmark().replaceAll("\\+\\d+", "");
