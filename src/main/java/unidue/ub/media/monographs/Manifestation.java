@@ -1,6 +1,3 @@
-/*
- * 
- */
 package unidue.ub.media.monographs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

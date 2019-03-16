@@ -53,6 +53,8 @@ public class BibliographicInformation {
 
 	private String fullDescription;
 
+	private String recKey;
+
 	/**
 	 * creates a new <code>Publication</code>-object
 	 *
@@ -76,6 +78,26 @@ public class BibliographicInformation {
 		year = "";
 		edition = "";
 		series = "";
+		recKey = "";
+		volume = 0;
+		otherIdentifier = "";
+		fullDescription = "";
+		keywords = new ArrayList<>();
+	}
+
+	public BibliographicInformation(String titleId, String recKey, List<String> authors, String title) {
+		this.titleId = titleId;
+		this.authors = authors;
+		this.title = title;
+		type = "basic";
+		isbn = "";
+		subtitle = "";
+		publisher = "";
+		place = "";
+		year = "";
+		edition = "";
+		series = "";
+		this.recKey = recKey;
 		volume = 0;
 		otherIdentifier = "";
 		fullDescription = "";
@@ -92,12 +114,21 @@ public class BibliographicInformation {
 		place = "";
 		year = "";
 		edition = "";
+		recKey = "";
 		series = "";
 		volume = 0;
 		keywords = new ArrayList<>();
 		type = "empty";
 		otherIdentifier = "";
 		fullDescription  = "";
+	}
+
+	public String getRecKey() {
+		return recKey;
+	}
+
+	public void setRecKey(String recKey) {
+		this.recKey = recKey;
 	}
 
 	public String getTitleId() {
