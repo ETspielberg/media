@@ -31,6 +31,16 @@ public class Expression implements Cloneable {
 		this.id = id;
 	}
 
+	public String calculateId() {
+		StringBuilder builder = new StringBuilder();
+		for (Manifestation manifestation: this.manifestations) {
+			builder.append(manifestation.getTitleID()).append("; ");
+		}
+		String rawId = builder.toString();
+		this.id = rawId.substring(0, rawId.lastIndexOf(";"));
+		return this.id;
+	}
+
 	/**
 	 * creates a new <code>Work</code>-object with the given basic shelfmark
 	 *
